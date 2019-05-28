@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue: MyString
+  day: MyString
+  frequency: MyString
+  time: MyString
+  price: 1
+  prize: MyString
+  status: MyString
+  link: MyString
+  postcode: MyString
+
+two:
+  venue: MyString
+  day: MyString
+  frequency: MyString
+  time: MyString
+  price: 1
+  prize: MyString
+  status: MyString
+  link: MyString
+  postcode: MyString

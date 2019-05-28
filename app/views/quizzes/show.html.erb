@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @quiz.venue %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @quiz.day %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @quiz.frequency %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @quiz.time %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @quiz.price %>
+</p>
+
+<p>
+  <strong>Prize:</strong>
+  <%= @quiz.prize %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @quiz.status %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @quiz.link %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @quiz.postcode %>
+</p>
+
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>
