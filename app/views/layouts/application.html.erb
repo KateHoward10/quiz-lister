@@ -4,8 +4,10 @@
     <title>QuizLister</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= yield(:head_tags) %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
