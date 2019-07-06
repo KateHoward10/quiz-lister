@@ -15,45 +15,57 @@ function initMap(lat, lng) {
 }
 
 function initMap2() {
-  const lat = document.getElementById('quiz_latitude').value;
-  const lng = document.getElementById('quiz_longitude').value;
-  
-  const myCoords = new google.maps.LatLng(lat, lng);
+  const venueInput = document.getElementById('quiz_venue');
+  const postcodeInput = document.getElementById('quiz_postcode');
+  const latInput = document.getElementById('quiz_latitude');
+  const lngInput = document.getElementById('quiz_longitude');
+  const geocodeButton = document.getElementById('geocode_button');
+
+  let coords = new google.maps.LatLng(51.45946, -2.5907347);
 
   const mapOptions = {
-    center: myCoords,
+    center: coords,
     zoom: 14
   };
 
   const map = new google.maps.Map(document.getElementById('map2'), mapOptions);
 
   const marker = new google.maps.Marker({
-    position: myCoords,
+    position: coords,
     animation: google.maps.Animation.DROP,
     map: map,
     draggable: true
   });
 
-  function refreshMarker(){
-    var lat = document.getElementById('quiz_latitude').value;
-    var lng = document.getElementById('quiz_longitude').value;
-    var myCoords = new google.maps.LatLng(lat, lng);
-    marker.setPosition(myCoords);
-    map.setCenter(marker.getPosition()); 
+  const geocoder = new google.maps.Geocoder;
+
+  function getCoordsFromPostcode() {
+    geocoder.geocode({ 'address': `${venueInput.value}, ${postcodeInput.value}` }, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        marker.setPosition(results[0].geometry.location);
+        map.setCenter(marker.getPosition());
+      } else {
+        console.log("Uh oh", status);
+      }
+    });
   }
 
-  document.getElementById('quiz_latitude').onchange = refreshMarker;
-  document.getElementById('quiz_longitude').onchange = refreshMarker;
+  if (postcodeInput.value) {
+    getCoordsFromPostcode();
+  }
 
-  marker.addListener('drag', function() {
+  function setInputValues() {
     latlng = marker.getPosition();
     newlat=(Math.round(latlng.lat()*1000000))/1000000;
     newlng=(Math.round(latlng.lng()*1000000))/1000000;
-    document.getElementById('quiz_latitude').value = newlat;
-    document.getElementById('quiz_longitude').value = newlng;
+    latInput.value = newlat;
+    lngInput.value = newlng;
+  };
+
+  geocodeButton.addEventListener('click', function() {
+    getCoordsFromPostcode();
+    setInputValues();
   });
 
-  marker.addListener('dragend', function() {
-    map.panTo(marker.getPosition());   
-  });
 }
