@@ -21,7 +21,7 @@ function initMap2() {
   const lngInput = document.getElementById('quiz_longitude');
   const geocodeButton = document.getElementById('geocode_button');
 
-  let coords = new google.maps.LatLng(51.45946, -2.5907347);
+  let coords = latInput.value && lngInput.value ? new google.maps.LatLng(latInput.value, lngInput.value) : new google.maps.LatLng(51.45946, -2.5907347);
 
   const mapOptions = {
     center: coords,
@@ -51,12 +51,13 @@ function initMap2() {
     });
   }
 
-  if (postcodeInput.value) {
+  if (!latInput.value && !lngInput.value && postcodeInput.value) {
     getCoordsFromPostcode();
   }
 
   function setInputValues() {
     latlng = marker.getPosition();
+    console.log(latlng);
     newlat=(Math.round(latlng.lat()*1000000))/1000000;
     newlng=(Math.round(latlng.lng()*1000000))/1000000;
     latInput.value = newlat;
@@ -67,5 +68,4 @@ function initMap2() {
     getCoordsFromPostcode();
     setInputValues();
   });
-
 }
