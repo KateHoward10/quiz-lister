@@ -76,10 +76,17 @@
     <%= form.text_field :longitude %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
   <p>
     <div id="map2"></div>
   </p>
 
+  <img id="venue-image" src="" />
+  
   <div class="actions">
     <%= form.submit %>
   </div>
