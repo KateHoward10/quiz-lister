@@ -77,15 +77,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.label :photo_url %>
+    <%= form.text_field :photo_url %>
   </div>
 
   <p>
     <div id="map2"></div>
   </p>
 
-  <img id="venue-image" src="" />
+  <%= image_tag(quiz.photo_url || "", id: "venue_photo") %>
   
   <div class="actions">
     <%= form.submit %>
