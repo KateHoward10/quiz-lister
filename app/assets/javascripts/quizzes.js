@@ -1,17 +1,22 @@
 function initMap(lat, lng) {
-  const myCoords = new google.maps.LatLng(lat, lng);
+  const coords = new google.maps.LatLng(lat, lng);
 
   const mapOptions = {
-    center: myCoords,
+    center: coords,
     zoom: 14
   };
 
-  const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  const mapContainer = document.getElementById('map_container');
+  const venueMap = document.createElement('div');
+  venueMap.id = 'map';
+  const map = new google.maps.Map(venueMap, mapOptions);
 
   const marker = new google.maps.Marker({
-    position: myCoords,
+    position: coords,
     map: map
   });
+
+  mapContainer.appendChild(venueMap);
 }
 
 function initMap2() {
@@ -31,7 +36,7 @@ function initMap2() {
     zoom: 14
   };
 
-  const map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+  const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   const marker = new google.maps.Marker({
     position: coords,

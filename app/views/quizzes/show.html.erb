@@ -59,9 +59,10 @@
   <%= @quiz.latitude %>, <%= @quiz.longitude %>
 </p>
 
-<p>
-  <div id="map"></div>
+<p id="map_container">
 </p>
+
+<%= image_tag(@quiz.photo_url || "", id: "venue_photo") %>
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
