@@ -21,6 +21,7 @@ function initMap2() {
   const lngInput = document.getElementById('quiz_longitude');
   const photoInput = document.getElementById('quiz_photo_url');
   const geocodeButton = document.getElementById('geocode_button');
+  const selection = document.getElementById('image_selection');
   const photo = document.getElementById('venue_photo');
 
   let coords = latInput.value && lngInput.value ? new google.maps.LatLng(latInput.value, lngInput.value) : new google.maps.LatLng(51.45946, -2.5907347);
@@ -43,9 +44,21 @@ function initMap2() {
   const places = new google.maps.places.PlacesService(map);
 
   function setPhoto(results, status) {
-    const photoUrl = results.photos[0].getUrl({maxWidth:600});
-    photo.src = photoUrl;
-    photoInput.value = photoUrl;
+    for (i=0; i < results.photos.length; i++) {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = "radio";
+      const image = document.createElement('img');
+      const photoUrl = results.photos[i].getUrl({maxHeight:200});
+      image.src = photoUrl;
+      label.appendChild(input);
+      label.appendChild(image);
+      selection.appendChild(label);
+      input.onclick = function() {
+        photo.src = photoUrl;
+        photoInput.value = photoUrl;
+      }
+    }
   }
 
   function getCoordsFromPostcode() {

@@ -12,3 +12,9 @@
     width: 600px;
     height: auto;
 }
+
+#image_selection {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
