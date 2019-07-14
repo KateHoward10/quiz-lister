@@ -34,6 +34,7 @@ function initMap2(lat, lng) {
   }
 
   function setPhotos(results, status) {
+    console.log(results);
     for (i=0; i < results.photos.length; i++) {
       const label = document.createElement('label');
       const input = document.createElement('input');
@@ -63,11 +64,8 @@ function initMap2(lat, lng) {
         };
 
         let map;
-        console.log(results);
-
         if (document.getElementById('map')) {
           map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
         } else {
           const mapContainer = document.getElementById('map_container');
           const venueMap = document.createElement('div');
@@ -104,7 +102,6 @@ function initMap2(lat, lng) {
   };
 
   geocodeButton.addEventListener('click', function() {
-    console.log(postcodeInput.value);
     getCoordsFromPostcode();
   });
 }

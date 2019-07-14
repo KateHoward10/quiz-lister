@@ -19,12 +19,12 @@
 
   <div class="field">
     <%= form.label :day %>
-    <%= form.text_field :day %>
+    <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"] %>
   </div>
 
   <div class="field">
     <%= form.label :frequency %>
-    <%= form.text_field :frequency %>
+    <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
   </div>
 
   <div class="field">
@@ -44,7 +44,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select :status, ["active", "not active", "unknown"] %>
   </div>
 
   <div class="field">
