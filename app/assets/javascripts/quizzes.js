@@ -19,7 +19,7 @@ function initMap(lat, lng) {
   mapContainer.appendChild(venueMap);
 }
 
-function initMap2() {
+function initMap2(lat, lng) {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');
   const latInput = document.getElementById('quiz_latitude');
@@ -29,26 +29,11 @@ function initMap2() {
   const selection = document.getElementById('image_selection');
   const photo = document.getElementById('venue_photo');
 
-  let coords = latInput.value && lngInput.value ? new google.maps.LatLng(latInput.value, lngInput.value) : new google.maps.LatLng(51.45946, -2.5907347);
+  if (lat && lng) {
+    initMap(lat, lng);
+  }
 
-  const mapOptions = {
-    center: coords,
-    zoom: 14
-  };
-
-  const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  const marker = new google.maps.Marker({
-    position: coords,
-    animation: google.maps.Animation.DROP,
-    map: map,
-    draggable: true
-  });
-
-  const geocoder = new google.maps.Geocoder;
-  const places = new google.maps.places.PlacesService(map);
-
-  function setPhoto(results, status) {
+  function setPhotos(results, status) {
     for (i=0; i < results.photos.length; i++) {
       const label = document.createElement('label');
       const input = document.createElement('input');
@@ -67,25 +52,51 @@ function initMap2() {
   }
 
   function getCoordsFromPostcode() {
+    const geocoder = new google.maps.Geocoder;
     geocoder.geocode({ 'address': `${venueInput.value}, ${postcodeInput.value}` }, function(results, status) {
       if (status == 'OK') {
+        const coords = new google.maps.LatLng(51.45946, -2.5907347);
+
+        const mapOptions = {
+          center: coords,
+          zoom: 14
+        };
+
+        let map;
+        console.log(results);
+
+        if (document.getElementById('map')) {
+          map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        } else {
+          const mapContainer = document.getElementById('map_container');
+          const venueMap = document.createElement('div');
+          venueMap.id = 'map';
+          map = new google.maps.Map(venueMap, mapOptions);
+
+          mapContainer.appendChild(venueMap);
+        }
+
+        const marker = new google.maps.Marker({
+          position: coords,
+          map: map
+        });
+
         map.setCenter(results[0].geometry.location);
         marker.setPosition(results[0].geometry.location);
-        map.setCenter(marker.getPosition());
+
         const placeId = results[0].place_id;
-        places.getDetails({ placeId: placeId }, setPhoto);
+        const places = new google.maps.places.PlacesService(map);
+        places.getDetails({ placeId: placeId }, setPhotos);
+
+        setInputValues(marker.getPosition());
       } else {
         console.log("Uh oh", status);
       }
     });
   }
 
-  if (!latInput.value && !lngInput.value && postcodeInput.value) {
-    getCoordsFromPostcode();
-  }
-
-  function setInputValues() {
-    latlng = marker.getPosition();
+  function setInputValues(latlng) {
     newlat=(Math.round(latlng.lat()*1000000))/1000000;
     newlng=(Math.round(latlng.lng()*1000000))/1000000;
     latInput.value = newlat;
@@ -93,7 +104,7 @@ function initMap2() {
   };
 
   geocodeButton.addEventListener('click', function() {
+    console.log(postcodeInput.value);
     getCoordsFromPostcode();
-    setInputValues();
   });
 }

@@ -1,11 +1,3 @@
-<% provide :head_tags do %>
-  <meta name='turbolinks-visit-control' content='reload'>
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      initMap2()
-    });
-  </script>
-<% end %>
 
 <%= form_with(model: quiz, local: true) do |form| %>
   <% if quiz.errors.any? %>
@@ -81,8 +73,7 @@
     <%= form.text_field :photo_url %>
   </div>
 
-  <p>
-    <div id="map"></div>
+  <p id="map_container">
   </p>
 
   <div id="image_selection">
