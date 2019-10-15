@@ -1,42 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Quizzes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Venue</th>
-      <th>Day</th>
-      <th>Frequency</th>
-      <th>Time</th>
-      <th>Price</th>
-      <th>Prize</th>
-      <th>Status</th>
-      <th>Link</th>
-      <th>Postcode</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Briz Quiz List</h1>
+<ul class="picture-grid">
     <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= link_to quiz.venue, quiz %><%=  %></td>
-        <td><%= quiz.day %></td>
-        <td><%= quiz.frequency %></td>
-        <td><%= quiz.time %></td>
-        <td><%= quiz.price %></td>
-        <td><%= quiz.prize %></td>
-        <td><%= quiz.status %></td>
-        <td><%= quiz.link %></td>
-        <td><%= quiz.postcode %></td>
-        <td></td>
-        <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <%= link_to quiz do %>
+          <li class="quiz-entry">
+            <span><%= quiz.venue %>, <%= quiz.day %> <%= quiz.time ? quiz.time : "" %></span>
+          </li>
+        <% end %>
     <% end %>
-  </tbody>
-</table>
+</ul>
 
 <br>
 

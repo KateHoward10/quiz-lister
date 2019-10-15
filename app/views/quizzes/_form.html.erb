@@ -68,18 +68,8 @@
     <%= form.text_field :longitude %>
   </div>
 
-  <div class="field">
-    <%= form.label :photo_url %>
-    <%= form.text_field :photo_url %>
-  </div>
-
   <p id="map_container">
   </p>
-
-  <div id="image_selection">
-  </div>
-
-  <%= image_tag(quiz.photo_url || "", id: "venue_photo") %>
   
   <div class="actions">
     <%= form.submit %>

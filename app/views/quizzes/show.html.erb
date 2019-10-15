@@ -62,9 +62,5 @@
 <p id="map_container">
 </p>
 
-<p>
-  <%= image_tag(@quiz.photo_url || "", id: "venue_photo") %>
-</p>
-
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
