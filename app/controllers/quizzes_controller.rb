@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  http_basic_authenticate_with name: "Admin", password: Rails.application.credentials.el_secreto, except: [:index, :show]
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   # GET /quizzes
