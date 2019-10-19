@@ -1,0 +1,6 @@
+<li class="quiz-entry">
+  <span class="icon-container" style="background-color: hsl(<%= 255 / @quizzes.length * quiz.id %>, 50%, 50%)"><i class="fas fa-home fa-lg" style="color: hsl(<%= 255 / @quizzes.length * quiz.id %>, 100%, 25%)"></i></span>
+  <span><%= quiz.venue %></span>
+  <span><%= quiz.day %></span>
+  <span><%= quiz.time ? quiz.time : "" %></span>
+</li>

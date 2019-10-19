@@ -12,12 +12,15 @@
 
 .quiz-entry {
 	border: 1px solid lightgrey;
-	padding: 10px;
 	width: 40vw;
 	margin: 10px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
+	span {
+		padding: 10px;
+	}
 }
 
 #map {

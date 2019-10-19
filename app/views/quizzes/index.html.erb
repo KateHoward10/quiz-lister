@@ -1,15 +1,15 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+  </script>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 <h1>Briz Quiz List</h1>
 <ul class="picture-grid">
     <% @quizzes.each do |quiz| %>
         <%= link_to quiz do %>
-          <li class="quiz-entry">
-            <span><%= quiz.venue %>, <%= quiz.day %> <%= quiz.time ? quiz.time : "" %></span>
-          </li>
+          <%= render 'quiz', quiz: quiz %>
         <% end %>
     <% end %>
 </ul>
-
-<br>
-
-<%= link_to 'New Quiz', new_quiz_path %>
