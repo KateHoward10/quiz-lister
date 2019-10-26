@@ -7,7 +7,8 @@
   </script>
 <% end %>
 
-<div class="quiz-container">
+<%= render 'header' %>
+<main class="quiz-container">
   <div>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= 255 / Quiz.all.length * @quiz.id %>, 50%, 50%)"><%= @quiz.venue %></h1> <span class="icon-container"><i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i></span>
@@ -21,6 +22,5 @@
   <div id="map_container">
     <p><%= @quiz.postcode %></p>
   </div>
-</div>
+</main>
 
-<%= link_to 'Menu', quizzes_path %>

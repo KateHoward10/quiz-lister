@@ -1,10 +1,13 @@
 body {
   background-color: #111;
   color: #eee;
-  margin: 50px;
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  margin: 0;
+  font-family: 'Verdana', 'Helvetica', sans-serif;
+  line-height: 1.2;
+}
+
+main {
+  margin: 4vw;
 }
 
 h1,
@@ -14,6 +17,15 @@ h4,
 h5,
 h6 {
   font-family: cursive;
+}
+
+header {
+  background-color: purple;
+  padding: 0.5vw 2vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 pre {

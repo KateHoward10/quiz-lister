@@ -4,12 +4,13 @@
   </script>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-<h1>Briz Quiz List</h1>
-<ul class="picture-grid">
-    <% @quizzes.each do |quiz| %>
-        <%= link_to quiz do %>
-          <%= render 'quiz', quiz: quiz %>
-        <% end %>
-    <% end %>
-</ul>
+<%= render 'header' %>
+<main>
+  <ul class="picture-grid">
+      <% @quizzes.order(:venue).each do |quiz| %>
+          <%= link_to quiz do %>
+            <%= render 'quiz', quiz: quiz %>
+          <% end %>
+      <% end %>
+  </ul>
+</main>
