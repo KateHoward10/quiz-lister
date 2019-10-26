@@ -39,3 +39,20 @@
 	width: 400px;
 	height: 400px;
 }
+
+.tooltip .tooltiptext {
+	position: absolute;
+	width: 120px;
+	background-color: #ddd;
+	color: #000;
+	text-align: center;
+	padding: 5px;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+	opacity: 1;
+	z-index: 100;
+}

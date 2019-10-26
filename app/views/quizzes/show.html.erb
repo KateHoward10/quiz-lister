@@ -11,7 +11,11 @@
 <main class="quiz-container">
   <div>
     <div class="quiz-title">
-      <h1 style="color: hsl(<%= 255 / Quiz.all.length * @quiz.id %>, 50%, 50%)"><%= @quiz.venue %></h1> <span class="icon-container"><i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i></span>
+      <h1 style="color: hsl(<%= 255 / Quiz.all.length * @quiz.id %>, 50%, 50%)"><%= @quiz.venue %></h1>
+      <span class="icon-container tooltip">
+        <i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i>
+        <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz is not currently active' : 'The status of this quiz is currently unknown; please check with them' %></div>
+      </span>
     </div>
     <p>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on' : '' %><%= @quiz.day %> at <%= @quiz.time %></p>
     <p><span class="icon-container"><i class="fas fa-pound-sign fa-lg"></i></span><%= @quiz.price %> entry fee</p>
