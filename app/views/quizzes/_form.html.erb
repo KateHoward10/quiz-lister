@@ -1,77 +1,83 @@
+<main>
+  <%= form_with(model: quiz, local: true) do |form| %>
+    <% if quiz.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
 
-<%= form_with(model: quiz, local: true) do |form| %>
-  <% if quiz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+        <ul>
+        <% quiz.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% quiz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :venue %>
+      <%= form.text_field :venue %>
+    </div>
+
+    <div class="field">
+      <%= form.label :day %>
+      <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :frequency %>
+      <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time %>
+      <%= form.text_field :time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :prize %>
+      <%= form.text_field :prize %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, ["active", "not active", "unknown"] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :link %>
+      <%= form.text_field :link %>
+    </div>
+
+    <div class="field">
+      <%= form.label :postcode %>
+      <%= form.text_field :postcode %>
+      <button id="geocode_button" type="button">Find venue</button>
+    </div>
+
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= form.label :latitude %>
+      <%= form.text_field :latitude %>
+    </div>
+
+    <div class="field">
+      <%= form.label :longitude %>
+      <%= form.text_field :longitude %>
+    </div>
+
+    <p id="map_container">
+    </p>
+    
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :venue %>
-    <%= form.text_field :venue %>
-  </div>
-
-  <div class="field">
-    <%= form.label :day %>
-    <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :frequency %>
-    <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :prize %>
-    <%= form.text_field :prize %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, ["active", "not active", "unknown"] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-  </div>
-
-  <div class="field">
-    <%= form.label :postcode %>
-    <%= form.text_field :postcode %>
-    <button id="geocode_button" type="button">Find venue</button>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
-  </div>
-
-  <p id="map_container">
-  </p>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</main>

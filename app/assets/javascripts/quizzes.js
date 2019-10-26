@@ -22,6 +22,7 @@ function initMap(lat, lng) {
 function initMap2(lat, lng) {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');
+  const addressInput = document.getElementById('quiz_address');
   const latInput = document.getElementById('quiz_latitude');
   const lngInput = document.getElementById('quiz_longitude');
   const photoInput = document.getElementById('quiz_photo_url');
@@ -63,8 +64,8 @@ function initMap2(lat, lng) {
         map.setCenter(results[0].geometry.location);
         marker.setPosition(results[0].geometry.location);
 
-        const placeId = results[0].place_id;
-        const places = new google.maps.places.PlacesService(map);
+        const address = results[0].formatted_address;
+        addressInput.value = address;
 
         setInputValues(marker.getPosition());
       } else {
