@@ -18,9 +18,9 @@
       </span>
     </div>
     <h3>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on' : '' %><%= @quiz.day %> at <%= @quiz.time %></h3>
-    <p><span class="icon-container"><i class="fas fa-pound-sign fa-lg green"></i></span><%= @quiz.price %> entry fee</p>
-    <p><span class="icon-container"><i class="fas fa-trophy fa-lg gold"></i></span><%= @quiz.prize %></p>
-    <p><a href="<%= @quiz.link %>"><span class="icon-container"><i class="fas fa-external-link-alt fa-lg grey"></i></span>Find out more</a></p>
+    <p><span><i class="fas fa-pound-sign fa-lg green"></i></span><%= @quiz.price %> entry fee</p>
+    <p><span><i class="fas fa-trophy fa-lg gold"></i></span><%= @quiz.prize %></p>
+    <p><a href="<%= @quiz.link %>"><span><i class="fas fa-external-link-alt fa-lg grey"></i></span>Find out more</a></p>
   </div>
 
   <div id="map_container">
