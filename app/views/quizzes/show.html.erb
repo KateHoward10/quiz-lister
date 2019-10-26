@@ -7,60 +7,20 @@
   </script>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<div class="quiz-container">
+  <div>
+    <div class="quiz-title">
+      <h1 style="color: hsl(<%= 255 / Quiz.all.length * @quiz.id %>, 50%, 50%)"><%= @quiz.venue %></h1> <span class="icon-container"><i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i></span>
+    </div>
+    <p>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on' : '' %><%= @quiz.day %> at <%= @quiz.time %></p>
+    <p><span class="icon-container"><i class="fas fa-pound-sign fa-lg"></i></span><%= @quiz.price %> entry fee</p>
+    <p><span class="icon-container"><i class="fas fa-trophy fa-lg"></i></span><%= @quiz.prize %></p>
+    <p><a href="<%= @quiz.link %>"><span class="icon-container"><i class="fas fa-external-link-alt fa-lg"></i></span>Find out more</a></p>
+  </div>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @quiz.venue %>
-</p>
+  <div id="map_container">
+    <p><%= @quiz.postcode %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Day:</strong>
-  <%= @quiz.day %>
-</p>
-
-<p>
-  <strong>Frequency:</strong>
-  <%= @quiz.frequency %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @quiz.time %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @quiz.price %>
-</p>
-
-<p>
-  <strong>Prize:</strong>
-  <%= @quiz.prize %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @quiz.status %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @quiz.link %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @quiz.postcode %>
-</p>
-
-<p>
-  <strong>Coordinates:</strong>
-  <%= @quiz.latitude %>, <%= @quiz.longitude %>
-</p>
-
-<p id="map_container">
-</p>
-
-<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %>
+<%= link_to 'Menu', quizzes_path %>

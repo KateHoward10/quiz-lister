@@ -23,18 +23,19 @@
 	}
 }
 
-#map {
-	width: 300px;
-	height: 300px;
-}
-
-#venue-image {
-	width: 600px;
-	height: auto;
-}
-
-#image_selection {
+.quiz-container {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.quiz-title {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+#map {
+	width: 400px;
+	height: 400px;
 }
