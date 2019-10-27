@@ -10,6 +10,9 @@
 <%= render 'header' %>
 <main class="quiz-container">
   <div>
+    <%= link_to quizzes_path do %>
+      <i class="fas fa-arrow-left fa-lg grey"></i>
+    <% end %>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= (60 * Quiz.where(day: @quiz.day).index(@quiz) / Quiz.where(day: @quiz.day).count) + ((@quiz.day == 'Monday' ? 1 : @quiz.day == 'Tuesday' ? 3 : @quiz.day == 'Wednesday' ? 0 : @quiz.day == 'Thursday' ? 2 : @quiz.day == 'Sunday' ? 4 : 5) * 60) %>, 50%, 60%)"><%= @quiz.venue %></h1>
       <span class="icon-container tooltip">
