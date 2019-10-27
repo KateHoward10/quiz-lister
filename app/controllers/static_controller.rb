@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
   def show
-    @quizzes = Quiz.select(:venue, :latitude, :longitude)
+    @locations = Quiz.select(:id, :venue, :latitude, :longitude)
     render params[:page]
   end
 end
