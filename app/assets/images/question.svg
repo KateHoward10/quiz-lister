@@ -1,8 +1,11 @@
-<svg xmlns='http://www.w3.org/2000/svg' width="100" height="100">
+<svg xmlns='http://www.w3.org/2000/svg' width="60" height="80">
   <g>
-    <rect fill="transparent" x="0" y="0" width="100" height="100" />
-    <foreignObject x="0" y="0" width="100" height="100">
+    <foreignObject x="0" y="0" width="60" height="80">
       <body xmlns="http://www.w3.org/1999/xhtml">
+        <text x="0" y="0" style="font-family: Courier; color: #222; font-size: 2rem; font-style: italic" >?</text>
+      </body>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <text x="0" y="0" style="font-family: Courier; color: transparent; font-size: 2rem" >?</text>
         <text x="0" y="0" style="font-family: Courier; color: #222; font-size: 2rem; font-style: italic" >?</text>
       </body>
     </foreignObject>
