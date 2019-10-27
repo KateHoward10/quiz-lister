@@ -14,16 +14,24 @@
       <h1 style="color: hsl(<%= (60 * Quiz.where(day: @quiz.day).index(@quiz) / Quiz.where(day: @quiz.day).count) + ((@quiz.day == 'Monday' ? 1 : @quiz.day == 'Tuesday' ? 3 : @quiz.day == 'Wednesday' ? 0 : @quiz.day == 'Thursday' ? 2 : @quiz.day == 'Sunday' ? 4 : 5) * 60) %>, 50%, 60%)"><%= @quiz.venue %></h1>
       <span class="icon-container tooltip">
         <i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i>
-        <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz is not currently active' : 'The status of this quiz is currently unknown; please check with them' %></div>
+        <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz was definitely on once, but now I can’t make any promises' : 'The status of this quiz is currently unknown; please check with them' %></div>
       </span>
     </div>
     <ul class="quiz-details">
       <div class="paper-turn"></div>
       <li><div class="icon"><i class="fas fa-clock fa-lg grey"></i></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
-      <li><div class="icon"><i class="fas fa-pound-sign fa-lg green"></div></i><span><%= @quiz.price ? '£' : 'unknown' %><%= @quiz.price %> entry fee</span></li>
-      <li><div class="icon"><i class="fas fa-trophy fa-lg gold"></i></div><span><%= @quiz.prize ? @quiz.prize : 'unknown' %></span></li>
-      <li><div class="icon"><i class="fas fa-map-marker-alt fa-lg red"></i></div><span><%= @quiz.address ? @quiz.address : 'Address unknown' %></span></li>
-      <li><div class="icon"><i class="fas fa-external-link-alt fa-lg grey"></i></div><a href="<%= @quiz.link %>">Find out more</a></li>
+      <% if @quiz.price %>
+        <li><div class="icon"><i class="fas fa-pound-sign fa-lg green"></div></i><span>£<%= @quiz.price %> entry fee</span></li>
+      <% end %>
+      <% if @quiz.prize %>
+        <li><div class="icon"><i class="fas fa-trophy fa-lg gold"></i></div><span><%= @quiz.prize %></span></li>
+      <% end %>
+      <% if @quiz.address %>
+        <li><div class="icon"><i class="fas fa-map-marker-alt fa-lg red"></i></div><span><%= @quiz.address %></span></li>
+      <% end %>
+      <% if @quiz.link %>
+        <li><div class="icon"><i class="fas fa-external-link-alt fa-lg grey"></i></div><a href="<%= @quiz.link %>">Find out more</a></li>
+      <% end %>
     </ul>
   </div>
 
