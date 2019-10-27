@@ -17,11 +17,14 @@
         <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz is not currently active' : 'The status of this quiz is currently unknown; please check with them' %></div>
       </span>
     </div>
-    <p><span><i class="fas fa-clock fa-lg grey"></i></span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></p>
-    <p><span><i class="fas fa-pound-sign fa-lg green"></i></span><%= @quiz.price ? @quiz.price : 'unknown' %> entry fee</p>
-    <p><span><i class="fas fa-trophy fa-lg gold"></i></span><%= @quiz.prize ? @quiz.prize : 'unknown' %></p>
-    <p><span><i class="fas fa-map-marker-alt fa-lg red"></i></span><%= @quiz.address %></p>
-    <p><a href="<%= @quiz.link %>"><span><i class="fas fa-external-link-alt fa-lg grey"></i></span>Find out more</a></p>
+    <ul class="quiz-details">
+      <div class="paper-turn"></div>
+      <li><div class="icon"><i class="fas fa-clock fa-lg grey"></i></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
+      <li><div class="icon"><i class="fas fa-pound-sign fa-lg green"></div></i><span><%= @quiz.price ? '£' : 'unknown' %><%= @quiz.price %> entry fee</span></li>
+      <li><div class="icon"><i class="fas fa-trophy fa-lg gold"></i></div><span><%= @quiz.prize ? @quiz.prize : 'unknown' %></span></li>
+      <li><div class="icon"><i class="fas fa-map-marker-alt fa-lg red"></i></div><span><%= @quiz.address ? @quiz.address : 'Address unknown' %></span></li>
+      <li><div class="icon"><i class="fas fa-external-link-alt fa-lg grey"></i></div><a href="<%= @quiz.link %>">Find out more</a></li>
+    </ul>
   </div>
 
   <div id="map_container">

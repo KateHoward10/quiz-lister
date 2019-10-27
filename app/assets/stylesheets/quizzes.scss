@@ -28,7 +28,7 @@ header {
 	font-size: 0.8rem;
 }
 
-.quiz-details {
+.quiz-overview {
 	padding: 10px;
 	width: 100%;
 	display: flex;
@@ -52,6 +52,58 @@ header {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;
+}
+
+.quiz-details {
+	list-style: none;
+	padding: 5px;
+	margin: 0;
+	margin-right: 20px;
+	background-color: #eee;
+	border-bottom-right-radius: 2rem;
+	position: relative;
+	.paper-turn {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 1.5rem;
+		height: 1.5rem;
+		box-shadow: -5px -5px 5px #ddd;
+	}
+	:last-child {
+		border: none;
+	}
+	li {
+		border-bottom: 1px solid lightskyblue;
+		display: flex;
+		flex-flow: row nowrap;
+		span,
+		a {
+			color: #111;
+			padding: 0.75rem;
+			&:hover {
+				color: deepskyblue;
+			}
+		}
+		.icon {
+			i {
+				width: 40px;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
+				border-right: 2px solid lightskyblue;
+			}
+		}
+	}
+}
+
+#map-container {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #map {
@@ -83,6 +135,10 @@ header {
 	.quiz-container {
 		flex-direction: column;
 	}
+	.quiz-details {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
 	#map {
 		width: 90vw;
 		height: 90vw;
@@ -94,7 +150,7 @@ header {
 		flex-direction: column;
 		padding: 10px;
 	}
-	.quiz-details {
+	.quiz-overview {
 		flex-direction: column;
 		align-items: flex-start;
 	}
