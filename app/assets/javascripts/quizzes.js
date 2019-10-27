@@ -19,7 +19,7 @@ function initMap(lat, lng) {
   mapContainer.appendChild(venueMap);
 }
 
-function initMap2(lat, lng) {
+function initMap2() {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');
   const addressInput = document.getElementById('quiz_address');
@@ -29,8 +29,8 @@ function initMap2(lat, lng) {
   const geocodeButton = document.getElementById('geocode_button');
   const selection = document.getElementById('image_selection');
 
-  if (lat && lng) {
-    initMap(lat, lng);
+  if (latInput.value && lngInput.value) {
+    initMap(latInput.value, lngInput.value);
   }
 
   function getCoordsFromPostcode() {
