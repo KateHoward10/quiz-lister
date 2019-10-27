@@ -1,3 +1,25 @@
+function displayMap(lat, lng) {
+  const coords = new google.maps.LatLng(lat, lng);
+
+  const mapOptions = {
+    center: coords,
+    zoom: 14
+  };
+
+  const mapContainer = document.getElementById('map_container');
+  const venueMap = document.createElement('div');
+  venueMap.id = 'map';
+  const map = new google.maps.Map(venueMap, mapOptions);
+
+  const marker = new google.maps.Marker({
+    position: coords,
+    animation: google.maps.Animation.DROP,
+    map: map
+  });
+
+  mapContainer.appendChild(venueMap);
+}
+
 function initMap() {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');

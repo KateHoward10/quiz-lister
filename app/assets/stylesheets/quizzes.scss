@@ -110,10 +110,11 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	img {
-		width: 40vw;
-		height: 40vw;
-	}
+}
+
+#map {
+	width: 40vw;
+	height: 40vw;
 }
 
 .tooltip .tooltiptext {
@@ -144,7 +145,7 @@ header {
 		margin-right: 0;
 		margin-bottom: 20px;
 	}
-	#map-container img {
+	#map {
 		width: 90vw;
 		height: 90vw;
 	}
