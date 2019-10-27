@@ -7,10 +7,10 @@
 <%= render 'header' %>
 <main>
   <ul class="picture-grid">
-      <% @quizzes.order(:venue).each do |quiz| %>
-          <%= link_to quiz do %>
-            <%= render 'quiz', quiz: quiz %>
-          <% end %>
+    <% @quizzes.order(:venue).each do |quiz| %>
+      <%= link_to quiz do %>
+        <%= render 'quiz', quiz: quiz %>
       <% end %>
+    <% end %>
   </ul>
 </main>

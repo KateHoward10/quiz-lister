@@ -24,6 +24,12 @@ header {
 	flex-direction: row;
 }
 
+.picture-grid:hover .quiz-entry:not(:hover) {
+	transition: 0.2s ease-in;
+	filter: greyscale(1);
+	opacity: 0.8;
+}
+
 .quiz-time {
 	font-size: 0.8rem;
 }
@@ -81,9 +87,9 @@ header {
 		a {
 			color: #111;
 			padding: 0.75rem;
-			&:hover {
-				color: deepskyblue;
-			}
+		}
+		a:hover {
+			color: deepskyblue;
 		}
 		.icon {
 			i {
