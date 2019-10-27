@@ -1,0 +1,12 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      showMap(<%= @quizzes.to_json.html_safe %>)
+    });
+  </script>
+<% end %>
+
+<%= render 'quizzes/header' %>
+<main id="big-map-container">
+</main>

@@ -85,3 +85,33 @@ function initMap2() {
     getCoordsFromPostcode();
   });
 }
+
+function showMap(quizzes) {
+  const container = document.getElementById('big-map-container');
+
+  const initialCoords = new google.maps.LatLng(51.45946, -2.5907347);
+
+  const mapOptions = {
+    center: initialCoords,
+    zoom: 13
+  };
+
+  const bigMap = document.createElement('div');
+  bigMap.id = 'big-map';
+  const map = new google.maps.Map(bigMap, mapOptions);
+
+  const initialMarker = new google.maps.Marker({
+    position: initialCoords,
+    map: map
+  });
+
+  for (let i = 0; i < quizzes.length; i++) {
+    const coords = new google.maps.LatLng(quizzes[i].latitude, quizzes[i].longitude);
+    const marker = new google.maps.Marker({
+      position: coords,
+      map: map
+    });
+  }
+
+  container.appendChild(bigMap);
+}

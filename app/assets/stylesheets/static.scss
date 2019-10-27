@@ -1,0 +1,10 @@
+#big-map-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#big-map {
+  width: 90vw;
+  height: 500px;
+  max-height: 80vh;
+}
