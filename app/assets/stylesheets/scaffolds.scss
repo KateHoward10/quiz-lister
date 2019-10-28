@@ -111,9 +111,18 @@ i {
   }
 }
 
-@media screen and (max-device-width: 720px) {
+@media screen and (max-device-width: 480px) {
   p,
-  span {
+  span,
+  a,
+  i {
     font-size: 4vw;
+  }
+  h3 {
+    font-size: 5vw;
+  }
+  h1,
+  h2 {
+    font-size: 6vw;
   }
 }
