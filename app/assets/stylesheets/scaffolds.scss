@@ -4,7 +4,7 @@ body {
   color: #eee;
   margin: 0;
   font-family: 'Courier', 'Helvetica', sans-serif;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 main {
@@ -108,5 +108,12 @@ i {
   }
   &.home {
     color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media screen and (max-device-width: 720px) {
+  p,
+  span {
+    font-size: 4vw;
   }
 }
