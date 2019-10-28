@@ -7,7 +7,7 @@
   </script>
 <% end %>
 
-<%= render 'header' %>
+<%= render 'header', active: "home" %>
 <main class="quiz-container">
   <div>
     <%= link_to quizzes_path do %>
@@ -20,7 +20,7 @@
         <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz was definitely on once, but now I can’t make any promises' : 'The status of this quiz is currently unknown; please check with them' %></div>
       </span>
     </div>
-    <ul class="quiz-details">
+    <ul class="paper">
       <div class="paper-turn"></div>
       <li><div class="icon"><i class="fas fa-clock fa-lg grey"></i></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
       <% if @quiz.price && @quiz.price != "" %>

@@ -1,6 +1,5 @@
-<%= render 'header' %>
+<%= render 'header', active: "home" %>
 <main>
-  <h3>An almost comprehensive compendium of pub quizzes in Bristol</h3>
   <ul class="picture-grid">
     <% @quizzes.order(:venue).each do |quiz| %>
       <%= link_to quiz do %>

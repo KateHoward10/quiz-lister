@@ -2,7 +2,10 @@
   <%= link_to quizzes_path do %>
     <h2>Briz Quiz List</h2>
   <% end %>
+  <%= link_to "/about" do %>
+    <h3 style="<%= active == "about" && "color: deepskyblue" %>"><i class="fas fa-info-circle fa-lg"></i>About</h3>
+  <% end %>
   <%= link_to "/map" do %>
-    <h3>Map</h3>
+    <h3 style="<%= active == "map" && "color: deepskyblue" %>"><i class="fas fa-map-marked-alt fa-lg"></i>Map</h3>
   <% end %>
 </header>
