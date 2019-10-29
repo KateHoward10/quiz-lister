@@ -140,9 +140,9 @@ header {
 	.quiz-container {
 		flex-direction: column;
 	}
-	.quiz-details {
+	.paper {
 		margin-right: 0;
-		margin-bottom: 20px;
+		margin-bottom: 1rem;
 	}
 	#map {
 		width: 90vw;
@@ -153,13 +153,12 @@ header {
 @media screen and (max-width: 480px) {
 	header {
 		flex-direction: column;
-		padding: 10px;
 	}
 	.quiz-overview {
 		flex-direction: column;
 		align-items: flex-start;
 	}
 	.icon-container {
-		padding: 20px 10px;
+		padding: 1rem 0.5rem;
 	}
 }
