@@ -113,7 +113,7 @@ function initQuiz() {
 
   function setHue() {
     if (dayInput.value) {
-      hueInput.value = Math.floor(60 + getMultiplier() * 60 + Math.random() * 60);
+      hueInput.value = Math.floor(getMultiplier() * 60 + Math.random() * 60);
     }
   }
   hueButton.addEventListener('click', setHue);
