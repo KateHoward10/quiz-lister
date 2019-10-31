@@ -20,6 +20,12 @@
     <div class="field">
       <%= form.label :day %>
       <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %>
+      <button id="hue_button" type="button">Set hue</button>
+    </div>
+
+    <div class="field">
+      <%= form.label :hue %>
+      <%= form.text_field :hue %>
     </div>
 
     <div class="field">

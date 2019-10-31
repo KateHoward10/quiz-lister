@@ -14,7 +14,7 @@
       <i class="fas fa-arrow-left fa-lg grey"></i>
     <% end %>
     <div class="quiz-title">
-      <h1 style="color: hsl(<%= (60 * Quiz.where(day: @quiz.day).index(@quiz) / Quiz.where(day: @quiz.day).count) + ((@quiz.day == 'Monday' ? 1 : @quiz.day == 'Tuesday' ? 3 : @quiz.day == 'Wednesday' ? 0 : @quiz.day == 'Thursday' ? 2 : @quiz.day == 'Sunday' ? 4 : 5) * 60) %>, 50%, 60%)"><%= @quiz.venue %></h1>
+      <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
       <span class="icon-container tooltip">
         <i class="fas fa-<%= @quiz.status == 'active' ? 'check-circle green' : @quiz.status == 'not active' ? 'times-circle red' : 'question-circle grey' %>"></i>
         <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz was definitely on once, but now I can’t make any promises' : 'The status of this quiz is currently unknown; please check with them' %></div>

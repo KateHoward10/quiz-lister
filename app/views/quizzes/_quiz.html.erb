@@ -1,5 +1,5 @@
 <li class="quiz-entry">
-  <span class="icon-container" style="background-color: hsl(<%= (60 * Quiz.where(day: quiz.day).index(quiz) / Quiz.where(day: quiz.day).count) + ((quiz.day == 'Monday' ? 1 : quiz.day == 'Tuesday' ? 3 : quiz.day == 'Wednesday' ? 0 : quiz.day == 'Thursday' ? 2 : quiz.day == 'Sunday' ? 4 : 5) * 60) %>, 50%, 50%)"><i class="fas fa-home fa-lg home"></i></span>
+  <span class="icon-container" style="background-color: hsl(<%= quiz.hue %>, 50%, 50%)"><i class="fas fa-home fa-lg home"></i></span>
   <div class="quiz-overview">
     <span><%= quiz.venue %></span>
     <span class="quiz-time"><%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %></span>

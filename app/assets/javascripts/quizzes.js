@@ -20,7 +20,7 @@ function displayMap(lat, lng) {
   mapContainer.appendChild(venueMap);
 }
 
-function initMap() {
+function initQuiz() {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');
   const addressInput = document.getElementById('quiz_address');
@@ -31,7 +31,7 @@ function initMap() {
   const selection = document.getElementById('image_selection');
 
   if (latInput.value && lngInput.value) {
-    initMap(latInput.value, lngInput.value);
+    displayMap(latInput.value, lngInput.value);
   }
 
   function getCoordsFromPostcode() {
@@ -83,6 +83,40 @@ function initMap() {
   }
 
   geocodeButton.addEventListener('click', getCoordsFromPostcode);
+
+  const hueInput = document.getElementById('quiz_hue');
+  const dayInput = document.getElementById('quiz_day');
+  const hueButton = document.getElementById('hue_button');
+
+  function getMultiplier() {
+    switch (dayInput.value) {
+      case 'Monday':
+        return 1;
+        break;
+      case 'Tuesday':
+        return 3;
+        break;
+      case 'Wednesday':
+        return 0;
+        break;
+      case 'Thursday':
+        return 2;
+        break;
+      case 'Sunday':
+        return 4;
+        break;
+      default:
+        return 5;
+        break;
+    }
+  }
+
+  function setHue() {
+    if (dayInput.value) {
+      hueInput.value = Math.floor(60 + getMultiplier() * 60 + Math.random() * 60);
+    }
+  }
+  hueButton.addEventListener('click', setHue);
 }
 
 function showMap(quizzes) {
