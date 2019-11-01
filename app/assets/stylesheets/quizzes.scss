@@ -8,22 +8,35 @@ header {
 	text-align: center;
 }
 
-form {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	button {
-		border: none;
-		height: 2rem;
-		background: #fff;
-	}
+input,
+select {
+	font-size: 0.75rem;
+	padding-left: 0.5rem;
+	-webkit-appearance: none;
+	border: none;
+	border-radius: 0;
+	background: #fff;
+	height: 2rem;
 }
 
-.search-forms {
+#quiz_search {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
+	select,
+	.filter {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0.5rem;
+		width: 10rem;
+		button {
+			border: none;
+			height: 2rem;
+			background: #fff;
+		}
+	}
 }
 
 .picture-grid {
@@ -157,8 +170,15 @@ form {
 }
 
 @media screen and (max-width: 720px) {
-	.search-forms {
+	#quiz_search {
 		flex-direction: column;
+		select,
+		.filter {
+			width: 80vw;
+			input {
+				width: 100%;
+			}
+		}
 	}
 	.quiz-entry {
 		width: 90vw;
