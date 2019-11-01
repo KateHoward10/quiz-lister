@@ -92,6 +92,18 @@ label {
   display: block;
 }
 
+input,
+select {
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+  height: 2rem;
+  width: 10rem;
+}
+
 i {
   margin: 5px;
   &.green {

@@ -8,6 +8,24 @@ header {
 	text-align: center;
 }
 
+form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	button {
+		border: none;
+		height: 2rem;
+		background: #fff;
+	}
+}
+
+.search-forms {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
 .picture-grid {
 	display: flex;
 	justify-content: center;
@@ -116,8 +134,13 @@ header {
 	height: 40vw;
 }
 
+.tooltip {
+	position: relative;
+}
+
 .tooltip .tooltiptext {
 	position: absolute;
+	right: 0;
 	width: 120px;
 	background-color: #ddd;
 	color: #000;
@@ -134,6 +157,9 @@ header {
 }
 
 @media screen and (max-width: 720px) {
+	.search-forms {
+		flex-direction: column;
+	}
 	.quiz-entry {
 		width: 90vw;
 	}
@@ -147,6 +173,9 @@ header {
 	#map {
 		width: 90vw;
 		height: 90vw;
+	}
+	form {
+		padding: 1rem;
 	}
 }
 
