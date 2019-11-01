@@ -5,7 +5,9 @@ class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.json
   def index
-    @quizzes = Quiz.all
+    @search = Quiz.ransack(params[:q])
+    @quizzes = @search.result
+    # @search.build_condition
   end
 
   # GET /quizzes/1

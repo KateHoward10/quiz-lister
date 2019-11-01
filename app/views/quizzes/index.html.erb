@@ -1,5 +1,11 @@
 <%= render 'header', active: "home" %>
 <main>
+  <%= search_form_for @search do |f| %>
+    <%= f.label :venue_cont %>
+    <%= f.search_field :venue_cont %>
+    <%= f.submit %>
+    <%= link_to "Reset", quizzes_path %>
+  <% end %>
   <ul class="picture-grid">
     <% @quizzes.order(:venue).each do |quiz| %>
       <%= link_to quiz do %>
