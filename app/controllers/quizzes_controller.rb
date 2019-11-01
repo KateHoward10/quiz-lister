@@ -7,7 +7,6 @@ class QuizzesController < ApplicationController
   def index
     @search = Quiz.ransack(params[:q])
     @quizzes = @search.result
-    # @search.build_condition
   end
 
   # GET /quizzes/1
