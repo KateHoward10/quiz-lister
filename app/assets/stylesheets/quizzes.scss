@@ -200,8 +200,8 @@ select {
 }
 
 @media screen and (max-width: 480px) {
-	header {
-		flex-direction: column;
+	.nav-link {
+		display: none;
 	}
 	.quiz-overview {
 		flex-direction: column;
