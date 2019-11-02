@@ -156,3 +156,21 @@ function showMap(quizzes) {
 
   container.appendChild(bigMap);
 }
+
+function toggleFilters() {
+  const filterToggle = document.getElementById('filter-toggle');
+  const searchForm = document.getElementById('quiz_search');
+  let filtersVisible = false;
+
+  filterToggle.addEventListener('click', () => {
+    if (filtersVisible) {
+      filtersVisible = false;
+      searchForm.classList.remove('visible');
+      filterToggle.innerHTML = 'Search / filter<i class="fas fa-sort">';
+    } else {
+      filtersVisible = true;
+      searchForm.classList.add('visible');
+      filterToggle.innerHTML = 'Close<i class="fas fa-times">';
+    }
+  });
+}

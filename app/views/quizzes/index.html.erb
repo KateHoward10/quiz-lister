@@ -1,16 +1,6 @@
 <%= render 'header', active: "home" %>
 <main>
-  <%= search_form_for @search do |f| %>
-    <div class="filter">
-      <%= f.search_field :venue_cont, placeholder: "Search venues", onchange: 'this.form.submit()' %>
-      <%= button_tag do %>
-        <i class="fas fa-search"></i>
-      <% end %>
-    </div>
-    <%= f.select :day_cont, [["Any day", "day"], "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {prompt: "Select day ▼"}, {onchange: 'this.form.submit()'} %>
-    <%= f.select :postcode_cont, [["All", ""], ["Centre", "BS1"], ["Kingsdown / St Paul’s", "BS2"], ["Bedminster / Southville", "BS3"], ["Knowle / Brislington", "BS4"], ["Easton", "BS5"], ["Redland", "BS6"], ["Bishopston / Horfield", "BS7"], ["Clifton", "BS8"]], {prompt: "Select location ▼"}, {onchange: 'this.form.submit()'} %>
-    <%= link_to "Clear all", quizzes_path %>
-  <% end %>
+  <%= render 'filters' %>
   <% if @quizzes.count == 0 %>
     <h3>No quizzes found</h3>
   <% end %>
