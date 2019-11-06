@@ -19,6 +19,17 @@ function displayMap(lat, lng) {
   mapContainer.appendChild(venueMap);
 }
 
+function setFavourite(id) {
+  const favouriteButton = document.getElementById('favourite_button');
+
+  function addFavourite() {
+    const existingFavourites = localStorage.getItem('favourites') || [];
+    localStorage.setItem('favourites', [...existingFavourites, id]);
+  }
+
+  favouriteButton.addEventListener('click', addFavourite);
+}
+
 function initQuiz() {
   const venueInput = document.getElementById('quiz_venue');
   const postcodeInput = document.getElementById('quiz_postcode');

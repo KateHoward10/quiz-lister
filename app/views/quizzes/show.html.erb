@@ -2,7 +2,8 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      displayMap(<%=@quiz.latitude%>, <%=@quiz.longitude%>)
+      displayMap(<%=@quiz.latitude%>, <%=@quiz.longitude%>);
+      setFavourite(<%= @quiz.id %>);
     });
   </script>
 <% end %>
@@ -10,9 +11,14 @@
 <%= render 'header', active: "home" %>
 <main class="quiz-container">
   <div>
-    <%= link_to quizzes_path do %>
-      <%= fa_icon "arrow-left", class: "fa-lg grey" %>
-    <% end %>
+    <div class="buttons-container">
+      <%= link_to quizzes_path do %>
+        <%= fa_icon "arrow-left", class: "fa-lg grey" %>
+      <% end %>
+      <button id="favourite_button">
+        <%= fa_icon "heart", class: "red" %>
+      </button>
+    </div>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
       <span class="icon-container tooltip">

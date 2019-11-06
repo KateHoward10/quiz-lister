@@ -98,6 +98,12 @@ select {
 	justify-content: space-between;
 }
 
+.buttons-container {
+	display: flex;
+	justify-content: space-between;
+	padding-right: 1rem;
+}
+
 .quiz-title {
 	display: flex;
 	flex-direction: row;
