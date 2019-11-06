@@ -166,11 +166,11 @@ function toggleFilters() {
     if (filtersVisible) {
       filtersVisible = false;
       searchForm.classList.remove('visible');
-      filterToggle.innerHTML = 'Search / filter<i class="fas fa-sort">';
+      filterToggle.textContent = 'Search / filter';
     } else {
       filtersVisible = true;
       searchForm.classList.add('visible');
-      filterToggle.innerHTML = 'Close<i class="fas fa-times">';
+      filterToggle.textContent = 'Close';
     }
   });
 }

@@ -18,13 +18,13 @@
       </span>
     <% end %>
   </div>
-  <button id="filter-toggle">Search / filter<i class="fas fa-sort"></i></button>
+  <button id="filter-toggle">Search / filter</button>
 </div>
 <%= search_form_for @search do |f| %>
   <div class="filter">
     <%= f.search_field :venue_cont, placeholder: "Search venues", onchange: 'this.form.submit()' %>
     <%= button_tag do %>
-      <i class="fas fa-search"></i>
+      <%= fa_icon "search" %>
     <% end %>
   </div>
   <%= f.select :day_cont, [["Any day", ""], "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {prompt: "Select day ▼"}, {onchange: 'this.form.submit()'} %>
