@@ -24,7 +24,7 @@
       <div class="paper-turn"></div>
       <li><div class="icon"><i class="fas fa-clock fa-lg grey"></i></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
       <% if @quiz.price && @quiz.price != "" %>
-        <li><div class="icon"><i class="fas fa-pound-sign fa-lg green"></div></i><span>£<%= @quiz.price %> entry fee</span></li>
+        <li><div class="icon"><i class="fas fa-pound-sign fa-lg green"></div></i><span>£<%= number_with_precision(@quiz.price, :precision => 2) %> entry fee</span></li>
       <% end %>
       <% if @quiz.prize && @quiz.prize != "" %>
         <li><div class="icon"><i class="fas fa-trophy fa-lg gold"></i></div><span><%= @quiz.prize %></span></li>
