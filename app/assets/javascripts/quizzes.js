@@ -13,7 +13,6 @@ function displayMap(lat, lng) {
 
   const marker = new google.maps.Marker({
     position: coords,
-    animation: google.maps.Animation.DROP,
     map: map
   });
 
