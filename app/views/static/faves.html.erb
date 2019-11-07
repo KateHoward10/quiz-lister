@@ -1,0 +1,15 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      getFavourites(<%= @quizzes.to_json.html_safe %>)
+    });
+  </script>
+<% end %>
+
+<%= render 'quizzes/header', active: "faves" %>
+<main>
+  <h2>Favourites</h2>
+  <ul id="faves-container">
+  </ul>
+</main>

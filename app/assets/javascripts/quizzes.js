@@ -23,8 +23,8 @@ function setFavourite(id) {
   const favouriteButton = document.getElementById('favourite_button');
 
   function addFavourite() {
-    const existingFavourites = localStorage.getItem('favourites') || [];
-    localStorage.setItem('favourites', [...existingFavourites, id]);
+    const existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+    localStorage.setItem('favourites', JSON.stringify([...existingFavourites, id]));
   }
 
   favouriteButton.addEventListener('click', addFavourite);
@@ -183,4 +183,18 @@ function toggleFilters() {
       filterToggle.textContent = 'Close';
     }
   });
+}
+
+function getFavourites(quizzes) {
+  const favesContainer = document.getElementById('faves-container');
+  const favourites = JSON.parse(localStorage.getItem('favourites'));
+  const faveQuizzes = favourites.map(id => quizzes.find(quiz => quiz.id === id));
+  for (let i = 0; i < faveQuizzes.length; i++) {
+    const faveItem = document.createElement('li');
+    const fave = document.createElement('a');
+    fave.textContent = faveQuizzes[i].venue;
+    fave.href = `/quizzes/${faveQuizzes[i].id}`;
+    faveItem.appendChild(fave);
+    favesContainer.appendChild(faveItem);
+  }
 }
