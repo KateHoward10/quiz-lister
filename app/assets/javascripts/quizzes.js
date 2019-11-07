@@ -21,10 +21,23 @@ function displayMap(lat, lng) {
 
 function setFavourite(id) {
   const favouriteButton = document.getElementById('favourite_button');
+  let existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+
+  if (existingFavourites.includes(id)) {
+    favouriteButton.firstElementChild.classList.add('red');
+  } else {
+    favouriteButton.firstElementChild.classList.remove('red');
+  }
 
   function addFavourite() {
-    const existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-    localStorage.setItem('favourites', JSON.stringify([...existingFavourites, id]));
+    if (existingFavourites.includes(id)) {
+      existingFavourites = [...existingFavourites.filter(fave => fave !== id)];
+      favouriteButton.firstElementChild.classList.remove('red');
+    } else {
+      existingFavourites = [...existingFavourites, id];
+      favouriteButton.firstElementChild.classList.add('red');
+    }
+    localStorage.setItem('favourites', JSON.stringify(existingFavourites));
   }
 
   favouriteButton.addEventListener('click', addFavourite);
