@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes.json
   def index
     @search = Quiz.ransack(params[:q])
-    @quizzes = @search.result
+    @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "") }
   end
 
   # GET /quizzes/1

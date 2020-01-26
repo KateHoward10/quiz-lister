@@ -5,7 +5,7 @@
     <h3>No quizzes found</h3>
   <% end %>
   <ul class="picture-grid">
-    <% @quizzes.shuffle.each do |quiz| %>
+    <% @quizzes.each do |quiz| %>
       <%= link_to quiz do %>
         <%= render 'quiz', quiz: quiz %>
       <% end %>
