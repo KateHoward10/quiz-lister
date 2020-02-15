@@ -17,6 +17,7 @@ function displayMap(lat, lng) {
   });
 
   mapContainer.appendChild(venueMap);
+  window.scroll(0, 0);
 }
 
 function setFavourite(id) {
