@@ -56,7 +56,7 @@ select {
 	flex-wrap: wrap;
 }
 
-.picture-grid:hover .quiz-entry:not(:hover) {
+.picture-grid:hover .quiz-link:not(:hover) {
 	transition: 0.2s ease-in;
 	filter: greyscale(1);
 	opacity: 0.8;
@@ -65,12 +65,13 @@ select {
 .quiz-entry {
 	border: 1px solid lightgrey;
 	margin: 10px;
+	width: 40vw;
 }
 
 .quiz-link {
+	width: 100%;
 	background-color: #111;
 	box-shadow: 0 0 10px grey;
-	width: 40vw;
 	display: flex;
 	flex-direction: row;
 }
