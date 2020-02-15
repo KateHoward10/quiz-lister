@@ -1,7 +1,9 @@
 <li class="quiz-entry">
-  <div class="icon-container" style="background-color: hsl(<%= quiz.hue %>, 50%, 50%)"><%= fa_icon "home", class: "fa-lg home" %></div>
-  <div class="quiz-overview">
-    <span><%= quiz.venue %></span>
-    <span class="quiz-time"><%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %></span>
-  </div>
+  <%= link_to quiz, class: "quiz-link" do %>
+    <div class="icon-container" style="background-color: hsl(<%= quiz.hue %>, 50%, 50%)"><%= fa_icon "home", class: "fa-lg home" %></div>
+    <div class="quiz-overview">
+      <span><%= quiz.venue %></span>
+      <span class="quiz-time"><%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %></span>
+    </div>
+  <% end %>
 </li>

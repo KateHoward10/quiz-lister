@@ -6,9 +6,7 @@
   <% end %>
   <ul class="picture-grid">
     <% @quizzes.each do |quiz| %>
-      <%= link_to quiz do %>
-        <%= render 'quiz', quiz: quiz %>
-      <% end %>
+      <%= render 'quiz', quiz: quiz %>
     <% end %>
   </ul>
 </main>
