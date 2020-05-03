@@ -7,9 +7,11 @@
   </script>
 <% end %>
 
-<h1>Editing Quiz</h1>
+<div class="form-container">
+  <h1>Editing Quiz</h1>
 
-<%= render 'form', quiz: @quiz %>
+  <%= render 'form', quiz: @quiz %>
 
-<%= link_to 'Show', @quiz %> |
-<%= link_to 'Back', quizzes_path %>
+  <%= link_to 'Show', @quiz %>
+  <%= link_to 'Back', quizzes_path %>
+</div>
