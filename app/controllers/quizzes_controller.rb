@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
   http_basic_authenticate_with name: "Admin", password: Rails.application.credentials.el_secreto, except: [:index, :show]
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :convert_price, only: [:new, :edit]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -67,6 +68,10 @@ class QuizzesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
       @quiz = Quiz.find(params[:id])
+    end
+
+    def convert_price
+      params[:price] = params[:price].to_f.round(2) * 100
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
