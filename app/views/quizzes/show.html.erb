@@ -15,9 +15,11 @@
       <%= link_to quizzes_path do %>
         <%= fa_icon "arrow-left", class: "fa-lg grey" %>
       <% end %>
-      <button id="favourite_button">
-        <%= fa_icon "heart" %>
-      </button>
+      <% if user_signed_in? %>
+        <button id="favourite_button">
+          <%= fa_icon "heart" %>
+        </button>
+      <% end %>
     </div>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
