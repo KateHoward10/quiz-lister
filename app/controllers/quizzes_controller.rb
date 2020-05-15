@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: :toggle_favorite
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
   before_action :convert_price, only: [:new, :edit]
 
   # GET /quizzes
@@ -62,6 +63,10 @@ class QuizzesController < ApplicationController
       format.html { redirect_to quizzes_url, notice: 'Quiz was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_favorite
+    current_user.favorited?(@quiz) ? current_user.unfavorite(@quiz) : current_user.favorite(@quiz)
   end
 
   private

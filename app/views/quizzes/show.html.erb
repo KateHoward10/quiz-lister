@@ -16,9 +16,13 @@
         <%= fa_icon "arrow-left", class: "fa-lg grey" %>
       <% end %>
       <% if user_signed_in? %>
-        <button id="favourite_button">
-          <%= fa_icon "heart" %>
-        </button>
+        <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post do %>
+          <% if current_user.favorited?(@quiz) %>
+            <%= fa_icon "heart", class: "red" %>
+          <% else %>
+            <%= fa_icon "heart" %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
     <div class="quiz-title">

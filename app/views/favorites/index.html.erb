@@ -1,0 +1,14 @@
+<%= render 'quizzes/nav', active: "favourites" %>
+<main>
+  <h2>Favourites</h2>
+  <ul id="faves-container">
+    <% if @favourites.any? %>
+      <% @favourites.each do |f| %>
+        <li>
+          <%= link_to f.venue, quiz_path(f.id) %>
+        </li>
+      <% end %>
+    <% else %>
+    <% end %>
+  </ul>
+</main>
