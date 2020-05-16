@@ -3,20 +3,20 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       displayMap(<%=@quiz.latitude%>, <%=@quiz.longitude%>);
-      setFavourite(<%= @quiz.id %>);
+      setFavourite();
     });
   </script>
 <% end %>
 
 <%= render 'nav', active: "home" %>
 <main class="quiz-container">
-  <div>
+  <div class="details-container">
     <div class="buttons-container">
       <%= link_to quizzes_path do %>
         <%= fa_icon "arrow-left", class: "fa-lg grey" %>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post do %>
+        <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
           <% if current_user.favorited?(@quiz) %>
             <%= fa_icon "heart", class: "red" %>
           <% else %>

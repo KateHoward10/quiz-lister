@@ -20,28 +20,14 @@ function displayMap(lat, lng) {
   window.scroll(0, 0);
 }
 
-function setFavourite(id) {
+function setFavourite() {
   const favouriteButton = document.getElementById('favourite_button');
-  let existingFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
-  if (existingFavourites.includes(id)) {
-    favouriteButton.firstElementChild.classList.add('red');
-  } else {
-    favouriteButton.firstElementChild.classList.remove('red');
+  if (favouriteButton) {
+    favouriteButton.addEventListener('click', () => {
+      favouriteButton.firstElementChild.classList.toggle('red');
+    });
   }
-
-  function addFavourite() {
-    if (existingFavourites.includes(id)) {
-      existingFavourites = [...existingFavourites.filter(fave => fave !== id)];
-      favouriteButton.firstElementChild.classList.remove('red');
-    } else {
-      existingFavourites = [...existingFavourites, id];
-      favouriteButton.firstElementChild.classList.add('red');
-    }
-    localStorage.setItem('favourites', JSON.stringify(existingFavourites));
-  }
-
-  favouriteButton.addEventListener('click', addFavourite);
 }
 
 function initQuiz() {
@@ -50,9 +36,7 @@ function initQuiz() {
   const addressInput = document.getElementById('quiz_address');
   const latInput = document.getElementById('quiz_latitude');
   const lngInput = document.getElementById('quiz_longitude');
-  const photoInput = document.getElementById('quiz_photo_url');
   const geocodeButton = document.getElementById('geocode_button');
-  const selection = document.getElementById('image_selection');
 
   if (latInput.value && lngInput.value) {
     displayMap(latInput.value, lngInput.value);
@@ -145,7 +129,6 @@ function initQuiz() {
 
 function showMap(quizzes) {
   const container = document.getElementById('big-map-container');
-  const info = document.getElementById('info-window');
 
   const initialCoords = new google.maps.LatLng(51.45946, -2.5907347);
 
@@ -197,18 +180,4 @@ function toggleFilters() {
       filterToggle.textContent = 'Close';
     }
   });
-}
-
-function getFavourites(quizzes) {
-  const favesContainer = document.getElementById('faves-container');
-  const favourites = JSON.parse(localStorage.getItem('favourites'));
-  const faveQuizzes = favourites.map(id => quizzes.find(quiz => quiz.id === id));
-  for (let i = 0; i < faveQuizzes.length; i++) {
-    const faveItem = document.createElement('li');
-    const fave = document.createElement('a');
-    fave.textContent = faveQuizzes[i].venue;
-    fave.href = `/quizzes/${faveQuizzes[i].id}`;
-    faveItem.appendChild(fave);
-    favesContainer.appendChild(faveItem);
-  }
 }
