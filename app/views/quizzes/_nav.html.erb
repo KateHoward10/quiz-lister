@@ -5,10 +5,19 @@
   <%= link_to "/about" do %>
     <h3 style="<%= active == "about" ? "color: deepskyblue" : "" %>"><%= fa_icon "info-circle", class: "fa-lg" %><span class="nav-link">About</span></h3>
   <% end %>
-  <%= link_to "/faves" do %>
-    <h3 style="<%= active == "faves" ? "color: deepskyblue" : "" %>"><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link">Faves</span></h3>
-  <% end %>
   <%= link_to "/map" do %>
     <h3 style="<%= active == "map" ? "color: deepskyblue" : "" %>"><%= fa_icon "map", class: "fa-lg" %><span class="nav-link">Map</span></h3>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to favourites_path do %>
+      <h3 style="<%= active == "favourites" ? "color: deepskyblue" : "" %>"><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link">Faves</span></h3>
+    <% end %>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <h3><%= fa_icon "sign-out", class: "fa-lg" %></h3>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Log in</span></h3>
+    <% end %>
   <% end %>
 </nav>
