@@ -26,7 +26,11 @@ function setFavourite() {
 
   if (favouriteButton) {
     favouriteButton.addEventListener('click', () => {
-      favouriteButton.firstElementChild.classList.toggle('red');
+      const icon = favouriteButton.firstElementChild;
+      const number = favouriteButton.querySelector('.favourite-number');
+      const isUnfavouriting = icon.classList.contains('red');
+      icon.classList.toggle('red');
+      if (number) number.textContent = +number.textContent + (isUnfavouriting ? -1 : 1);
     });
   }
 }

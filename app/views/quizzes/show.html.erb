@@ -15,15 +15,22 @@
       <%= link_to quizzes_path do %>
         <%= fa_icon "arrow-left", class: "fa-lg grey" %>
       <% end %>
-      <% if user_signed_in? %>
-        <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
-          <% if current_user.favorited?(@quiz) %>
-            <%= fa_icon "heart", class: "red" %>
-          <% else %>
-            <%= fa_icon "heart" %>
+      <div class="favourite-info">
+        <% if user_signed_in? %>
+          <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
+            <% if current_user.favorited?(@quiz) %>
+              <%= fa_icon "heart", class: "red" %>
+            <% else %>
+              <%= fa_icon "heart" %>
+            <% end %>
           <% end %>
+        <% else %>
+          <%= fa_icon "heart", class: "red", title: "You must be logged in to favourite a quiz" %>
         <% end %>
-      <% end %>
+        <% if @quiz.favoritors.any? %>
+          <span class="favourite-number" title="<%= pluralize(@quiz.favoritors.length, 'user')%> favourited this quiz"><%= @quiz.favoritors.length %></span>
+        <% end %>
+      </div>
     </div>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
