@@ -24,7 +24,7 @@
               <%= fa_icon "heart" %>
             <% end %>
           <% end %>
-        <% else %>
+        <% elsif @quiz.favoritors.any? %>
           <%= fa_icon "heart", class: "red", title: "You must be logged in to favourite a quiz" %>
         <% end %>
         <% if @quiz.favoritors.any? %>
