@@ -71,7 +71,8 @@ class QuizzesController < ApplicationController
 
   private
     def authenticate_admin!
-      redirect_to root_path, status: :forbidden unless current_user.try(:admin?)
+      redirect_to new_user_session_path unless current_user.try(:admin?)
+      flash[:alert] = "You must be an admin user to create or edit quizzes."
     end
   
     def set_quiz
