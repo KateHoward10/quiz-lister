@@ -52,7 +52,10 @@
 	background-color: #111;
 	box-shadow: 0 0 10px grey;
 	display: flex;
-	flex-direction: row;
+  flex-direction: row;
+  &:hover {
+    color: inherit;
+  }
 }
 
 .icon-container {
@@ -95,7 +98,7 @@
 }
 
 #favourite_button:hover {
-  color: red;
+  color: #fff;
 }
 
 .quiz-title {
@@ -149,23 +152,14 @@
 	}
 }
 
-#map-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-#map {
-	width: 40vw;
-	height: 40vw;
-}
-
 .tooltip {
-	position: relative;
+  position: relative;
+  padding-left: 5px;
+  padding-bottom: 10px;
 }
 
 .tooltip .tooltiptext {
-	position: absolute;
+  position: absolute;
 	right: 0;
 	width: 120px;
 	background-color: #ddd;
@@ -205,10 +199,6 @@
 	.paper {
 		margin-right: 0;
 		margin-bottom: 1rem;
-	}
-	#map {
-		width: 90vw;
-		height: 90vw;
 	}
 	form {
 		padding: 1rem;
