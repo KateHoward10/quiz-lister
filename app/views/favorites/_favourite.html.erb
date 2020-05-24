@@ -1,0 +1,14 @@
+<li class="favourite-entry">
+  <%= link_to favourite, class: "quiz-link" do %>
+    <div class="icon-container" style="background-color: hsl(<%= favourite.hue %>, 50%, 50%)"><%= fa_icon "home", class: "fa-lg home" %></div>
+    <div class="quiz-overview">
+      <span><%= favourite.venue %></span>
+      <span class="quiz-time"><%= favourite.day.slice(0,3) %><%= favourite.time ? ", #{favourite.time}" : "" %></span>
+    </div>
+  <% end %>
+  <%= link_to toggle_favorite_quiz_path(favourite), remote: true, method: :post, onclick: "window.top.location.reload(true)" do %>
+    <div class="toggle-container" title="Unfavourite">
+      <%= fa_icon "heart", class: "red" %>
+    </div>
+  <% end %>
+</li>

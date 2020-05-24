@@ -4,11 +4,11 @@
   <ul id="faves-container">
     <% if @favourites.any? %>
       <% @favourites.each do |f| %>
-        <li>
-          <%= link_to f.venue, quiz_path(f.id) %>
-        </li>
+        <%= render 'favourite', favourite: f %>
       <% end %>
     <% else %>
+      <p>You have no favourites yet.</p>
+      <p>To add some, click on the heart on individual quiz pages.</p>
     <% end %>
   </ul>
 </main>
