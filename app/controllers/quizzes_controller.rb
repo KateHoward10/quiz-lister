@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show, :toggle_favorite]
   before_action :authenticate_user!, only: :toggle_favorite
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
   before_action :convert_price, only: [:new, :edit]
