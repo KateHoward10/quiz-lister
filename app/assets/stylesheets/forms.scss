@@ -6,7 +6,7 @@ select {
 	border: none;
 	border-radius: 0;
 	background: #fff;
-	height: 2rem;
+  height: 2rem;
 }
 
 input[type=submit] {
@@ -28,8 +28,17 @@ input[type=submit] {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  p {
+    max-width: 400px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0;
+  }
   input {
     min-width: 240px;
+    @media screen and (min-width: 720px) {
+      min-width: 400px;
+    }
   }
   small {
     display: block;
