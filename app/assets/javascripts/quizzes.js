@@ -16,8 +16,9 @@ function displayMap(lat, lng) {
     map: map
   });
 
+  google.maps.event.addListener(map, 'tilesloaded', () => window.scroll(0, 0));
+
   mapContainer.appendChild(venueMap);
-  window.scroll(0, 0);
 }
 
 function setFavourite() {
