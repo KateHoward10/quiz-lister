@@ -28,6 +28,8 @@
         <% end %>
         <% if @quiz.favoritors.any? %>
           <span class="favourite-number" title="<%= pluralize(@quiz.favoritors.length, 'user')%> favourited this quiz"><%= @quiz.favoritors.length %></span>
+        <% else %>
+        <span class="favourite-number">
         <% end %>
       </div>
     </div>
