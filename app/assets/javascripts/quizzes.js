@@ -126,7 +126,9 @@ function initQuiz() {
 
   function setHue() {
     if (dayInput.value) {
-      hueInput.value = Math.floor(getMultiplier() * 60 + Math.random() * 60);
+      const randomHue = Math.floor(getMultiplier() * 60 + Math.random() * 60);
+      hueInput.value = randomHue;
+      hueInput.style = `background-color: hsl(${randomHue}, 80%, 60%)`;
     }
   }
   hueButton.addEventListener('click', setHue);
