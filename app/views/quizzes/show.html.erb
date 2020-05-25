@@ -1,8 +1,6 @@
 <% provide :head_tags do %>
-  <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      displayMap(<%=@quiz.latitude%>, <%=@quiz.longitude%>);
       setFavourite();
     });
   </script>
@@ -65,6 +63,7 @@
   </div>
 
   <div id="map_container">
+  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:large%7Ccolor:red%7C#{@quiz.latitude},#{@quiz.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map", id: "map" %>
   </div>
 </main>
 

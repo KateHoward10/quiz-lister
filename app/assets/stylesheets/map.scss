@@ -9,7 +9,7 @@
   height: 90vw;
   max-width: 100%;
   @media screen and (min-width: 720px) {
-    width: 36vw;
-    height: 36vw;
+    max-width: 36vw;
+    max-height: 36vw;
   }
 }
