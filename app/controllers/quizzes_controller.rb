@@ -2,7 +2,6 @@ class QuizzesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show, :toggle_favorite]
   before_action :authenticate_user!, only: :toggle_favorite
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
-  before_action :convert_price, only: [:new, :edit]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -71,16 +70,14 @@ class QuizzesController < ApplicationController
 
   private
     def authenticate_admin!
-      redirect_to new_user_session_path unless current_user.try(:admin?)
-      flash[:alert] = "You must be an admin user to create or edit quizzes."
+      if !current_user.try(:admin?)
+        redirect_to new_user_session_path 
+        flash[:alert] = "You must be an admin user to create or edit quizzes."
+      end
     end
   
     def set_quiz
       @quiz = Quiz.find(params[:id])
-    end
-
-    def convert_price
-      params[:price] = params[:price].to_f.round(2) * 100
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
