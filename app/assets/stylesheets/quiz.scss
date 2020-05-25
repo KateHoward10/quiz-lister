@@ -1,17 +1,10 @@
-.quiz-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
 .details-container {
   width: 100%;
 }
 
 .buttons-container {
-	display: flex;
-	justify-content: space-between;
-	padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .favourite-info {
@@ -39,24 +32,23 @@
 .paper {
 	list-style: none;
 	margin: 0;
-	margin-right: 20px;
-	background-color: #eee;
-	border-bottom-right-radius: 2rem;
+  background-color: #eee;
+  background-image: linear-gradient(#ddd 0.5px, transparent 1px);
+  background-size: 100% 1.6rem;
+  clip-path: polygon(100% 0, 100% 90%, 95% 100%, 0 100%, 0 0);
 	position: relative;
 	color: #111;
+  margin-bottom: 1rem;
 	.paper-turn {
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		width: 1.5rem;
-		height: 1.5rem;
-		box-shadow: -5px -5px 5px #ddd;
-	}
-	:last-child {
-		border: none;
+		width: 5%;
+		height: 10%;
+    box-shadow: -2px -2px 5px #ddd;
+    background-color: #eee;
 	}
 	li {
-		border-bottom: 1px solid lightskyblue;
 		display: flex;
 		flex-flow: row nowrap;
 		span,
@@ -75,7 +67,7 @@
 				align-items: center;
 				justify-content: center;
 				margin: 0;
-				border-right: 2px solid lightskyblue;
+				border-right: 2px solid #abced4;
 			}
 		}
 	}
@@ -105,15 +97,17 @@
 	z-index: 100;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (min-width: 720px) {
 	.quiz-container {
-		flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+		flex-direction: row;
 	}
 	.buttons-container {
-		padding: 0;
+    padding-right: 20px;
 	}
 	.paper {
-		margin-right: 0;
-		margin-bottom: 1rem;
+    margin-right: 20px;
 	}
 }

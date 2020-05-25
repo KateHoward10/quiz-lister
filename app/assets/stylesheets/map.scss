@@ -1,14 +1,15 @@
 #map-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #map {
-	width: 40vw;
-	height: 40vw;
-  @media screen and (max-width: 720px) {
-    width: 90vw;
-    height: 90vw;
+  width: 90vw;
+  height: 90vw;
+  max-width: 100%;
+  @media screen and (min-width: 720px) {
+    width: 36vw;
+    height: 36vw;
   }
 }
