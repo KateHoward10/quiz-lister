@@ -1,6 +1,6 @@
 <nav>
   <%= link_to quizzes_path, title: "Home" do %>
-    <h2 ><%= fa_icon "home", class: "fa-lg" %><span class="nav-link">Briz Quiz List</span></h2>
+    <h2 ><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link">Briz Quiz List</span></h2>
   <% end %>
   <%= link_to "/about", title: "About" do %>
     <h3 style="<%= current_page?("/about") ? "color: deepskyblue" : "" %>"><%= fa_icon "info-circle", class: "fa-lg" %><span class="nav-link">About</span></h3>

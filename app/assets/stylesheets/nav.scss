@@ -12,8 +12,15 @@ nav {
   z-index: 100;
 }
 
-@media screen and (max-width: 480px) {
-	.nav-link {
+.nav-link {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .nav-link {
+    display: initial;
+  }
+	#home-icon {
 		display: none;
   }
 }
