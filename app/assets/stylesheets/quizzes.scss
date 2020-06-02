@@ -27,6 +27,7 @@
 			background: #fff;
 		}
     input {
+      min-width: 0;
       width: 100%;
     }
 	}
@@ -82,6 +83,7 @@
     flex-direction: row;
     select,
     .filter {
+      min-width: 0;
       width: 10rem;
     }
   }
