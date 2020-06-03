@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :venue %>
+    <%= form.label :venue, "Name of venue*" %>
     <%= form.text_field :venue %>
   </div>
 
@@ -20,7 +20,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :hue %>
+    <%= form.label :hue, "Hue*" %>
     <%= form.text_field :hue, style: "background-color: hsl(#{quiz.hue},80%,60%)", readonly: true %>
     <small>Each quiz has a hue based on the day on which it takes place.</small>
     <button id="hue_button" type="button">Generate new hue</button>
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :time %>
-    <%= form.text_field :time %>
+    <%= form.time_field :time %>
   </div>
 
   <div class="field">
@@ -45,6 +45,7 @@
   <div class="field">
     <%= form.label :prize %>
     <%= form.text_field :prize %>
+    <small>Please describe any prize available for the winners, and if applicable 2nd and 3rd places.</small>
   </div>
 
   <div class="field">
@@ -67,8 +68,10 @@
 
   <div class="field">
     <%= form.label :postcode %>
-    <%= form.text_field :postcode %>
-    <button id="geocode_button" type="button">Find venue</button>
+    <div class="search-input">
+      <%= form.text_field :postcode %>
+      <button id="geocode_button" type="button"><%= fa_icon "search" %></button>
+    </div>
   </div>
 
   <div class="field">
@@ -78,12 +81,12 @@
 
   <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
+    <%= form.text_field :latitude, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+    <%= form.text_field :longitude, readonly: true %>
   </div>
 
   <div id="map_container">
@@ -91,7 +94,7 @@
 
   <% if !current_user.admin %>
     <div class="checkbox-label">
-      <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page.</label>
+      <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page, so that users can contact you about the quiz.</label>
     </div>
   <% end %>
 
