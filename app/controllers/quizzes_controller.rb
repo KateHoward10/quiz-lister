@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show, :toggle_favorite]
-  before_action :authenticate_user!, only: :toggle_favorite
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :require_same_user!, only: [:update, :edit, :destroy]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -28,6 +28,7 @@ class QuizzesController < ApplicationController
   # POST /quizzes.json
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.user = current_user
 
     respond_to do |format|
       if @quiz.save
@@ -69,17 +70,24 @@ class QuizzesController < ApplicationController
   end
 
   private
+    def set_quiz
+      @quiz = Quiz.find(params[:id])
+    end
+
     def authenticate_admin!
       if !current_user.try(:admin?)
         redirect_to new_user_session_path 
         flash[:alert] = "You must be an admin user to create or edit quizzes."
       end
     end
-  
-    def set_quiz
-      @quiz = Quiz.find(params[:id])
-    end
 
+    def require_same_user!
+      if current_user != @quiz.user
+        redirect_to quiz_path(@quiz)
+        flash[:alert] = "You can only edit or delete your own quizzes."
+      end
+    end
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
       params.require(:quiz).permit(:venue, :day, :frequency, :time, :price, :prize, :status, :link, :postcode, :latitude, :longitude, :address, :hue)
