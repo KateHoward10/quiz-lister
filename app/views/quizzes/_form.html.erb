@@ -41,6 +41,7 @@
   <div class="field">
     <%= form.label :price %>
     <%= form.number_field :price, value: number_to_currency(form.object.price.to_f, delimiter: '', unit: ''), step: 0.1 %>
+    <small>Please enter the price per person in £.</small>
   </div>
 
   <div class="field">
@@ -89,6 +90,12 @@
 
   <div id="map_container">
   </div>
-  
+
+  <% if !current_user.admin %>
+    <div class="checkbox-label">
+      <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page.</label>
+    </div>
+  <% end %>
+
   <%= form.submit %>
 <% end %>
