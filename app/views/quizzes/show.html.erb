@@ -56,6 +56,9 @@
       <% if @quiz.address && @quiz.address != "" %>
         <li><div class="icon"><%= fa_icon "map-marker", class: "fa-lg red" %></div><a href="https://google.com/maps/search/<%= @quiz.venue %>/@<%= @quiz.latitude %>,<%= @quiz.longitude %>" target="_blank" rel="noopener noreferrer"><%= @quiz.address %></a></li>
       <% end %>
+      <% if @quiz.user && !@quiz.user.admin %>
+        <li><div class="icon"><%= fa_icon "envelope", class: "fa-lg blue" %></div><a href="mailto:<%= @quiz.user.email %>"><%= @quiz.user.email %></a></li>
+      <% end %>
       <% if @quiz.link && @quiz.link != "" %>
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
