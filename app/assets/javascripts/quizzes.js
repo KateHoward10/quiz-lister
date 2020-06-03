@@ -132,6 +132,7 @@ function initQuiz() {
     }
   }
   hueButton.addEventListener('click', setHue);
+  dayInput.addEventListener('change', setHue);
 }
 
 function showMap(quizzes) {

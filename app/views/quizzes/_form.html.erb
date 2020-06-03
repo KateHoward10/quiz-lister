@@ -1,12 +1,10 @@
 <%= form_with(model: quiz, local: true) do |form| %>
   <% if quiz.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
-
       <ul>
-      <% quiz.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% quiz.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -23,7 +21,7 @@
 
   <div class="field">
     <%= form.label :hue %>
-    <%= form.text_field :hue, style: "background-color: hsl(#{quiz.hue},80%,60%)" %>
+    <%= form.text_field :hue, style: "background-color: hsl(#{quiz.hue},80%,60%)", readonly: true %>
     <small>Each quiz has a hue based on the day on which it takes place.</small>
     <button id="hue_button" type="button">Generate new hue</button>
   </div>
