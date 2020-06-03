@@ -67,12 +67,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :contact_email %>
-    <%= form.text_field :contact_email, readonly: true, value: current_user.email || nil %>
-    <small>To list a quiz, you must be logged in with an email address you are happy to display on the listing page, where users can contact you for information about the quiz.</small>
-  </div>
-
-  <div class="field">
     <%= form.label :postcode %>
     <%= form.text_field :postcode %>
     <button id="geocode_button" type="button">Find venue</button>
