@@ -1,6 +1,15 @@
+<% provide :head_tags do %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      passwordFeedback();
+    });
+  </script>
+<% end %>
+
 <div class="form-container">
   <h2>Sign up</h2>
   <p>Create an account in order to save your favourite quizzes.</p>
+  <p>To create quizzes, sign up with an email where users can contact you for information.</p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>

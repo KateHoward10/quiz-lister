@@ -189,3 +189,11 @@ function toggleFilters() {
     }
   });
 }
+
+function passwordFeedback() {
+  const passwordInput = document.getElementById('user_password');
+
+  passwordInput.addEventListener('input', e => {
+    passwordInput.style = `background-color: hsl(${Math.min(e.target.value.length * 10, 120)},100%,40%)`;
+  })
+}
