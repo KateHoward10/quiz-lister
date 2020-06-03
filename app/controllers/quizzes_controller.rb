@@ -74,15 +74,8 @@ class QuizzesController < ApplicationController
       @quiz = Quiz.find(params[:id])
     end
 
-    def authenticate_admin!
-      if !current_user.try(:admin?)
-        redirect_to new_user_session_path 
-        flash[:alert] = "You must be an admin user to create or edit quizzes."
-      end
-    end
-
     def require_same_user!
-      if current_user != @quiz.user
+      if !current_user.try(:admin?) && current_user != @quiz.user
         redirect_to quiz_path(@quiz)
         flash[:alert] = "You can only edit or delete your own quizzes."
       end
