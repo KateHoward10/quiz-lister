@@ -1,3 +1,11 @@
+<% provide :head_tags do %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      setFavourite()
+    });
+  </script>
+<% end %>
+
 <main class="quiz-container">
   <div class="details-container">
     <div class="buttons-container">

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+function toggleFilters() {
   const filterToggle = document.getElementById('filter-toggle');
   const searchForm = document.getElementById('quiz_search');
 
@@ -8,4 +8,4 @@ document.addEventListener("DOMContentLoaded", function(){
       filterToggle.textContent = searchForm.classList.contains('visible') ? 'Close' : 'Search / filter';
     });
   }
-});
+}

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+function setFavourite() {
   const favouriteButton = document.getElementById('favourite_button');
   const number = document.querySelector('.favourite-number');
 
@@ -10,4 +10,4 @@ document.addEventListener("DOMContentLoaded", function(){
       if (number) number.textContent = ((+number.textContent || 0) + (isUnfavouriting ? -1 : 1)) || "";
     });
   }
-});
+}
