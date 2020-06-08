@@ -59,41 +59,4 @@ function initForm() {
   }
 
   geocodeButton.addEventListener('click', getCoordsFromPostcode);
-
-  const hueInput = document.getElementById('quiz_hue');
-  const dayInput = document.getElementById('quiz_day');
-  const hueButton = document.getElementById('hue_button');
-
-  function getMultiplier() {
-    switch (dayInput.value) {
-      case 'Monday':
-        return 1;
-        break;
-      case 'Tuesday':
-        return 3;
-        break;
-      case 'Wednesday':
-        return 0;
-        break;
-      case 'Thursday':
-        return 2;
-        break;
-      case 'Sunday':
-        return 4;
-        break;
-      default:
-        return 5;
-        break;
-    }
-  }
-
-  function setHue() {
-    if (dayInput.value) {
-      const randomHue = Math.floor(getMultiplier() * 60 + Math.random() * 60);
-      hueInput.value = randomHue;
-      hueInput.style = `background-color: hsl(${randomHue}, 80%, 60%)`;
-    }
-  }
-  hueButton.addEventListener('click', setHue);
-  dayInput.addEventListener('change', setHue);
 }

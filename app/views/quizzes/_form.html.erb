@@ -29,13 +29,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :hue, "Hue*" %>
-    <%= form.text_field :hue, style: "background-color: hsl(#{quiz.hue},80%,60%)", readonly: true %>
-    <small>Each quiz has a hue based on the day on which it takes place.</small>
-    <button id="hue_button" type="button">Generate new hue</button>
-  </div>
-
-  <div class="field">
     <%= form.label :frequency %>
     <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
   </div>
