@@ -16,6 +16,26 @@ nav {
   display: none;
 }
 
+#hover-area {
+  position: relative;
+  cursor: pointer;
+}
+
+#user-menu {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  color: #fff;
+  width: 100%;
+  &.visible {
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    padding: 5px;
+  }
+}
+
 @media screen and (min-width: 480px) {
   .nav-link {
     display: initial;
