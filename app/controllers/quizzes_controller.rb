@@ -3,29 +3,25 @@ class QuizzesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_same_user!, only: [:update, :edit, :destroy]
 
-  # GET /quizzes
-  # GET /quizzes.json
   def index
     @search = Quiz.ransack(params[:q])
     @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "") }
   end
 
-  # GET /quizzes/1
-  # GET /quizzes/1.json
+  def my_quizzes
+    @quizzes = current_user.quizzes
+  end
+
   def show
   end
 
-  # GET /quizzes/new
   def new
     @quiz = Quiz.new
   end
 
-  # GET /quizzes/1/edit
   def edit
   end
 
-  # POST /quizzes
-  # POST /quizzes.json
   def create
     @quiz = Quiz.new(quiz_params)
     @quiz.user = current_user
@@ -42,8 +38,6 @@ class QuizzesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quizzes/1
-  # PATCH/PUT /quizzes/1.json
   def update
     respond_to do |format|
       if @quiz.update(quiz_params)
@@ -56,8 +50,6 @@ class QuizzesController < ApplicationController
     end
   end
 
-  # DELETE /quizzes/1
-  # DELETE /quizzes/1.json
   def destroy
     @quiz.destroy
     respond_to do |format|

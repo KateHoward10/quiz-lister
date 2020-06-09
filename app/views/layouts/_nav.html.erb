@@ -13,10 +13,11 @@
       <h3 style="<%= current_page?("/faves") ? "color: deepskyblue" : "" %>"><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link">Faves</span></h3>
     <% end %>
   <% end %>
-  <div id="hover-area">
+  <div id="hover-area" onclick="toggleMenu()">
     <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Account</span></h3>
     <div id="user-menu">
       <% if user_signed_in? %>
+        <%= link_to "My quizzes", my_quizzes_path %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Log in", new_user_session_path %>
@@ -25,9 +26,3 @@
     </div>
   </div>
 </nav>
-
-<script>
-  document.getElementById('hover-area').addEventListener('click', () => {
-    document.getElementById('user-menu').classList.toggle('visible');
-  });
-</script>

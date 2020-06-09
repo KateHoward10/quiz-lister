@@ -1,0 +1,10 @@
+<main>
+  <% if @quizzes.count == 0 %>
+    <h3>You have not created any quizzes yet</h3>
+  <% end %>
+  <ul class="picture-grid">
+    <% @quizzes.each do |quiz| %>
+      <%= render 'quiz', quiz: quiz %>
+    <% end %>
+  </ul>
+</main>
