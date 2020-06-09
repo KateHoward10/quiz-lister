@@ -6,7 +6,7 @@
       <span class="quiz-time"><%= favourite.day.slice(0,3) %><%= favourite.time ? ", #{favourite.time}" : "" %></span>
     </div>
   <% end %>
-  <%= link_to toggle_favorite_quiz_path(favourite), remote: true, method: :post, onclick: "window.top.location.reload(true)" do %>
+  <%= link_to toggle_favorite_quiz_path(favourite), remote: true, method: :post, class: "unfavourite_button", data: { confirm: "Are you sure you want to unfavourite this quiz?" } do %>
     <div class="toggle-container" title="Unfavourite">
       <%= fa_icon "trash" %>
     </div>
