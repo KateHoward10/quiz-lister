@@ -62,9 +62,9 @@ td {
 }
 
 div {
-  &.field,
-  &.actions {
-    margin-bottom: 20px;
+  &.field {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 

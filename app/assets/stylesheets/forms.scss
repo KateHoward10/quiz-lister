@@ -1,6 +1,10 @@
 form {
   padding: 1rem;
   width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input:not([type=radio]), select {
@@ -25,7 +29,8 @@ input[type=submit] {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  margin: 0.75rem 0;
+  max-width: 400px;
+  margin: 0.75rem 0 1rem;
   background-color: deepskyblue;
   color: #fff;
   &:hover {
