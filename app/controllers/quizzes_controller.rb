@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
   end
 
   def my_quizzes
-    @quizzes = current_user.quizzes
+    @quizzes = current_user.try(:admin?) ? Quiz.all : current_user.quizzes
   end
 
   def show
@@ -53,7 +53,7 @@ class QuizzesController < ApplicationController
   def destroy
     @quiz.destroy
     respond_to do |format|
-      format.html { redirect_to quizzes_url, notice: 'Quiz was successfully destroyed.' }
+      format.html { redirect_to quizzes_url, notice: 'Quiz was successfully deleted.' }
       format.json { head :no_content }
     end
   end
