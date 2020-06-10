@@ -9,7 +9,7 @@
 
 <main>
   <h2>Favourites</h2>
-  <ul id="faves-container">
+  <ul>
     <% if @favourites.any? %>
       <% @favourites.each do |f| %>
         <%= render 'favourite', favourite: f %>
