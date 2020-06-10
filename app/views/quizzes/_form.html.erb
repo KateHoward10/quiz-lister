@@ -53,12 +53,15 @@
   <div class="field">
     <%= form.label :status %>
     <div class="field-row">
-      <%= form.radio_button :status, "active" %>
-      <%= form.label :status, "Active", value: "active" %>
-      <%= form.radio_button :status, "not active" %>
-      <%= form.label :status, "Not active", value: "not active" %>
-      <%= form.radio_button :status, "unknown" %>
-      <%= form.label :status, "Unknown", value: "unknown" %>
+      <%= form.label :status, value: "active" do %>
+        <%= form.radio_button :status, "active" %> Active
+      <% end %>
+      <%= form.label :status, value: "not active" do %>
+        <%= form.radio_button :status, "not active" %> Not active
+      <% end %>
+      <%= form.label :status, value: "unknown" do %>
+        <%= form.radio_button :status, "unknown" %> Unknown
+      <% end %>
     </div>
   </div>
 
@@ -81,15 +84,17 @@
     <%= form.text_field :address %>
   </div>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, readonly: true %>
+  <div class="field field-row">
+    <div class="half-field">
+      <%= form.label :latitude %>
+      <%= form.text_field :latitude, readonly: true %>
+    </div>
+    <div class="half-field">
+      <%= form.label :longitude %>
+      <%= form.text_field :longitude, readonly: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, readonly: true %>
-  </div>
 
   <div id="map_container">
   </div>

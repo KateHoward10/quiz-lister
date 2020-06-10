@@ -72,14 +72,21 @@ input[type=checkbox] {
   }
 }
 
+.half-field {
+  width: 48%;
+}
+
 .field-row {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   padding: 5px 0;
   max-width: 100%;
   label {
     font-size: 14px;
-    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
