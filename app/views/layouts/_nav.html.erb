@@ -17,11 +17,20 @@
     <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Account</span></h3>
     <div id="user-menu">
       <% if user_signed_in? %>
-        <%= link_to "My quizzes", my_quizzes_path %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <span class="icon-link"><%= fa_icon "user" %> <%= current_user.email %></span>
+        <%= link_to my_quizzes_path do %>
+          <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="icon-link"><%= fa_icon "sign-out" %> Log out</div>
+        <% end %>
       <% else %>
-        <%= link_to "Log in", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to new_user_session_path do %>
+          <div class="icon-link"><%= fa_icon "sign-in" %> Log in</div>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <div class="icon-link"><%= fa_icon "user-plus" %> Sign up</div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -32,8 +32,9 @@ nav {
   &.visible {
     display: flex;
     flex-direction: column;
+    text-align: left;
   }
-  a {
+  a, span {
     padding: 8px;
   }
 }
