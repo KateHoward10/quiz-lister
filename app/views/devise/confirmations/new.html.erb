@@ -1,0 +1,17 @@
+<div class="form-container">
+  <h2>Resend confirmation email</h2>
+  <p>You must confirm your email address before logging in for the first time. If you did not receive a confirmation email, please enter your address here to resend it.</p>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <%= f.submit "Submit" %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

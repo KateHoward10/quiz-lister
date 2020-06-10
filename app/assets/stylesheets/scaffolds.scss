@@ -71,9 +71,13 @@ div {
 }
 
 #error_explanation {
+  width: 100%;
   border: 2px solid red;
-  padding: 5px;
   margin-bottom: 20px;
+}
+
+.error-list {
+  margin: 8px;
 }
 
 label {
