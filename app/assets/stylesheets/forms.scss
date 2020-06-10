@@ -83,7 +83,7 @@ input[type=checkbox] {
   }
 }
 
-.search-input {
+.input-with-attachment {
   display: flex;
   flex-direction: row;
   height: 2rem;
@@ -106,6 +106,11 @@ input[type=checkbox] {
   &:hover {
     box-shadow: inset 0 0 10px #222;
   }
+}
+
+.confirm-icon {
+  display: none;
+  align-items: center;
 }
 
 @media screen and (min-width: 480px) {

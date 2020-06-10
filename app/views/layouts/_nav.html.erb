@@ -13,7 +13,7 @@
       <h3 style="<%= current_page?("/faves") ? "color: deepskyblue" : "" %>"><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link">Faves</span></h3>
     <% end %>
   <% end %>
-  <div id="hover-area" onclick="toggleMenu()">
+  <div class="account-menu" onclick="toggleMenu()">
     <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Account</span></h3>
     <div id="user-menu">
       <% if user_signed_in? %>

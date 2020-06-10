@@ -22,7 +22,12 @@
 
     <div class="field">
       <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="input-with-attachment">
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <div class="confirm-icon">
+          <%= fa_icon "check-circle", class: "green" %>
+        </div>
+      </div>
       <% if @minimum_password_length %>
         <small>(<%= @minimum_password_length %> characters minimum)</small>
       <% end %>
@@ -30,7 +35,12 @@
 
     <div class="field">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="input-with-attachment">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="confirm-icon">
+          <%= fa_icon "check-circle", class: "green" %>
+        </div>
+      </div>
     </div>
 
     <%= f.submit "Sign up" %>
