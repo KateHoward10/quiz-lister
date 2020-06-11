@@ -35,7 +35,7 @@
 
   <div class="field">
     <%= form.label :time %>
-    <%= form.time_field :time %>
+    <%= form.time_field :time, value: form.object.time ? form.object.time.to_datetime.strftime("%H:%M") : "20:00" %>
   </div>
 
   <div class="field">
