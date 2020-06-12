@@ -1,7 +1,7 @@
 .filter-zone {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 #quiz_search {
@@ -10,7 +10,7 @@
 	align-items: center;
 	justify-content: space-around;
 	border: 1px solid #444;
-	background-color: #111;
+  background-color: #111;
 	&.visible {
 		display: flex;
 	}
@@ -35,7 +35,7 @@
 
 .picture-grid {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	flex-wrap: wrap;
 }
 
@@ -47,7 +47,7 @@
 
 .quiz-entry {
 	border: 1px solid lightgrey;
-	margin: 10px;
+	margin: 10px 0;
   width: 90vw;
 }
 
@@ -88,7 +88,7 @@
     }
   }
 	.quiz-entry {
-    width: 40vw;
+    width: 42vw;
 	}
 }
 
