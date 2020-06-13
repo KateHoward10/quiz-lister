@@ -64,26 +64,6 @@ div {
   color: green;
 }
 
-.field_with_errors {
-  label {
-    color: red;
-  }
-}
-
-#error_explanation {
-  width: 100%;
-  border: 2px solid red;
-  margin-bottom: 20px;
-}
-
-.error-list {
-  margin: 8px;
-}
-
-label {
-  display: block;
-}
-
 i {
   margin: 5px;
   &.green {

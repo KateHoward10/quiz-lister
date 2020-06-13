@@ -46,7 +46,7 @@
 
   <div class="field">
     <%= form.label :prize %>
-    <%= form.text_field :prize %>
+    <%= form.text_area :prize %>
     <small>Please describe any prize available for the winners, and if applicable 2nd and 3rd places.</small>
   </div>
 
@@ -72,7 +72,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :postcode %>
+    <%= form.label :postcode, "Postcode*" %>
     <div class="input-with-attachment">
       <%= form.text_field :postcode %>
       <button id="geocode_button" type="button"><%= fa_icon "search" %></button>
@@ -80,17 +80,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address, "Address*" %>
     <%= form.text_field :address %>
   </div>
 
   <div class="field field-row">
     <div class="half-field">
-      <%= form.label :latitude %>
+      <%= form.label :latitude, "Latitude*" %>
       <%= form.text_field :latitude, readonly: true %>
     </div>
     <div class="half-field">
-      <%= form.label :longitude %>
+      <%= form.label :longitude, "Longitude*" %>
       <%= form.text_field :longitude, readonly: true %>
     </div>
   </div>
