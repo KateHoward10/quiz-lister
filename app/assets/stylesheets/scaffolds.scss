@@ -43,7 +43,7 @@ a {
   color: #fff;
   text-decoration: none;
 
-  &:hover {
+  &:hover, &.normal-link {
     color: deepskyblue;
   }
 }
