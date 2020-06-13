@@ -1,11 +1,17 @@
 <main>
-  <h2>My Quizzes</h2>
-  <% if @quizzes.count == 0 %>
+  <div class="title-with-link">
+    <h2>My Quizzes</h2>
+    <%= link_to new_quiz_path, class: "icon-link" do %>
+      <%= fa_icon 'plus' %><span> New quiz</span>
+    <% end %>
+  </div>
+  <% if @quizzes.any? %>
+    <ul>
+      <% @quizzes.each do |quiz| %>
+        <%= render 'my_quiz', quiz: quiz %>
+      <% end %>
+    </ul>
+  <% else %>
     <h3>You have not created any quizzes yet</h3>
   <% end %>
-  <ul>
-    <% @quizzes.each do |quiz| %>
-      <%= render 'my_quiz', quiz: quiz %>
-    <% end %>
-  </ul>
 </main>

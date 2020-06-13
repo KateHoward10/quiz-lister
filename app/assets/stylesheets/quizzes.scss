@@ -78,6 +78,13 @@
 	justify-content: space-between;
 }
 
+.title-with-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (min-width: 720px) {
   #quiz_search {
     flex-direction: row;

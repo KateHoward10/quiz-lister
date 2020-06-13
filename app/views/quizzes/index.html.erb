@@ -1,11 +1,12 @@
 <main>
   <%= render 'filters' %>
-  <% if @quizzes.count == 0 %>
+  <% if @quizzes.any? %>
+    <ul class="picture-grid">
+      <% @quizzes.each do |quiz| %>
+        <%= render 'quiz', quiz: quiz %>
+      <% end %>
+    </ul>
+  <% else %>
     <h3>No quizzes found</h3>
   <% end %>
-  <ul class="picture-grid">
-    <% @quizzes.each do |quiz| %>
-      <%= render 'quiz', quiz: quiz %>
-    <% end %>
-  </ul>
 </main>

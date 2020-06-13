@@ -6,9 +6,7 @@
       <span class="quiz-time"><%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %></span>
     </div>
   <% end %>
-  <%= link_to edit_quiz_path(quiz) do %>
-    <div class="icon-link" title="Edit">
-      <%= fa_icon "edit" %><span> Edit</span>
-    </div>
+  <%= link_to edit_quiz_path(quiz), class: "icon-link" do %>
+    <%= fa_icon "edit" %><span> Edit</span>
   <% end %>
 </li>
