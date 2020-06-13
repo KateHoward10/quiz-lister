@@ -17,7 +17,7 @@
     <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Account</span></h3>
     <div id="user-menu">
       <% if user_signed_in? %>
-        <span class="icon-link"><%= fa_icon "user" %> <%= current_user.email %></span>
+        <span class="icon-link"><%= fa_icon "user" %> <%= truncate(current_user.email, length: 25) %></span>
         <%= link_to my_quizzes_path do %>
           <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
         <% end %>
