@@ -19,6 +19,9 @@ nav {
 .account-menu {
   position: relative;
   cursor: pointer;
+  &:hover {
+    color: deepskyblue;
+  }
 }
 
 #user-menu {
