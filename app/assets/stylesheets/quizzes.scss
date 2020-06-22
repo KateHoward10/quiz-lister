@@ -39,12 +39,6 @@
 	flex-wrap: wrap;
 }
 
-.picture-grid:hover .quiz-link:not(:hover) {
-	transition: 0.2s ease-in;
-	filter: greyscale(1);
-	opacity: 0.8;
-}
-
 .quiz-entry {
 	border: 1px solid lightgrey;
 	margin: 10px 0;

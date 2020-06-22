@@ -5,12 +5,12 @@ function passwordFeedback() {
 
   if (passwordInput) {
     passwordInput.addEventListener('input', e => {
-      e.target.style = `background-color: hsl(${Math.min(e.target.value.length * 10, 120)},100%,40%)`;
+      e.target.style = `background-color: hsl(${Math.min(e.target.value.length * 10, 120)},100%,60%)`;
     });
 
     if (passwordConfirmation && confirmIcons) passwordConfirmation.addEventListener('input', e => {
-      confirmIcons.forEach(icon => icon.style = `display: ${passwordInput.value === e.target.value ? 'flex' : 'none'}`);
-      e.target.style = `background-color: ${passwordInput.value === e.target.value ? `hsl(${Math.min(e.target.value.length * 10, 120)},100%,40%)` : '#fff'}`;
+      confirmIcons.forEach(icon => icon.style = `display: ${passwordInput.value === e.target.value ? 'inline' : 'none'}`);
+      e.target.style = `background-color: ${passwordInput.value === e.target.value ? `hsl(${Math.min(e.target.value.length * 10, 120)},100%,60%)` : '#fff'}`;
     });
   }
 }
