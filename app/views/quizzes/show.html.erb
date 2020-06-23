@@ -70,7 +70,7 @@
   </div>
 
   <div id="map_container">
-    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:large%7Ccolor:red%7C#{@quiz.latitude},#{@quiz.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map", id: "map" %>
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:large%7Ccolor:red%7C#{@quiz.latitude},#{@quiz.longitude}&key=#{ENV['GOOGLE_MAPS']}", alt: "Map", id: "map" %>
   </div>
 </main>
 

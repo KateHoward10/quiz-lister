@@ -1,5 +1,6 @@
 <% provide :head_tags do %>
   <meta name='turbolinks-visit-control' content='reload'>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS']}&libraries=places" %>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       displayBigMap(<%= @locations.to_json.html_safe %>)

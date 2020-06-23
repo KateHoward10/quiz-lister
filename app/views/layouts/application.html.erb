@@ -7,7 +7,6 @@
     <%= csp_meta_tag %>
     <%= yield(:head_tags) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key+'&libraries=places' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('apple-touch-icon.png'), rel: "apple-touch-icon", sizes: "180x180" %>
     <%= favicon_link_tag asset_path('favicon-32x32.png'), rel: "icon", type: "image/png", sizes: "32x32" %>
