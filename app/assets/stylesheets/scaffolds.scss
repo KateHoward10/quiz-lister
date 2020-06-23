@@ -94,10 +94,26 @@ i {
   flex-direction: row;
   align-items: center;
   span {
+    padding-right: 3px;
     @media screen and (max-width: 480px) {
       display: none;
     }
   }
+}
+
+.action {
+  background-color: #eee;
+  color: #111;
+  justify-content: center;
+  &:hover {
+    color: #111;
+    font-weight: bold;
+    box-shadow: 0 0 10px grey;
+  }
+}
+
+.margin {
+  margin: 0.5rem;
 }
 
 footer {
