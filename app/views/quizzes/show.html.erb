@@ -65,7 +65,9 @@
       <% end %>
     </ul>
     <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
-      <%= link_to 'Edit Quiz', edit_quiz_path(@quiz) %>
+      <%= link_to edit_quiz_path(@quiz) do %>
+        <%= fa_icon "edit" %><span> Edit</span>
+      <% end %>
     <% end %>
   </div>
 

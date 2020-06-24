@@ -22,7 +22,7 @@
 </div>
 <%= search_form_for @search do |f| %>
   <div class="filter">
-    <%= f.search_field :venue_cont, placeholder: "Search venues", onchange: 'this.form.submit()' %>
+    <%= f.text_field :venue_cont, placeholder: "Search venues", onchange: 'this.form.submit()' %>
     <%= button_tag do %>
       <%= fa_icon "search" %>
     <% end %>

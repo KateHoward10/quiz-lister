@@ -1,8 +1,9 @@
 <div class="form-container">
+  <div class="buttons-container">
+    <%= link_to @quiz do %>
+      <%= fa_icon "arrow-left", class: "fa-lg grey" %>
+    <% end %>
+  </div>
   <h1>Edit <%= @quiz.venue %></h1>
-
   <%= render 'form', quiz: @quiz %>
-
-  <%= link_to 'Show', @quiz %>
-  <%= link_to 'Back', quizzes_path %>
 </div>
