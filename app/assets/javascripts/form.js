@@ -5,6 +5,29 @@ function initForm() {
   const latInput = document.getElementById('quiz_latitude');
   const lngInput = document.getElementById('quiz_longitude');
   const geocodeButton = document.getElementById('geocode_button');
+  
+  function displayMap(lat, lng) {
+    const coords = new google.maps.LatLng(lat, lng);
+  
+    const mapOptions = {
+      center: coords,
+      zoom: 14
+    };
+  
+    const mapContainer = document.getElementById('map_container');
+    const venueMap = document.createElement('div');
+    venueMap.id = 'map';
+    const map = new google.maps.Map(venueMap, mapOptions);
+  
+    const marker = new google.maps.Marker({
+      position: coords,
+      map: map
+    });
+  
+    google.maps.event.addListener(map, 'tilesloaded', () => window.scroll(0, 0));
+  
+    mapContainer.appendChild(venueMap);
+  }
 
   if (latInput.value && lngInput.value) {
     displayMap(latInput.value, lngInput.value);
