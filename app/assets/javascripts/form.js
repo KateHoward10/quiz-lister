@@ -5,9 +5,13 @@ function initForm() {
   const latInput = document.getElementById('quiz_latitude');
   const lngInput = document.getElementById('quiz_longitude');
   const geocodeButton = document.getElementById('geocode_button');
+  const dateContainer = document.getElementById('date_container');
+  const hiddenDateInput = document.getElementById('quiz_dates');
+  const dateInput = document.getElementById('date_input');
+  const addDateButton = document.getElementById('add_date');
   
-  function displayMap(lat, lng) {
-    const coords = new google.maps.LatLng(lat, lng);
+  if (latInput.value && lngInput.value) {
+    const coords = new google.maps.LatLng(latInput.value, lngInput.value);
   
     const mapOptions = {
       center: coords,
@@ -24,13 +28,7 @@ function initForm() {
       map: map
     });
   
-    google.maps.event.addListener(map, 'tilesloaded', () => window.scroll(0, 0));
-  
     mapContainer.appendChild(venueMap);
-  }
-
-  if (latInput.value && lngInput.value) {
-    displayMap(latInput.value, lngInput.value);
   }
 
   function getCoordsFromPostcode() {
@@ -81,5 +79,12 @@ function initForm() {
     lngInput.value = newlng;
   }
 
+  function addDate() {
+    if (dateInput.value) {
+      hiddenDateInput.value = hiddenDateInput.value + " " + dateInput.value;
+    }
+  }
+
   geocodeButton.addEventListener('click', getCoordsFromPostcode);
+  addDateButton.addEventListener('click', addDate);
 }
