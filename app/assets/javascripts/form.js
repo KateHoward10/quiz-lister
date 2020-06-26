@@ -4,11 +4,9 @@ function initForm() {
   const addressInput = document.getElementById('quiz_address');
   const latInput = document.getElementById('quiz_latitude');
   const lngInput = document.getElementById('quiz_longitude');
-  const geocodeButton = document.getElementById('geocode_button');
   const dateContainer = document.getElementById('date_container');
   const hiddenDateInput = document.getElementById('quiz_dates');
   const dateInput = document.getElementById('date_input');
-  const addDateButton = document.getElementById('add_date');
   
   if (latInput.value && lngInput.value) {
     const coords = new google.maps.LatLng(latInput.value, lngInput.value);
@@ -79,16 +77,29 @@ function initForm() {
     lngInput.value = newlng;
   }
 
+  function removeDate(e) {
+    console.log(e.currentTarget);
+    hiddenDateInput.value = hiddenDateInput.value.split(' ').filter(date => date !== e.currentTarget.value).join(' ');
+    e.currentTarget.parentElement.remove();
+  }
+
   function addDate() {
     if (dateInput.value) {
       const date = dateInput.value;
       hiddenDateInput.value = hiddenDateInput.value + ' ' + date;
-      const dateElem = document.createElement('small');
-      dateElem.textContent = (new Date(date)).toLocaleDateString('en-GB', { weekday: 'short', year: '2-digit', month: 'short', day: 'numeric' }).replace(',','');
-      dateContainer.appendChild(dateElem);
+      dateContainer.innerHTML += `
+        <p class="date-item">
+          ${(new Date(date)).toLocaleDateString('en-GB', { weekday: 'short', year: '2-digit', month: 'short', day: 'numeric' }).replace(',','')}
+          <button class="remove-date" type="button" value=${date}>
+            <i class="fa fa-times red"></i>
+          </button>
+        </p>
+      `;
+      dateContainer.querySelectorAll('.remove-date').forEach(button => button.addEventListener('click', removeDate));
     }
   }
 
-  geocodeButton.addEventListener('click', getCoordsFromPostcode);
-  addDateButton.addEventListener('click', addDate);
+  document.getElementById('geocode_button').addEventListener('click', getCoordsFromPostcode);
+  document.getElementById('add_date').addEventListener('click', addDate);
+  dateContainer.querySelectorAll('.remove-date').forEach(button => button.addEventListener('click', removeDate));
 }
