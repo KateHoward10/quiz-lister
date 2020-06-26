@@ -81,7 +81,11 @@ function initForm() {
 
   function addDate() {
     if (dateInput.value) {
-      hiddenDateInput.value = hiddenDateInput.value + " " + dateInput.value;
+      const date = dateInput.value;
+      hiddenDateInput.value = hiddenDateInput.value + ' ' + date;
+      const dateElem = document.createElement('small');
+      dateElem.textContent = (new Date(date)).toLocaleDateString('en-GB', { weekday: 'short', year: '2-digit', month: 'short', day: 'numeric' }).replace(',','');
+      dateContainer.appendChild(dateElem);
     }
   }
 
