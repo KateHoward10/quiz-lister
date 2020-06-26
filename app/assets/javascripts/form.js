@@ -78,7 +78,6 @@ function initForm() {
   }
 
   function removeDate(e) {
-    console.log(e.currentTarget);
     hiddenDateInput.value = hiddenDateInput.value.split(' ').filter(date => date !== e.currentTarget.value).join(' ');
     e.currentTarget.parentElement.remove();
   }
