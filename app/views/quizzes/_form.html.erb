@@ -1,5 +1,6 @@
 <% provide :head_tags do %>
   <meta name='turbolinks-visit-control' content='reload'>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS']}&libraries=places" %>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       initForm()
@@ -75,7 +76,9 @@
     <%= form.label :postcode, "Postcode*" %>
     <div class="input-with-attachment">
       <%= form.text_field :postcode %>
-      <button id="geocode_button" type="button"><%= fa_icon "search" %></button>
+      <%= button_tag id: "geocode_button", type: "button" do %>
+        <%= fa_icon "search" %>
+      <% end %>
     </div>
   </div>
 
@@ -95,8 +98,30 @@
     </div>
   </div>
 
-
   <div id="map_container">
+  </div>
+
+  <div class="field">
+    <%= form.label :dates %>
+    <div id="date_container">
+      <% form.object.dates.each do |date| %>
+        <p class="date-item">
+          <%= date.strftime("%a %e %b %y") %>
+          <%= button_tag class: "remove-date", type: "button", value: date do %>
+            <%= fa_icon "times", class: "red" %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+    <%= form.hidden_field :dates %>
+
+    <div class="input-with-attachment">
+      <input type="date" id="date_input" />
+      <%= button_tag id: "add_date", type: "button" do %>
+        <%= fa_icon "plus" %>
+      <% end %>
+    </div>
+    <small>Add dates to the list to let users know when the quiz is definitely on.</small>
   </div>
 
   <% if !current_user.admin %>

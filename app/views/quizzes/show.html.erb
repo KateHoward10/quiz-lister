@@ -64,6 +64,14 @@
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
     </ul>
+    <% if @quiz.dates.any? %>
+      <h3>Upcoming quizzes at <%= @quiz.venue %></h3>
+      <ul>
+        <% @quiz.dates.each do |date| %>
+          <li><%= fa_icon "calendar-check-o" %> <%= date.strftime("%a %e %b %y") %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
       <%= link_to edit_quiz_path(@quiz) do %>
         <%= fa_icon "edit" %><span> Edit</span>
