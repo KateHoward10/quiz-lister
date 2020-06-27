@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_131430) do
+ActiveRecord::Schema.define(version: 2020_06_27_145627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_27_131430) do
 
   create_table "favorites", force: :cascade do |t|
     t.string "favoritable_type", null: false
-    t.bigint "favoritable_id", null: false
+    t.uuid "favoritable_id", null: false
     t.string "favoritor_type", null: false
     t.bigint "favoritor_id", null: false
     t.string "scope", default: "favorite", null: false
