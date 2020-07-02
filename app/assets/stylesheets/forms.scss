@@ -12,6 +12,12 @@ input:not([type=radio]), select {
 	background: #fff;
 }
 
+input[type=time], input[type=date] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
 input:not([type=radio]):not([type=checkbox]):not([type=submit]), textarea {
   width: calc(100% - 0.5rem);
 }
@@ -21,6 +27,8 @@ select {
 }
 
 textarea {
+  font-family: 'Courier', Helvetica, sans-serif;
+	font-size: 1rem;
   resize: none;
   height: 3rem;
   border-radius: 0;
