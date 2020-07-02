@@ -4,6 +4,7 @@
 
 .buttons-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
@@ -12,13 +13,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 22px;
 }
 
-#favourite_button {
-  font-size: 22px;
-  &:hover {
-    color: #fff;
-  }
+#favourite_button:hover {
+  color: #fff;
 }
 
 .favourite-number {

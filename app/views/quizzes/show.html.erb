@@ -15,7 +15,7 @@
       <% end %>
       <div class="button-row">
         <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
-          <%= link_to edit_quiz_path(@quiz), class: "icon-link action" do %>
+          <%= link_to edit_quiz_path(@quiz), class: "icon-link action margin" do %>
             <%= fa_icon "edit", class: "green" %><span> Edit</span>
           <% end %>
         <% end %>
