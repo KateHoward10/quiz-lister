@@ -1,8 +1,7 @@
-#map_container {
+.map-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
 }
 
 #map {
@@ -13,12 +12,6 @@
     max-width: 400px;
     max-height: 400px;
   }
-}
-
-#big-map-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #big-map {

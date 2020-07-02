@@ -1,6 +1,5 @@
 .details-container {
   width: 100%;
-  max-width: 600px;
 }
 
 .buttons-container {
@@ -9,15 +8,17 @@
   width: 100%;
 }
 
-.favourite-info {
-  font-size: 22px;
+.button-row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-#favourite_button:hover {
-  color: #fff;
+#favourite_button {
+  font-size: 22px;
+  &:hover {
+    color: #fff;
+  }
 }
 
 .favourite-number {
@@ -102,15 +103,15 @@
 @media screen and (min-width: 720px) {
 	.quiz-container {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
 		flex-direction: row;
-	}
-	.buttons-container {
-    padding-right: 20px;
-	}
+  }
+  .details-container {
+    max-width: 600px;
+    margin-right: 1rem;
+  }
 	.paper {
-    margin-right: 20px;
     clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
     .paper-turn {
       width: 5%;

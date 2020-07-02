@@ -13,7 +13,12 @@
       <%= link_to quizzes_path do %>
         <%= fa_icon "arrow-left", class: "fa-lg grey" %>
       <% end %>
-      <div class="favourite-info">
+      <div class="button-row">
+        <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
+          <%= link_to edit_quiz_path(@quiz), class: "icon-link action" do %>
+            <%= fa_icon "edit", class: "green" %><span> Edit</span>
+          <% end %>
+        <% end %>
         <% if user_signed_in? %>
           <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
             <% if current_user.favorited?(@quiz) %>
@@ -28,7 +33,7 @@
         <% if @quiz.favoritors.any? %>
           <span class="favourite-number" title="<%= pluralize(@quiz.favoritors.length, 'user')%> favourited this quiz"><%= @quiz.favoritors.length %></span>
         <% else %>
-        <span class="favourite-number">
+          <span class="favourite-number"></span>
         <% end %>
       </div>
     </div>
@@ -72,14 +77,9 @@
         <% end %>
       </ul>
     <% end %>
-    <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
-      <%= link_to edit_quiz_path(@quiz) do %>
-        <%= fa_icon "edit" %><span> Edit</span>
-      <% end %>
-    <% end %>
   </div>
 
-  <div id="map_container">
+  <div class="map-container">
     <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:large%7Ccolor:red%7C#{@quiz.latitude},#{@quiz.longitude}&key=#{ENV['GOOGLE_MAPS']}", alt: "Map", id: "map" %>
   </div>
 </main>
