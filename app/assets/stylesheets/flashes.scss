@@ -1,13 +1,15 @@
 .alert {
-  max-width: 1080px;
-  margin: auto;
-  margin-top: 0.5rem;
+  margin: 0.5rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  @media screen and (min-width: 480px) {
+    max-width: 1080px;
+    margin: 0.5rem auto;
+  }
 }
 
 .alert-error {
