@@ -107,9 +107,9 @@
   <div class="field">
     <%= form.label :dates %>
     <div id="date_container">
-      <% form.object.dates.each do |date| %>
+      <% quiz.events.each do |event| %>
         <p class="date-item">
-          <%= date.strftime("%a %e %b %y") %>
+          <%= event.date.strftime("%a %e %b %y") %>
           <%= button_tag class: "remove-date", type: "button", value: date do %>
             <%= fa_icon "times", class: "red" %>
           <% end %>

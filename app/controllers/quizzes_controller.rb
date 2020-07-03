@@ -74,12 +74,8 @@ class QuizzesController < ApplicationController
       end
     end
   
-    def format_dates
-      params.dig(:quiz, :dates).split(" ")
-    end
-  
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:venue, :day, :frequency, :time, :price, :prize, :status, :link, :postcode, :latitude, :longitude, :address).merge({dates: format_dates})
+      params.require(:quiz).permit(:venue, :day, :frequency, :time, :price, :prize, :status, :link, :postcode, :latitude, :longitude, :address)
     end
 end

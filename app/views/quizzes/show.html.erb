@@ -69,11 +69,11 @@
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
     </ul>
-    <% if @quiz.dates.any? %>
+    <% if @quiz.events.any? %>
       <h3>Upcoming quizzes at <%= @quiz.venue %></h3>
       <ul>
-        <% @quiz.dates.each do |date| %>
-          <li><%= fa_icon "calendar-check-o" %> <%= date.strftime("%a %e %b %y") %></li>
+        <% @quiz.events.each do |event| %>
+          <li><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></li>
         <% end %>
       </ul>
     <% end %>
