@@ -2,17 +2,22 @@ class EventsController < ApplicationController
   before_action :set_quiz
   before_action :require_quiz_owner!
 
+  def index
+  end
+
   def create
     @event = @quiz.events.create(event_params)
-    if @event.save
-      redirect_to @quiz
+    if @event.valid?
+      @event.save
+      render :index, status: :created
     else
-      flash.now[:alert] = @event.errors.full_messages.join(" ")
+      flash.now[:error] = @event.errors.full_messages.join(" ")
+      render :index, status: :unprocessable_entity
     end
   end
 
   def destroy
-    Event.find(params[:id]).destroy
+    Event.find_by!(id: params[:id], quiz_id: params[:quiz_id]).destroy
   end
 
   private
