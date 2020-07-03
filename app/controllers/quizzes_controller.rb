@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite, :add_date]
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_same_user!, only: [:update, :edit, :destroy]
 
