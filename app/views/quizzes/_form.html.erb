@@ -8,107 +8,111 @@
   </script>
 <% end %>
 
-<%= form_with(model: quiz, local: true) do |form| %>
-  <% if quiz.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% quiz.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<%= form_with(model: quiz, local: true, class: "wide-form") do |form| %>
+  <div class="form-container">
+    <% if quiz.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% quiz.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :venue, "Name of venue*" %>
+      <%= form.text_field :venue %>
+    </div>
+
+    <div class="field">
+      <%= form.label :day %>
+      <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], value: quiz.day || "Monday" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :frequency %>
+      <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time %>
+      <%= form.time_field :time, value: form.object.time && form.object.time.to_datetime ? form.object.time.to_datetime.strftime("%H:%M") : "20:00" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <div class="input-with-attachment">
+        <div class="currency-marker">£</div>
+        <%= form.number_field :price, value: number_to_currency(form.object.price.to_f, delimiter: '', unit: ''), step: 0.1 %>
+      </div>
+      <small>Please enter the price per person in GBP.</small>
+    </div>
+
+    <div class="field">
+      <%= form.label :prize %>
+      <%= form.text_area :prize %>
+      <small>Please describe any prize available for the winners, and if applicable 2nd and 3rd places.</small>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <div class="field-row">
+        <%= form.label :status, value: "active" do %>
+          <%= form.radio_button :status, "active" %> Active
         <% end %>
-      </ul>
+        <%= form.label :status, value: "not active" do %>
+          <%= form.radio_button :status, "not active" %> Not active
+        <% end %>
+        <%= form.label :status, value: "unknown" do %>
+          <%= form.radio_button :status, "unknown" %> Unknown
+        <% end %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :venue, "Name of venue*" %>
-    <%= form.text_field :venue %>
-  </div>
-
-  <div class="field">
-    <%= form.label :day %>
-    <%= form.select :day, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], value: quiz.day || "Monday" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :frequency %>
-    <%= form.select :frequency, ["weekly", "biweekly", "monthly", "occasional"] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.time_field :time, value: form.object.time && form.object.time.to_datetime ? form.object.time.to_datetime.strftime("%H:%M") : "20:00" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <div class="input-with-attachment">
-      <div class="currency-marker">£</div>
-      <%= form.number_field :price, value: number_to_currency(form.object.price.to_f, delimiter: '', unit: ''), step: 0.1 %>
-    </div>
-    <small>Please enter the price per person in GBP.</small>
-  </div>
-
-  <div class="field">
-    <%= form.label :prize %>
-    <%= form.text_area :prize %>
-    <small>Please describe any prize available for the winners, and if applicable 2nd and 3rd places.</small>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <div class="field-row">
-      <%= form.label :status, value: "active" do %>
-        <%= form.radio_button :status, "active" %> Active
-      <% end %>
-      <%= form.label :status, value: "not active" do %>
-        <%= form.radio_button :status, "not active" %> Not active
-      <% end %>
-      <%= form.label :status, value: "unknown" do %>
-        <%= form.radio_button :status, "unknown" %> Unknown
-      <% end %>
+    <div class="field">
+      <%= form.label :link %>
+      <%= form.text_field :link %>
+      <small>Please provide a link to your website or social media page where users can find out more.</small>
     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-    <small>Please provide a link to your website or social media page where users can find out more.</small>
-  </div>
-
-  <div class="field">
-    <%= form.label :postcode, "Postcode*" %>
-    <div class="input-with-attachment">
-      <%= form.text_field :postcode %>
-      <%= button_tag id: "geocode_button", type: "button" do %>
-        <%= fa_icon "search" %>
-      <% end %>
+  <div class="form-container">
+    <div class="field">
+      <%= form.label :postcode, "Postcode*" %>
+      <div class="input-with-attachment">
+        <%= form.text_field :postcode %>
+        <%= button_tag id: "geocode_button", type: "button" do %>
+          <%= fa_icon "search" %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <%= form.label :address, "Address*" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field field-row">
-    <div class="half-field">
-      <%= form.label :latitude, "Latitude*" %>
-      <%= form.text_field :latitude, readonly: true %>
+    <div class="field">
+      <%= form.label :address, "Address*" %>
+      <%= form.text_field :address %>
     </div>
-    <div class="half-field">
-      <%= form.label :longitude, "Longitude*" %>
-      <%= form.text_field :longitude, readonly: true %>
+
+    <div class="field field-row">
+      <div class="half-field">
+        <%= form.label :latitude, "Latitude*" %>
+        <%= form.text_field :latitude, readonly: true %>
+      </div>
+      <div class="half-field">
+        <%= form.label :longitude, "Longitude*" %>
+        <%= form.text_field :longitude, readonly: true %>
+      </div>
     </div>
-  </div>
 
-  <div id="map_container">
-  </div>
-
-  <% if !current_user.admin %>
-    <div class="checkbox-label">
-      <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page, so that users can contact you about the quiz.</label>
+    <div id="map_container">
     </div>
-  <% end %>
 
-  <%= form.submit %>
+    <% if !current_user.admin %>
+      <div class="checkbox-label">
+        <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page, so that users can contact you about the quiz.</label>
+      </div>
+    <% end %>
+
+    <%= form.submit %>
+  </div>
 <% end %>

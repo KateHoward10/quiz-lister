@@ -1,9 +1,11 @@
-<div class="form-container">
-  <div class="buttons-container">
-    <%= link_to my_quizzes_path do %>
-      <%= fa_icon "arrow-left", class: "fa-lg grey" %>
-    <% end %>
+<main>
+  <div class="wide-form-container">
+    <div class="buttons-container">
+      <%= link_to my_quizzes_path do %>
+        <%= fa_icon "arrow-left", class: "fa-lg grey" %>
+      <% end %>
+    </div>
+    <h1>New Quiz</h1>
+    <%= render 'form', quiz: @quiz %>
   </div>
-  <h1>New Quiz</h1>
-  <%= render 'form', quiz: @quiz %>
-</div>
+</main>

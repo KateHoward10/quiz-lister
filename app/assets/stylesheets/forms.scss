@@ -61,9 +61,22 @@ input[type=checkbox] {
   margin: 1.5rem 0;
 }
 
-.form-container {
+.wide-form-container {
   max-width: 400px;
   margin: auto;
+}
+
+.wide-form {
+  padding: 0;
+  .form-container {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,11 +143,8 @@ input[type=checkbox] {
 
 .currency-marker {
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #000;
-  font-size: 22px;
+  font-size: 20px;
   padding: 3px;
 }
 
@@ -164,7 +174,6 @@ input[type=checkbox] {
 }
 
 #error_explanation {
-  width: 100%;
   border: 2px solid red;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -182,4 +191,16 @@ label {
   .field {
     width: 400px;
   }
+}
+
+@media screen and (min-width: 900px) {
+  .wide-form-container {
+    max-width: 860px;
+  }
+  .wide-form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }  
 }
