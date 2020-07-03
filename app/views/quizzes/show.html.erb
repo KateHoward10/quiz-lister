@@ -3,6 +3,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       setFavourite()
+      setAttending()
     });
   </script>
 <% end %>
@@ -78,7 +79,7 @@
         <% @quiz.events.each do |event| %>
           <li class="date-item">
             <span><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
-            <%= link_to toggle_attending_quiz_event_path(@quiz, event.id), remote: true, method: :post, class: "icon-link" do %>
+            <%= link_to toggle_attending_quiz_event_path(@quiz, event.id), remote: true, method: :post, class: "attending-toggle icon-link" do %>
               <% if event.in?(current_user.events) %>
                 <%= fa_icon "check", class: "green" %><span> Attending</span>
               <% else %>
