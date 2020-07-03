@@ -76,7 +76,12 @@
       <h3>Upcoming events at <%= @quiz.venue %></h3>
       <ul>
         <% @quiz.events.each do |event| %>
-          <li><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></li>
+          <li class="date-item">
+            <span><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
+            <%= link_to @quiz, class: "icon-link" do %>
+              <%= fa_icon "check", class: "green" %><span> Attend</span>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     <% end %>
