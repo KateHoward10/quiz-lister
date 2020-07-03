@@ -10,6 +10,11 @@ function setDates() {
 
 function setAttending() {
   document.querySelectorAll('.attending-toggle').forEach(toggle => toggle.addEventListener('ajax:success', () => {
-    toggle.innerHTML = toggle.firstElementChild.classList.contains('green') ? '<span>Attend</span>' : '<i class="fa fa-check green"></i><span> Attending</span>';
+    const isUnattending = toggle.firstElementChild.classList.contains('green');
+    toggle.innerHTML = isUnattending ? '<i class="fa fa-calendar-o"></i>' : '<i class="fa fa-calendar-check-o green"></i>';
+    const attendeeCount = toggle.parentElement.parentElement.querySelector('.attendee-count');
+    if (attendeeCount) {
+      attendeeCount.textContent = (+attendeeCount.textContent + (isUnattending ? -1 : 1)) || "0";
+    }
   }));
 }

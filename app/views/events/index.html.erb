@@ -19,7 +19,7 @@
     <% @quiz.events.each do |event| %>
       <% if event.id? %>
         <div class="date-item">
-          <span><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
+          <span><%= fa_icon "calendar-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
           <%= link_to quiz_event_path(@quiz, event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, remote: true, class: "remove-date" do %>
             <%= fa_icon "times", class: "red" %>
           <% end %>

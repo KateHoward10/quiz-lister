@@ -1,0 +1,26 @@
+<% if quiz.events.any? %>
+  <h3>Upcoming events at <%= quiz.venue %></h3>
+  <ul>
+    <% quiz.events.each do |event| %>
+      <li class="date-item">
+        <span>
+          <% if user_signed_in? %>
+            <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "attending-toggle" do %>
+              <% if event.in?(current_user.events) %>
+                <%= fa_icon "calendar-check-o", class: "green" %>
+              <% else %>
+                <%= fa_icon "calendar-o" %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= fa_icon "calendar-o" %>
+          <% end %>
+          <%= event.date.strftime("%a %e %b %y") %>
+        </span>
+        <% if event.users.any? %>
+          <small><%= fa_icon "users" %><span class="attendee-count"><%= event.users.count %></span> attending</small>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
