@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
-	border: 1px solid lightgrey;
-	box-shadow: 0 0 10px grey;
+  margin-bottom: 1rem;
+	box-shadow: 0 0 0.5rem grey;
+  border-radius: 5px;
+  background-color: #111;
 }
