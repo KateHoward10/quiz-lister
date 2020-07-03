@@ -1,6 +1,7 @@
 class Quiz < ApplicationRecord
   acts_as_favoritable
   belongs_to :user, optional: true
+  has_many :events
   validates :venue, :postcode, :latitude, :longitude, presence: true
   validates_uniqueness_of :venue
   validate :check_bristol_postcode
