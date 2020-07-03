@@ -1,4 +1,11 @@
 <footer>
-  <span>© <%= Time.current.year %> Kate Howard</span>
-  <a href="mailto:brizquizlist@gmail.com"><%= fa_icon 'envelope' %>Contact</a>
+  <div class="footer-inner">
+    <span>© <%= Time.current.year %> Kate Howard</span>
+    <div>
+      <%= link_to "/about", title: "About" do %>
+        <%= fa_icon "info-circle", class: "fa-lg" %>About
+      <% end %>
+      <a href="mailto:brizquizlist@gmail.com" class="margin"><%= fa_icon 'envelope' %>Contact</a>
+    </div>
+  </div>
 </footer

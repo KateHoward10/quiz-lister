@@ -1,15 +1,21 @@
 nav {
-	background-color: #5800cc;
+  background-color: #8a0f4d;
+  background: linear-gradient(#8a0f4d, #b81466);
 	padding: 0 2vw;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 1080px;
+  margin: auto;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
   text-align: center;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 100;
 }
 
 .nav-link {
@@ -45,8 +51,5 @@ nav {
 @media screen and (min-width: 480px) {
   .nav-link {
     display: initial;
-  }
-	#home-icon {
-		display: none;
   }
 }
