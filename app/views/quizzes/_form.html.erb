@@ -104,29 +104,6 @@
   <div id="map_container">
   </div>
 
-  <div class="field">
-    <%= form.label :dates %>
-    <div id="date_container">
-      <% quiz.events.each do |event| %>
-        <p class="date-item">
-          <%= event.date.strftime("%a %e %b %y") %>
-          <%= button_tag class: "remove-date", type: "button", value: date do %>
-            <%= fa_icon "times", class: "red" %>
-          <% end %>
-        </p>
-      <% end %>
-    </div>
-    <%= form.hidden_field :dates %>
-
-    <div class="input-with-attachment">
-      <input type="date" id="date_input" />
-      <%= button_tag id: "add_date", type: "button" do %>
-        <%= fa_icon "plus" %>
-      <% end %>
-    </div>
-    <small>Add dates to the list to let users know when the quiz is definitely on.</small>
-  </div>
-
   <% if !current_user.admin %>
     <div class="checkbox-label">
       <label><%= form.check_box :display_email, required: true %>Tick this box if you are happy for your email address to be displayed on the quiz listing page, so that users can contact you about the quiz.</label>

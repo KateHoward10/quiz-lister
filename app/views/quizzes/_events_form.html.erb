@@ -1,0 +1,21 @@
+<h3>Dates</h3>
+<div id="date_container">
+  <% quiz.events.each do |event| %>
+    <p class="date-item">
+      <%= event.date.strftime("%a %e %b %y") %>
+      <%= link_to quiz_event_path(quiz, event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, remote: true, class: "remove-date" do %>
+        <%= fa_icon "times", class: "red" %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<%= form_with(model: [quiz, quiz.events.build]) do |f| %>
+  <div class="input-with-attachment">
+    <%= f.date_field :date %>
+    <%= button_tag id: "add_date" do %>
+      <%= fa_icon "plus" %>
+    <% end %>
+  </div>
+  <small>Add dates to the list to let users know when the quiz is definitely on.</small>
+<% end %>

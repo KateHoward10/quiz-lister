@@ -3,6 +3,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       setFavourite()
+      setDates()
     });
   </script>
 <% end %>
@@ -69,7 +70,9 @@
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
     </ul>
-    <% if @quiz.events.any? %>
+    <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
+      <%= render 'events_form', quiz: @quiz %>
+    <% elsif @quiz.events.any? %>
       <h3>Upcoming quizzes at <%= @quiz.venue %></h3>
       <ul>
         <% @quiz.events.each do |event| %>
