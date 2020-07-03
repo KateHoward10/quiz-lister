@@ -124,6 +124,15 @@ input[type=checkbox] {
   }
 }
 
+.currency-marker {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 22px;
+  padding: 3px;
+}
 
 .date-item {
   display: flex;
