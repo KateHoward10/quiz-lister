@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :quizzes do
     resources :events, only: [:index, :create, :destroy] do
       member do
-        post "add_attendee", to: "events#add_attendee"
+        post "toggle_attending", to: "events#toggle_attending"
       end
     end
     member do

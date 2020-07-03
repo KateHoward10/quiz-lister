@@ -78,8 +78,12 @@
         <% @quiz.events.each do |event| %>
           <li class="date-item">
             <span><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
-            <%= link_to add_attendee_quiz_event_path(@quiz, event.id), remote: true, method: :post, class: "icon-link" do %>
-              <%= fa_icon "check", class: "green" %><span> Attend</span>
+            <%= link_to toggle_attending_quiz_event_path(@quiz, event.id), remote: true, method: :post, class: "icon-link" do %>
+              <% if event.in?(current_user.events) %>
+                <%= fa_icon "check", class: "green" %><span> Attending</span>
+              <% else %>
+                <span>Attend</span>
+              <% end %>
             <% end %>
           </li>
         <% end %>
