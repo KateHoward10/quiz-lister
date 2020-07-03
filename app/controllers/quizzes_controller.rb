@@ -69,7 +69,7 @@ class QuizzesController < ApplicationController
 
     def require_same_user!
       if !current_user.try(:admin?) && current_user != @quiz.user
-        redirect_to quiz_path(@quiz)
+        redirect_to @quiz
         flash[:alert] = "You can only edit or delete your own quizzes."
       end
     end
