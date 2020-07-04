@@ -1,21 +1,25 @@
 <li class="row-entry">
-  <%= link_to quiz, class: "quiz-link" do %>
+  <div class="quiz-link">
     <div class="icon-container" style="background-color: hsl(<%= quiz.hue %>, 50%, 50%)"><%= fa_icon "home", class: "fa-lg home" %></div>
-    <div class="quiz-details">
-      <span><%= quiz.venue %></span>
-      <span class="quiz-info">
-        <%= fa_icon "clock-o" %>
-        <%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %>
-      </span>
+    <div class="actions-container">
+      <div class="quiz-overview">
+        <%= link_to quiz.venue, quiz %>
+        <span class="quiz-info">
+          <%= fa_icon "clock-o" %>
+          <%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %>
+        </span>
+      </div>
+      <div class="actions">
+        <%= link_to quiz_events_path(quiz), class: "icon-link action margin" do %>
+          <%= fa_icon "calendar-o" %><span> Events</span>
+        <% end %>
+        <%= link_to edit_quiz_path(quiz), class: "icon-link action margin" do %>
+          <%= fa_icon "edit" %><span> Edit</span>
+        <% end %>
+        <%= link_to quiz_path(quiz), method: :delete, data: { confirm: "Are you sure you want to delete this quiz?" }, class: "icon-link action margin" do %>
+          <%= fa_icon "trash", class: "red" %><span> Delete</span>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-  <%= link_to quiz_events_path(quiz), class: "icon-link action margin" do %>
-    <%= fa_icon "calendar-o" %><span> Events</span>
-  <% end %>
-  <%= link_to edit_quiz_path(quiz), class: "icon-link action margin" do %>
-    <%= fa_icon "edit" %><span> Edit</span>
-  <% end %>
-  <%= link_to quiz_path(quiz), method: :delete, data: { confirm: "Are you sure you want to delete this quiz?" }, class: "icon-link action margin" do %>
-    <%= fa_icon "trash", class: "red" %><span> Delete</span>
-  <% end %>
+  </div>
 </li>
