@@ -1,7 +1,7 @@
-<% if quiz.events.any? %>
+<% if events.any? %>
   <h3>Upcoming events at <%= quiz.venue %></h3>
   <ul>
-    <% quiz.events.each do |event| %>
+    <% events.each do |event| %>
       <li class="date-item">
         <div class="event-details">
           <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>

@@ -13,10 +13,11 @@ class QuizzesController < ApplicationController
   end
 
   def calendar
-    @events = current_user.events.sort_by { |e| e.date }
+    @events = current_user.events.where("date >= ?", Date.today).sort_by { |e| e.date }
   end
 
   def show
+    @events = @quiz.events.where("date >= ?", Date.today).sort_by { |e| e.date }
   end
 
   def new

@@ -16,7 +16,7 @@
   <h1>Events at <%= @quiz.venue %></h1>
   <p>Add events here to let users know when the quiz is definitely on.</p>
   <div id="date_container">
-    <% @quiz.events.each do |event| %>
+    <% @events.each do |event| %>
       <% if event.id? %>
         <div class="date-item">
           <span><%= fa_icon "calendar-o" %> <%= event.date.strftime("%a %e %b %y") %></span>

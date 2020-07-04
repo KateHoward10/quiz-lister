@@ -73,7 +73,7 @@
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
     </ul>
-    <%= render 'events', quiz: @quiz %>
+    <%= render 'events', quiz: @quiz, events: @events %>
   </div>
 
   <div class="map-container">
