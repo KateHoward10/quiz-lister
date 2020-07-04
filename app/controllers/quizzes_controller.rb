@@ -12,6 +12,10 @@ class QuizzesController < ApplicationController
     @quizzes = current_user.try(:admin?) ? Quiz.all : current_user.quizzes
   end
 
+  def calendar
+    @events = current_user.events.sort_by { |e| e.date }
+  end
+
   def show
   end
 

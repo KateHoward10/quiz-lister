@@ -9,14 +9,14 @@
 
 <main>
   <h2>Favourites</h2>
-  <ul>
     <% if @favourites.any? %>
-      <% @favourites.each do |f| %>
-        <%= render 'favourite', favourite: f %>
-      <% end %>
+      <ul>
+        <% @favourites.each do |f| %>
+          <%= render 'favourite', favourite: f %>
+        <% end %>
+      </ul>
     <% else %>
       <p>You have no favourites yet.</p>
-      <p>To add some, click on the heart on individual quiz pages.</p>
+      <p>To add some, click the heart on individual quiz pages.</p>
     <% end %>
-  </ul>
 </main>
