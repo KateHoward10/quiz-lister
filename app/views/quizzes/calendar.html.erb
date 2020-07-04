@@ -1,20 +1,40 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      removeElement()
+    });
+  </script>
+<% end %>
+
 <main>
   <h2>Calendar</h2>
   <% if @events.any? %>
     <ul>
       <% @events.each do |event| %>
-        <li class="date-item">
-        <div class="event-details">
-          <%= fa_icon "calendar-check-o", class: "event-icon" %>
-          <div>
-            <%= event.date.strftime("%a %e %b %y") %>, <%= event.quiz.venue %>
-          </div>
-        </div>
-      </li>
+        <li class="row-entry">
+          <%= link_to event.quiz, class: "quiz-link" do %>
+            <div class="icon-container" style="background-color: hsl(<%= event.quiz.hue %>, 50%, 50%)"><%= fa_icon "calendar-check-o", class: "fa-lg home" %></div>
+            <div class="quiz-details">
+              <span><%= event.date.strftime("%a %e %b %y") %></span>
+              <small><%= event.quiz.venue %> • <%= event.users.count %> attending</small>
+            </div>
+          <% end %>
+          <%= link_to toggle_attending_quiz_event_path(event.quiz, event.id), remote: true, method: :post, class: "remove-button margin", data: { confirm: "Are you sure you want to remove this event from your calendar?" } do %>
+            <div class="toggle-container" title="Remove">
+              <%= fa_icon "times" %>
+            </div>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   <% else %>
     <p>You are not attending any events yet.</p>
-    <p>To add some to your calendar, click 'Attending' on individual quiz pages.</p>
+    <p>To add some to your calendar, click
+      <span class="icon-link action margin" style="display: inline">
+        <%= fa_icon "check", class: "grey" %>Attend
+      </span>
+      on individual quiz pages.
+    </p>
   <% end %>
 </main>
