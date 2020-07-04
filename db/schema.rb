@@ -67,8 +67,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_220546) do
     t.text "address"
     t.integer "hue"
     t.integer "user_id"
-    t.bigint "event_id"
-    t.index ["event_id"], name: "index_quizzes_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

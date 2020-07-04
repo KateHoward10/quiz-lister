@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_action :require_quiz_owner!, except: [:toggle_attending]
 
   def index
-    @events = @quiz.events.sort_by { |e| e.date }
   end
 
   def create
