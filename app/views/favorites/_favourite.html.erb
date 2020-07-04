@@ -3,7 +3,10 @@
     <div class="icon-container" style="background-color: hsl(<%= favourite.hue %>, 50%, 50%)"><%= fa_icon "heart", class: "fa-lg home" %></div>
     <div class="quiz-details">
       <span><%= favourite.venue %></span>
-      <span class="quiz-time"><%= favourite.day.slice(0,3) %><%= favourite.time ? ", #{favourite.time}" : "" %></span>
+      <span class="quiz-info">
+        <%= fa_icon "clock-o" %>
+        <%= favourite.day.slice(0,3) %><%= favourite.time ? ", #{favourite.time}" : "" %>
+      </span>
     </div>
   <% end %>
   <%= link_to toggle_favorite_quiz_path(favourite), remote: true, method: :post, class: "remove-button margin", data: { confirm: "Are you sure you want to unfavourite this quiz?" } do %>
