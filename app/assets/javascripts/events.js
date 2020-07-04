@@ -10,11 +10,14 @@ function setDates() {
 
 function setAttending() {
   document.querySelectorAll('.attending-toggle').forEach(toggle => toggle.addEventListener('ajax:success', () => {
-    const isUnattending = toggle.firstElementChild.classList.contains('green');
-    toggle.innerHTML = isUnattending ? '<i class="fa fa-calendar-o"></i>' : '<i class="fa fa-calendar-check-o green"></i>';
-    const attendeeCount = toggle.parentElement.parentElement.querySelector('.attendee-count');
-    if (attendeeCount) {
-      attendeeCount.textContent = (+attendeeCount.textContent + (isUnattending ? -1 : 1)) || "0";
-    }
+    const isAttending = toggle.firstElementChild.classList.contains('grey');
+    toggle.innerHTML = isAttending ? '<i class="fa fa-check green"></i><span>Attending</span>' : '<i class="fa fa-check grey"></i><span>Attend</span>';
+    const attendeeCount = toggle.parentElement.querySelector('.attendee-count');
+    const eventAttendees = toggle.parentElement.querySelector('.event-attendees');
+    const eventIcon = toggle.parentElement.querySelector('.event-icon');
+    const newCount = (attendeeCount ? +attendeeCount.textContent : 0) + (isAttending ? 1 : -1);
+    eventAttendees.innerHTML = newCount ? `<span class="attendee-count">${newCount}</span> attending` : '';
+    eventIcon.classList.toggle('fa-calendar-check-o');
+    eventIcon.classList.toggle('fa-calendar-o');
   }));
 }

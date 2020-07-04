@@ -3,22 +3,25 @@
   <ul>
     <% quiz.events.each do |event| %>
       <li class="date-item">
-        <span>
-          <% if user_signed_in? %>
-            <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "attending-toggle" do %>
-              <% if event.in?(current_user.events) %>
-                <%= fa_icon "calendar-check-o", class: "green" %>
-              <% else %>
-                <%= fa_icon "calendar-o" %>
+        <div class="event-details">
+          <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
+          <div>
+            <%= event.date.strftime("%a %e %b %y") %>
+            <small class="event-attendees">
+              <% if event.users.any? %>
+                <span class="attendee-count"><%= event.users.count %></span> attending
               <% end %>
+            </small>
+          </div>
+        </div>
+        <% if user_signed_in? %>
+          <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "icon-link action attending-toggle" do %>
+            <% if event.in?(current_user.events) %>
+              <%= fa_icon "check", class: "green" %><span>Attending</span>
+            <% else %>
+              <%= fa_icon "check", class: "grey" %><span>Attend</span>
             <% end %>
-          <% else %>
-            <%= fa_icon "calendar-o" %>
           <% end %>
-          <%= event.date.strftime("%a %e %b %y") %>
-        </span>
-        <% if event.users.any? %>
-          <small><%= fa_icon "users" %><span class="attendee-count"><%= event.users.count %></span> attending</small>
         <% end %>
       </li>
     <% end %>

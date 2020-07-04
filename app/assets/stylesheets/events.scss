@@ -2,3 +2,29 @@
   width: 100%;
   margin-bottom: 1rem;
 }
+
+.date-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 0.75rem;
+}
+
+.remove-date {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2rem;
+}
+
+.event-attendees {
+  display: block;
+  font-size: 12px;
+}
