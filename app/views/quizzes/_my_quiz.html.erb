@@ -6,8 +6,11 @@
       <span class="quiz-time"><%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %></span>
     </div>
   <% end %>
+  <%= link_to quiz_events_path(quiz), class: "icon-link action margin" do %>
+    <%= fa_icon "calendar-o" %><span> Events</span>
+  <% end %>
   <%= link_to edit_quiz_path(quiz), class: "icon-link action margin" do %>
-    <%= fa_icon "edit", class: "green" %><span> Edit</span>
+    <%= fa_icon "edit" %><span> Edit</span>
   <% end %>
   <%= link_to quiz_path(quiz), method: :delete, data: { confirm: "Are you sure you want to delete this quiz?" }, class: "icon-link action margin" do %>
     <%= fa_icon "trash", class: "red" %><span> Delete</span>

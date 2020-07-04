@@ -12,12 +12,12 @@ function setFavourite() {
   }
 }
 
-function removeFavourite() {
-  const unfavouriteButton = document.querySelector('.unfavourite_button');
+function removeElement() {
+  const removeButtons = document.querySelectorAll('.remove-button');
 
-  if (unfavouriteButton) {
-    unfavouriteButton.addEventListener('ajax:success', () => {
-      unfavouriteButton.parentElement.remove();
-    })
-  }
+  if (removeButtons) {
+    removeButtons.forEach(button => button.addEventListener('ajax:success', () => {
+      button.parentElement.remove();
+    }));
+  };
 }

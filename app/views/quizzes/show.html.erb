@@ -3,6 +3,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       setFavourite()
+      setAttending()
     });
   </script>
 <% end %>
@@ -16,10 +17,10 @@
       <div class="button-row">
         <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
           <%= link_to quiz_events_path(@quiz), class: "icon-link action margin" do %>
-            <%= fa_icon "calendar-check-o" %><span> Events</span>
+            <%= fa_icon "calendar-o" %><span> Events</span>
           <% end %>
           <%= link_to edit_quiz_path(@quiz), class: "icon-link action margin" do %>
-            <%= fa_icon "edit", class: "green" %><span> Edit</span>
+            <%= fa_icon "edit" %><span> Edit</span>
           <% end %>
         <% end %>
         <% if user_signed_in? %>
@@ -72,14 +73,7 @@
         <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
       <% end %>
     </ul>
-    <% if @quiz.events.any? %>
-      <h3>Upcoming events at <%= @quiz.venue %></h3>
-      <ul>
-        <% @quiz.events.each do |event| %>
-          <li><%= fa_icon "calendar-check-o" %> <%= event.date.strftime("%a %e %b %y") %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= render 'events', quiz: @quiz, events: @events %>
   </div>
 
   <div class="map-container">

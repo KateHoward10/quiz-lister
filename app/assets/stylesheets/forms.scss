@@ -145,19 +145,6 @@ input[type=checkbox] {
   padding: 3px;
 }
 
-.date-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
-}
-
-.remove-date {
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .confirm-icon {
   display: none;
   font-size: 14px;

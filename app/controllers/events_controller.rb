@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_quiz
-  before_action :require_quiz_owner!
+  before_action :authenticate_user!
+  before_action :require_quiz_owner!, except: [:toggle_attending]
 
   def index
   end
@@ -18,6 +19,15 @@ class EventsController < ApplicationController
 
   def destroy
     Event.find_by!(id: params[:id], quiz_id: params[:quiz_id]).destroy
+  end
+
+  def toggle_attending
+    @event = Event.find(params[:id])
+    if @event.in?(current_user.events)
+      @event.attendees.find_by!(user_id: current_user.id).destroy
+    else
+      @event.attendees.create(event_id: @event.id, user_id: current_user.id)
+    end
   end
 
   private

@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite, :add_date]
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_same_user!, only: [:update, :edit, :destroy]
 
@@ -12,7 +12,12 @@ class QuizzesController < ApplicationController
     @quizzes = current_user.try(:admin?) ? Quiz.all : current_user.quizzes
   end
 
+  def calendar
+    @events = current_user.events.where("date >= ?", Date.today).sort_by { |e| e.date }
+  end
+
   def show
+    @events = @quiz.events.where("date >= ?", Date.today).sort_by { |e| e.date }
   end
 
   def new
