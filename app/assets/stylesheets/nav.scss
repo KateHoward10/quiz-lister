@@ -22,31 +22,51 @@ nav {
   display: none;
 }
 
+.link-lg {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.account-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 150px;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.account-menu-marker {
+  width: 1.5rem;
+  height: 0.75rem;
+  margin: 0 1rem -1px;
+  background-color: #8a0f4d;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.account-menu-list {
+  text-align: left;
+  background-color: #8a0f4d;
+  color: #fff;
+  padding: 0.5rem;
+}
+
 .account-container {
   position: relative;
 }
 
 .account-link {
   cursor: pointer;
-  &:hover {
-    color: deepskyblue;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 0;
+  img {
+    border-radius: 50%;
   }
 }
 
-.account-menu {
-  display: none;
-  position: absolute;
-  text-align: left;
-  background-color: #8a0f4d;
-  color: #fff;
-  right: 0;
-  min-width: 150px;
-  margin-top: 2px;
-  padding: 0.5rem;
-}
-
 .account-container:hover .account-menu {
-  display: block;
+  display: flex;
 }
 
 @media screen and (min-width: 480px) {

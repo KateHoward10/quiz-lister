@@ -96,6 +96,10 @@ i {
   &.home {
     color: rgba(0, 0, 0, 0.4);
   }
+  &.fa-sm {
+    font-size: 0.75rem;
+    margin: 0;
+  }
 }
 
 .icon-link {

@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-inner">
     <%= link_to quizzes_path, title: "Home" do %>
-      <h2><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link">Briz Quiz List</span></h2>
+      <h2 class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link">Briz Quiz List</span></h2>
     <% end %>
     <%= link_to "/map", title: "Map" do %>
       <h3 style="<%= current_page?("/map") ? "color: deepskyblue" : "" %>"><%= fa_icon "map", class: "fa-lg" %><span class="nav-link">Map</span></h3>
@@ -16,28 +16,36 @@
     <% end %>
     <div class="account-container">
       <div class="account-link">
-        <h3><%= fa_icon "user", class: "fa-lg" %><span class="nav-link">Account</span></h3>
+        <% if user_signed_in? %>
+          <%= gravatar_for(current_user) %>
+        <% else %>
+          <%= fa_icon "user-circle", class: "fa-lg" %>
+        <% end %>
+        <%= fa_icon "chevron-down", class: "fa-sm" %>
       </div>
       <div class="account-menu">
-        <% if user_signed_in? %>
-          <span class="icon-link"><%= fa_icon "user" %> <%= truncate(current_user.email, length: 25) %></span>
-          <%= link_to my_quizzes_path do %>
-            <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
+        <div class="account-menu-marker"></div>
+        <div class="account-menu-list">
+          <% if user_signed_in? %>
+            <span class="icon-link"><%= fa_icon "user" %> <%= truncate(current_user.email, length: 25) %></span>
+            <%= link_to my_quizzes_path do %>
+              <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
+            <% end %>
+            <%= link_to new_quiz_path do %>
+              <div class="icon-link"><%= fa_icon 'plus' %> New quiz</div>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <div class="icon-link"><%= fa_icon "sign-out" %> Log out</div>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <div class="icon-link"><%= fa_icon "sign-in" %> Log in</div>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <div class="icon-link"><%= fa_icon "user-plus" %> Sign up</div>
+            <% end %>
           <% end %>
-          <%= link_to new_quiz_path do %>
-            <div class="icon-link"><%= fa_icon 'plus' %> New quiz</div>
-          <% end %>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <div class="icon-link"><%= fa_icon "sign-out" %> Log out</div>
-          <% end %>
-        <% else %>
-          <%= link_to new_user_session_path do %>
-            <div class="icon-link"><%= fa_icon "sign-in" %> Log in</div>
-          <% end %>
-          <%= link_to new_user_registration_path do %>
-            <div class="icon-link"><%= fa_icon "user-plus" %> Sign up</div>
-          <% end %>
-        <% end %>
+        </div>
       </div>
       </div>
   </div>
