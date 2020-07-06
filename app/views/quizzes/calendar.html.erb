@@ -19,10 +19,8 @@
               <span><%= event.date.strftime("%a %e %b %y") %></span>
               <small class="quiz-info">
                 <span><%= fa_icon "map-marker" %><%= event.quiz.venue %></span>
-                <span>
-                  <span><%= fa_icon "clock-o" %><%= event.quiz.time %></span>
-                  <span><%= fa_icon "users" %><%= event.users.count %> attending</span>
-                </span>
+                <span><%= fa_icon "clock-o" %><%= event.quiz.time %></span>
+                <span><%= fa_icon "users" %><%= event.users.count %> attending</span>
               </small>
             </div>
           <% end %>
