@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :path => '/', :path_names => { :sign_in => 'login', :sign_up => 'signup', :sign_out => 'logout' }
+  devise_for :users, path: '/', path_names: { sign_in: 'login', sign_up: 'signup', sign_out: 'logout' }, controllers: { registrations: 'registrations' }
+
   resources :quizzes do
     resources :events, only: [:index, :create, :destroy] do
       member do

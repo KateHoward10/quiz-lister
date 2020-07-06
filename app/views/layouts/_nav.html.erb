@@ -27,12 +27,14 @@
         <div class="account-menu-marker"></div>
         <div class="account-menu-list">
           <% if user_signed_in? %>
-            <span class="icon-link"><%= fa_icon "user" %> <%= current_user.username || truncate(current_user.email, length: 25) %></span>
+            <%= link_to edit_user_registration_path do %>
+              <div class="icon-link"><%= fa_icon "user" %> <%= truncate(current_user.username || current_user.email, length: 25) %></div>
+            <% end %>
             <%= link_to my_quizzes_path do %>
               <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
             <% end %>
             <%= link_to new_quiz_path do %>
-              <div class="icon-link"><%= fa_icon 'plus' %> New quiz</div>
+              <div class="icon-link"><%= fa_icon "plus" %> New quiz</div>
             <% end %>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <div class="icon-link"><%= fa_icon "sign-out" %> Log out</div>
