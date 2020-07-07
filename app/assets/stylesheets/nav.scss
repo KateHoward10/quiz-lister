@@ -27,6 +27,18 @@ nav {
   margin: 0;
 }
 
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2px;
+}
+
 .account-menu {
   display: none;
   position: absolute;
