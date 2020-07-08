@@ -1,7 +1,7 @@
 <main>
   <%= render 'filters' %>
   <% if @quizzes.any? %>
-    <ul class="picture-grid">
+    <ul class="quiz-grid">
       <% @quizzes.each do |quiz| %>
         <%= render 'quiz', quiz: quiz %>
       <% end %>

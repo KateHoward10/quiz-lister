@@ -1,0 +1,40 @@
+.filter-zone {
+	display: flex;
+	flex-direction: row;
+  justify-content: space-between;
+}
+
+#quiz_search {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	border: 1px solid #444;
+  background-color: #111;
+	&.visible {
+		display: flex;
+	}
+	select,
+	.filter {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0.5rem;
+    width: 80vw;
+    input {
+      min-width: 0;
+      width: 100%;
+    }
+	}
+}
+
+@media screen and (min-width: 720px) {
+  #quiz_search {
+    flex-direction: row;
+    select,
+    .filter {
+      min-width: 0;
+      width: 30%;
+    }
+  }
+}
