@@ -5,7 +5,6 @@
       <div class="quiz-overview">
         <%= link_to quiz.venue, quiz %>
         <span class="quiz-info">
-          <%= fa_icon "clock-o" %>
           <%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %>
         </span>
       </div>
