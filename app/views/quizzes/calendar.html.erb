@@ -14,7 +14,7 @@
       <% @events.each do |event| %>
         <li class="row-entry">
           <%= link_to event.quiz, class: "quiz-link" do %>
-            <div class="icon-container" style="background-color: hsl(<%= event.quiz.hue %>, 50%, 50%)"><%= fa_icon "calendar-check-o", class: "fa-lg home" %></div>
+            <%= render "icon_container", hue: event.quiz.hue, icon: "calendar-check-o" %>
             <div class="quiz-details">
               <span><%= event.date.strftime("%a %e %b %y") %></span>
               <small class="quiz-info">

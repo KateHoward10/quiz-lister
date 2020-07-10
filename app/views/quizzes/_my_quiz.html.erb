@@ -1,6 +1,6 @@
 <li class="row-entry">
   <div class="quiz-link">
-    <div class="icon-container" style="background-color: hsl(<%= quiz.hue %>, 50%, 50%)"><%= fa_icon "home", class: "fa-lg home" %></div>
+    <%= render "icon_container", hue: quiz.hue, icon: "home" %>
     <div class="actions-container">
       <div class="quiz-overview">
         <%= link_to quiz.venue, quiz %>

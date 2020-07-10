@@ -1,6 +1,6 @@
 <li class="row-entry">
   <%= link_to favourite, class: "quiz-link" do %>
-    <div class="icon-container" style="background-color: hsl(<%= favourite.hue %>, 50%, 50%)"><%= fa_icon "heart", class: "fa-lg home" %></div>
+    <%= render "quizzes/icon_container", hue: favourite.hue, icon: "heart" %>
     <div class="quiz-details">
       <span><%= favourite.venue %></span>
       <span class="quiz-info">
