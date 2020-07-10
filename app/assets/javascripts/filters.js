@@ -1,5 +1,5 @@
 function toggleFilters() {
-  const filterToggle = document.getElementById('filter-toggle');
+  const filterToggle = document.getElementById('filter_toggle');
   const searchForm = document.getElementById('quiz_search');
 
   if (filterToggle && searchForm) {

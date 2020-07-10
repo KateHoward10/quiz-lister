@@ -10,17 +10,17 @@
 <div class="filter-zone">
   <div>
     <% if params[:q] %>
-      <span>Quizzes
+      <p>Quizzes
         <% params[:q].each do |param| %>
           <%= param[0] == "venue_cont" && param[1] != "" ? " for " : param[0] == "day_cont" && param[1] != "" ? " on " : param[0] == "postcode_cont" && param[1] != "" ? " in " : "" %>
           <%= param[1] %>
         <% end %>
-      </span>
+      </p>
     <% else %>
       <h3>Regular pub quizzes in Bristol, UK</h3>
     <% end %>
   </div>
-  <button id="filter-toggle">Search / filter <%= fa_icon "chevron-down", class: "fa-sm" %></button>
+  <button id="filter_toggle">Search / filter <%= fa_icon "chevron-down", class: "fa-sm" %></button>
 </div>
 <%= search_form_for @search do |f| %>
   <div class="filter input-with-attachment">

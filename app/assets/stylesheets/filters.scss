@@ -1,8 +1,11 @@
 .filter-zone {
 	display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: space-between;
+}
+
+#filter_toggle {
+  align-self: flex-end;
 }
 
 #quiz_search {
