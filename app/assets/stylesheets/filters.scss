@@ -1,6 +1,7 @@
 .filter-zone {
 	display: flex;
-	flex-direction: row;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
@@ -20,7 +21,6 @@
 		align-items: center;
 		justify-content: center;
 		margin: 0.5rem;
-    width: 80vw;
     input {
       min-width: 0;
       width: 100%;
@@ -29,6 +29,9 @@
 }
 
 @media screen and (min-width: 720px) {
+  .filter-zone {
+    flex-direction: row;
+  }
   #quiz_search {
     flex-direction: row;
     select,

@@ -5,7 +5,7 @@ function toggleFilters() {
   if (filterToggle && searchForm) {
     filterToggle.addEventListener('click', () => {
       searchForm.classList.toggle('visible');
-      filterToggle.textContent = searchForm.classList.contains('visible') ? 'Close' : 'Search / filter';
+      filterToggle.innerHTML = searchForm.classList.contains('visible') ? 'Close <i class="fa fa-times fa-sm"></i>' : 'Search / filter <i class="fa fa-chevron-down fa-sm"></i>';
     });
   }
 }

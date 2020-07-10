@@ -36,7 +36,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 2px;
 }
 
 .account-menu {
@@ -62,6 +61,9 @@ nav {
   min-width: 150px;
   max-width: 80vw;
   padding: 0.5rem;
+  a {
+
+  }
 }
 
 .account-container {

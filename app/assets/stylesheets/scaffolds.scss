@@ -34,6 +34,8 @@ h6 {
 }
 
 button {
+  display: inline-flex;
+  align-items: center;
   font-size: 1rem;
   padding: 0.25rem;
   font-family: 'Courier', 'Helvetica', sans-serif;
@@ -98,7 +100,7 @@ i {
   }
   &.fa-sm {
     font-size: 0.6rem;
-    margin: 1px;
+    margin: 2px;
   }
 }
 

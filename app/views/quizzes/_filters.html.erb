@@ -16,9 +16,11 @@
           <%= param[1] %>
         <% end %>
       </span>
+    <% else %>
+      <h3>Regular pub quizzes in Bristol, UK</h3>
     <% end %>
   </div>
-  <button id="filter-toggle">Search / filter</button>
+  <button id="filter-toggle">Search / filter <%= fa_icon "chevron-down", class: "fa-sm" %></button>
 </div>
 <%= search_form_for @search do |f| %>
   <div class="filter input-with-attachment">
