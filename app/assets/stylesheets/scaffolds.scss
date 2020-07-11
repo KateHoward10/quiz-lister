@@ -7,9 +7,9 @@
 }
 
 body {
-  background-color: #111;
+  background-color: $black;
   background-image: asset-url(image_path('question.svg'));
-  color: #eee;
+  color: $off_white;
   margin: 0;
   font-family: 'Courier', 'Helvetica', sans-serif;
   line-height: 1.25;
@@ -17,9 +17,9 @@ body {
 
 main {
   margin: 5vw;
-  max-width: 1080px;
+  max-width: $max_width;
   min-height: 70vh;
-  @media screen and (min-width: 1080px) {
+  @media screen and (min-width: $max_width) {
     margin: 5vw auto;
   }
 }
@@ -40,24 +40,18 @@ button {
   padding: 0.25rem;
   font-family: 'Courier', 'Helvetica', sans-serif;
   border: none;
-  background-color: #fff;
+  background-color: $white;
   &:hover {
-    box-shadow: inset 0 0 10px grey;
+    box-shadow: inset $shadow;
   }
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
 a {
-  color: #fff;
+  color: $off_white;
   text-decoration: none;
 
   &:hover, &.normal-link {
-    color: deepskyblue;
+    color: $blue;
   }
 }
 
@@ -67,66 +61,27 @@ ul {
   margin-bottom: 2.5rem;
 }
 
-div {
-  &.field {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-}
-
-#notice {
-  color: green;
-}
-
-i {
-  margin: 5px;
-  &.green {
-    color: limegreen;
-  }
-  &.red {
-    color: red;
-  }
-  &.grey {
-    color: grey;
-  }
-  &.gold {
-    color: gold;
-  }
-  &.blue {
-    color: deepskyblue;
-  }
-  &.home {
-    color: rgba(0, 0, 0, 0.5);
-  }
-  &.fa-sm {
-    font-size: 0.6rem;
-    margin: 2px;
-  }
-}
-
 .icon-link {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  font-size: 16px;
-  border-radius: 5px;
+  font-size: 1rem;
+  border-radius: $border_radius;
   padding: 1px 3px;
   span {
     padding-right: 3px;
-    @media screen and (max-width: 480px) {
-      display: none;
-    }
+    display: none;
   }
 }
 
 .action {
-  background-color: #eee;
-  color: #111;
+  background-color: $off_white;
+  color: $off_black;
   justify-content: center;
   &:hover {
-    color: #111;
+    color: $off_black;
     font-weight: bold;
-    box-shadow: inset 0 0 10px grey;
+    box-shadow: inset $shadow;
   }
 }
 
@@ -134,22 +89,8 @@ i {
   margin: 0.5rem;
 }
 
-footer {
-  background-color: #521433;
-  padding: 1rem;
-}
-
-.footer-inner {
-  max-width: 1080px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  span {
-    margin: 5px;
-  }
-  @media screen and (min-width: 480px) {
-    flex-direction: row;
-    align-items: center;
+@media screen and (min-width: $medium) {
+  .icon-link span {
+    display: initial;
   }
 }

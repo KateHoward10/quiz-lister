@@ -8,20 +8,23 @@
   width: 90vw;
   height: 90vw;
   max-width: 100%;
-  @media screen and (min-width: 720px) {
-    max-width: 400px;
-    max-height: 400px;
-  }
 }
 
 #big-map {
   width: 90vw;
   height: 500px;
   max-height: 80vh;
-  color: #111;
+  color: $off_black;
 }
 
 #map_container {
   max-width: 100%;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: $large) {
+  #map {
+    max-width: 400px;
+    max-height: 400px;
+  }
 }

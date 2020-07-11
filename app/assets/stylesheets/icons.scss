@@ -1,0 +1,25 @@
+i {
+  margin: $padding;
+  &.green {
+    color: limegreen;
+  }
+  &.red {
+    color: red;
+  }
+  &.grey {
+    color: grey;
+  }
+  &.gold {
+    color: gold;
+  }
+  &.blue {
+    color: $blue;
+  }
+  &.home {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &.fa-sm {
+    font-size: 0.6rem;
+    margin: 2px;
+  }
+}

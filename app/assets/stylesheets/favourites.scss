@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 1rem;
-	box-shadow: 0 0 0.5rem grey;
-  border-radius: 5px;
-  background-color: #111;
+	box-shadow: $shadow;
+  border-radius: $border_radius;
+  background-color: $off_black;
 }

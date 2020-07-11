@@ -1,0 +1,22 @@
+footer {
+  background-color: $darker_purple;
+  padding: 1rem;
+}
+
+.footer-inner {
+  max-width: $max_width;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  span {
+    margin: $padding;
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+}

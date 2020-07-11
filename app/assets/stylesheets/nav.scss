@@ -1,6 +1,6 @@
 nav {
-  background-color: #8a0f4d;
-  background: linear-gradient(#8a0f4d, #b81466);
+  background-color: $dark_purple;
+  background: linear-gradient($dark_purple, $light_purple);
 	padding: 0 2vw;
   position: sticky;
   position: -webkit-sticky;
@@ -9,7 +9,7 @@ nav {
 }
 
 .nav-inner {
-  max-width: 1080px;
+  max-width: $max_width;
   margin: auto;
 	display: flex;
 	flex-direction: row;
@@ -28,11 +28,11 @@ nav {
 }
 
 .avatar {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border-radius: 50%;
-  color: #fff;
-  border: 1px solid #000;
+  color: $white;
+  border: 1px solid $black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,19 +50,21 @@ nav {
   width: 1.5rem;
   height: 0.75rem;
   margin: 0 1rem -1px;
-  background-color: #8a0f4d;
+  background-color: $dark_purple;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 .account-menu-list {
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  background-color: #8a0f4d;
+  background-color: $dark_purple;
   color: #fff;
   min-width: 150px;
   max-width: 80vw;
   padding: 0.5rem;
   a {
-
+    margin: 0.5rem;
   }
 }
 
@@ -81,7 +83,7 @@ nav {
   display: flex;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: $medium) {
   .nav-link {
     display: initial;
   }

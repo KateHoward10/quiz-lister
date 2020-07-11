@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 22px;
+  font-size: 1.25rem;
 }
 
 #favourite_button:hover {
@@ -21,7 +21,7 @@
 }
 
 .favourite-number {
-  font-size: 16px;
+  font-size: 1rem;
   padding: 2px;
 }
 
@@ -52,11 +52,11 @@
 			padding: 0.75rem;
 		}
 		a:hover {
-			color: deepskyblue;
+			color: $blue;
 		}
 		.icon {
 			i {
-				width: 40px;
+				width: 2.5rem;
 				height: 100%;
 				display: flex;
 				align-items: center;
@@ -68,31 +68,21 @@
 	}
 }
 
-.background-paper {
-  transform: rotate(-2deg) translateX(-2px) translateY(-3px);
-  width: 95%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #eee;
-}
-
 .tooltip {
   position: relative;
-  padding-left: 5px;
+  padding-left: $padding;
   padding-bottom: 10px;
 }
 
 .tooltip .tooltiptext {
   position: absolute;
 	right: 0;
-	width: 120px;
+	width: 7.5rem;
 	background-color: #ddd;
 	color: #000;
 	text-align: center;
-	padding: 5px;
-	border-radius: 5px;
+	padding: $padding;
+	border-radius: $border_radius;
 	opacity: 0;
 	transition: opacity 0.3s;
 }
@@ -102,7 +92,7 @@
 	z-index: 100;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: $large) {
 	.quiz-container {
     display: flex;
     align-items: flex-start;
