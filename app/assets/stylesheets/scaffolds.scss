@@ -11,7 +11,7 @@ body {
   background-image: asset-url(image_path('question.svg'));
   color: $off_white;
   margin: 0;
-  font-family: 'Courier', 'Helvetica', sans-serif;
+  font-family: $body_font;
   line-height: 1.25;
 }
 
@@ -38,7 +38,7 @@ button {
   align-items: center;
   font-size: 1rem;
   padding: 0.25rem;
-  font-family: 'Courier', 'Helvetica', sans-serif;
+  font-family: $body_font;
   border: none;
   background-color: $white;
   &:hover {
@@ -65,12 +65,11 @@ ul {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.875rem;
   border-radius: $border_radius;
   padding: 1px 3px;
   span {
     padding-right: 3px;
-    display: none;
   }
 }
 
@@ -78,9 +77,11 @@ ul {
   background-color: $off_white;
   color: $off_black;
   justify-content: center;
+  span {
+    display: none;
+  }
   &:hover {
     color: $off_black;
-    font-weight: bold;
     box-shadow: inset $shadow;
   }
 }
