@@ -1,4 +1,4 @@
-nav {
+.nav-menu {
   background-color: $dark_purple;
   background: linear-gradient($dark_purple, $light_purple);
 	padding: 0 2vw;
@@ -81,6 +81,10 @@ nav {
 
 .account-container:hover .account-menu {
   display: flex;
+}
+
+.pagination {
+  text-align: center;
 }
 
 @media screen and (min-width: $medium) {

@@ -5,7 +5,7 @@ class QuizzesController < ApplicationController
 
   def index
     @search = Quiz.ransack(params[:q])
-    @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "") }
+    @quizzes = Kaminari.paginate_array(@search.result.sort_by { |q| q.venue.gsub("The ", "") }).page(params[:page]).per(10)
   end
 
   def my_quizzes
