@@ -3,12 +3,12 @@ require_relative 'application'
 
 ActionMailer::Base.smtp_settings = {
   from: ENV['GMAIL_USERNAME'],
-  address: 'smtp.sendgrid.net',
+  address: 'smtp.gmail.com',
   port: 587,
   authentication: 'plain',
-  user_name: ENV['SENDGRID_USERNAME'],
-  password: ENV['SENDGRID_PASSWORD'],
-  domain: 'brizquizlist.herokuapp.com',
+  user_name: ENV['GMAIL_USERNAME'],
+  password: ENV['GMAIL_PASSWORD'],
+  domain: ENV['GMAIL_DOMAIN'],
   enable_starttls_auto: true
 }
 
