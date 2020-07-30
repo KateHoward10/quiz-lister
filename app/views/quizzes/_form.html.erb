@@ -55,20 +55,20 @@
       <small>Please describe any prize available for the winners, and if applicable 2nd and 3rd places.</small>
     </div>
 
-    <div class="field">
-      <%= form.label :status %>
-      <div class="field-row">
-        <%= form.label :status, value: "active" do %>
-          <%= form.radio_button :status, "active" %> Active
-        <% end %>
-        <%= form.label :status, value: "not active" do %>
-          <%= form.radio_button :status, "not active" %> Not active
-        <% end %>
-        <%= form.label :status, value: "unknown" do %>
-          <%= form.radio_button :status, "unknown" %> Unknown
-        <% end %>
+    <% if !current_user.admin %>
+      <div class="field">
+        <%= form.label :status %>
+        <div class="field-row radio-row">
+          <%= form.label :status, value: "active" do %>
+            <%= form.radio_button :status, "active" %> Active
+          <% end %>
+          <%= form.label :status, value: "not active" do %>
+            <%= form.radio_button :status, "not active" %> Not active
+          <% end %>
+        </div>
+        <small>Please specifiy whether your quiz is currently active (running regularly) or not active (paused).</small>
       </div>
-    </div>
+    <% end %>
 
     <div class="field">
       <%= form.label :link %>

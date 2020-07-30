@@ -122,11 +122,20 @@ input[type=checkbox] {
   justify-content: space-between;
   padding: $padding 0;
   max-width: 100%;
+}
+
+.radio-row {
+  justify-content: flex-start;
   label {
     font-size: 0.875rem;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 1.5rem;
+    input {
+      margin: 0;
+      margin-right: 0.5rem;
+    }
   }
 }
 

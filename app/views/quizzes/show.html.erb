@@ -51,25 +51,31 @@
         <% else %>
           <%= fa_icon "question-circle", class: "grey" %>
         <% end %>
-        <div class="tooltiptext"><%= @quiz.status == 'active' ? 'This quiz appears to be active' : @quiz.status == 'not active' ? 'This quiz was definitely on once, but now I can’t make any promises' : 'The status of this quiz is currently unknown; please check with them' %></div>
+        <div class="tooltiptext">
+          <% if !@quiz.status.nil? %>
+            This quiz is currently <%= @quiz.status %>
+          <% else %>
+            The status of this quiz is currently unknown; please check with them
+          <% end %>
+        </div>
       </span>
     </div>
     <div class="paper-container">
       <ul class="paper">
         <li><div class="icon"><%= fa_icon "clock-o", class: "fa-lg grey" %></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
-        <% if @quiz.price && @quiz.price != "" %>
+        <% if !@quiz.price.nil? %>
           <li><div class="icon"><%= fa_icon "money", class: "fa-lg green" %></div><span>£<%= number_with_precision(@quiz.price, :precision => 2) %> entry fee</span></li>
         <% end %>
-        <% if @quiz.prize && @quiz.prize != "" %>
+        <% if !@quiz.prize.nil? %>
           <li><div class="icon"><%= fa_icon "trophy", class: "fa-lg gold" %></div><span><%= @quiz.prize %></span></li>
         <% end %>
-        <% if @quiz.address && @quiz.address != "" %>
+        <% if !@quiz.address.nil? %>
           <li><div class="icon"><%= fa_icon "map-marker", class: "fa-lg red" %></div><a href="https://google.com/maps/search/<%= @quiz.venue %>/@<%= @quiz.latitude %>,<%= @quiz.longitude %>" target="_blank" rel="noopener noreferrer"><%= @quiz.address %></a></li>
         <% end %>
         <% if @quiz.user && !@quiz.user.admin %>
           <li><div class="icon"><%= fa_icon "envelope", class: "fa-lg blue" %></div><a href="mailto:<%= @quiz.user.email %>"><%= @quiz.user.email %></a></li>
         <% end %>
-        <% if @quiz.link && @quiz.link != "" %>
+        <% if !@quiz.link.nil? %>
           <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
         <% end %>
       </ul>
