@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   root "quizzes#index"
   get "/my_quizzes" => "quizzes#my_quizzes"
   get "/calendar" => "quizzes#calendar"
-  get "/:page" => "static#show"
   get '/.well-known/acme-challenge/:id', to: "static#letsencrypt"
+  get "/:page" => "static#show"
 end
