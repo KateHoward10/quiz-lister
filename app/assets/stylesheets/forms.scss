@@ -50,7 +50,6 @@ input[type=submit] {
   max-width: $field_width;
   margin: 0.75rem 0 1rem;
   background-color: $blue;
-  font-weight: bold;
   &:hover {
     box-shadow: inset $shadow;
   }
