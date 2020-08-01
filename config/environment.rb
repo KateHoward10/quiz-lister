@@ -3,12 +3,12 @@ require_relative 'application'
 
 ActionMailer::Base.smtp_settings = {
   from: ENV['GMAIL_USERNAME'],
-  address: 'smtp.mailgun.org',
+  address: 'smtp.gmail.com',
   port: 465,
   authentication: 'plain',
-  user_name: ENV['MAILGUN_SMTP_LOGIN'],
-  password: ENV['MAILGUN_SMTP_PASSWORD'],
-  domain: ENV['MAILGUN_DOMAIN'],
+  user_name: ENV['GMAIL_USERNAME'],
+  password: ENV['GMAIL_PASSWORD'],
+  domain: ENV['GMAIL_DOMAIN'],
   ssl: true
 }
 
