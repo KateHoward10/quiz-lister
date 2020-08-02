@@ -20,4 +20,17 @@ module QuizzesHelper
     hue = ((getMultiplier(day) * 60) + rand(60)).floor 
     Quiz.find_by(hue: hue) ? getRandomHue(day) : hue
   end
+
+  def getFrequency(freq)
+    case freq
+    when 'biweekly'
+      'other'
+    when 'monthly'
+      'month on'
+    when 'occasional'
+      'now and then on'
+    else
+      ''
+    end
+  end
 end

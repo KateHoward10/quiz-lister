@@ -8,6 +8,8 @@
   </script>
 <% end %>
 
+<% content_for :title, @quiz.venue %>
+
 <main class="quiz-container">
   <div class="details-container">
     <div class="buttons-container">
@@ -62,7 +64,7 @@
     </div>
     <div class="paper-container">
       <ul class="paper">
-        <li><div class="icon"><%= fa_icon "clock-o", class: "fa-lg grey" %></div><span>Every <%= @quiz.frequency == 'biweekly' ? 'other ' : @quiz.frequency == 'monthly' ? 'month on ' : @quiz.frequency == 'occasional' ? 'now and then on ' : '' %><%= @quiz.day %> at <%= @quiz.time %></span></li>
+        <li><div class="icon"><%= fa_icon "clock-o", class: "fa-lg grey" %></div><span>Every <%= getFrequency(@quiz.frequency) %> <%= @quiz.day %> at <%= @quiz.time %></span></li>
         <% if !@quiz.price.nil? %>
           <li><div class="icon"><%= fa_icon "money", class: "fa-lg green" %></div><span>£<%= number_with_precision(@quiz.price, :precision => 2) %> entry fee</span></li>
         <% end %>

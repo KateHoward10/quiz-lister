@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def title
+    [t("title"), content_for(:title)].compact.join(" | ")
+  end
+
   def avatar_for(user)
     name = user.username || user.email
     colours = ["4B0082", "8B008B", "9400D3", "8A2BE2", "483D8B", "191970", "0000CD", "008080", "006400", "2F4F4F"]

@@ -1,5 +1,7 @@
+<% content_for :title, "Resend" %>
+
 <div class="form-container">
-  <h2>Resend confirmation email</h2>
+  <h2>Resend confirmation</h2>
   <p>You must confirm your email address before logging in for the first time. If you did not receive a confirmation email, please enter your address here to resend it.</p>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
