@@ -33,4 +33,15 @@ module QuizzesHelper
       ''
     end
   end
+
+  def getColour(status)
+    case status
+    when 'active'
+      'green'
+    when 'not active'
+      'red'
+    else
+      'grey'
+    end
+  end
 end

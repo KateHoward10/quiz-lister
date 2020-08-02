@@ -45,22 +45,14 @@
     </div>
     <div class="quiz-title">
       <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
-      <span class="tooltip">
-        <% if @quiz.status == 'active' %>
+      <% if @quiz.user && !@quiz.user.admin %>
+        <span class="tooltip">
           <%= fa_icon "check-circle", class: "green" %>
-        <% elsif @quiz.status == "not active" %>
-          <%= fa_icon "times-circle", class: "red" %>
-        <% else %>
-          <%= fa_icon "question-circle", class: "grey" %>
-        <% end %>
-        <div class="tooltiptext">
-          <% if @quiz.status.present? %>
-            This quiz is currently <%= @quiz.status %>
-          <% else %>
-            The status of this quiz is currently unknown; please check with them
-          <% end %>
-        </div>
-      </span>
+          <div class="tooltiptext">
+            This page is maintained by a quiz representative
+          </div>
+        </span>
+      <% end %>
     </div>
     <div class="paper-container">
       <ul class="paper">
@@ -77,6 +69,12 @@
         <% if @quiz.user && !@quiz.user.admin %>
           <li><div class="icon"><%= fa_icon "envelope", class: "fa-lg blue" %></div><a href="mailto:<%= @quiz.user.email %>"><%= @quiz.user.email %></a></li>
         <% end %>
+        <li>
+          <div class="icon">
+            <%= fa_icon "question-circle", class: "fa-lg #{getColour(@quiz.status)}" %>
+          </div>
+          <span>Status: <%= @quiz.status || "unknown (presumably paused due to Covid-19)" %></span>
+        </li>
         <% if !@quiz.link.present? %>
           <li><div class="icon"><%= fa_icon "external-link-square", class: "fa-lg grey" %></div><a href="<%= @quiz.link %>" target="_blank" rel="noopener noreferrer">Find out more</a></li>
         <% end %>
