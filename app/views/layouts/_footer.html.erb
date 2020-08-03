@@ -4,7 +4,7 @@
       <%= link_to "/about", title: "About" do %>
         <%= fa_icon "info-circle", class: "fa-lg" %>About
       <% end %>
-      <a href="mailto:brizquizlist@gmail.com" class="margin"><%= fa_icon 'envelope' %>Contact</a>
+      <a href="mailto:<%= t('contact_email') %>" class="margin"><%= fa_icon 'envelope' %>Contact</a>
     </div>
     <span>© <%= Time.current.year %> Kate Howard</span>
   </div>
