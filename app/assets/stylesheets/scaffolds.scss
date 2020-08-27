@@ -9,6 +9,7 @@
 body {
   background-color: $black;
   background-image: asset-url(image_path('question.svg'));
+  background-attachment: fixed;
   color: $off_white;
   margin: 0;
   font-family: $body_font;

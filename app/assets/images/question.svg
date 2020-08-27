@@ -2,11 +2,11 @@
   <g>
     <foreignObject x="0" y="0" width="60" height="80">
       <body xmlns="http://www.w3.org/1999/xhtml">
-        <text x="0" y="0" style="font-family: Courier; color: #222; font-size: 2rem; font-style: italic" >?</text>
+        <text x="0" y="0" style="font-family: sans-serif; color: #111; font-size: 2rem; font-style: italic" >?</text>
       </body>
       <body xmlns="http://www.w3.org/1999/xhtml">
-        <text x="0" y="0" style="font-family: Courier; color: transparent; font-size: 2rem" >?</text>
-        <text x="0" y="0" style="font-family: Courier; color: #222; font-size: 2rem; font-style: italic" >?</text>
+        <text x="0" y="0" style="font-family: sans-serif; color: transparent; font-size: 2rem" >?</text>
+        <text x="0" y="0" style="font-family: sans-serif; color: #111; font-size: 2rem; font-style: italic" >?</text>
       </body>
     </foreignObject>
   </g>
