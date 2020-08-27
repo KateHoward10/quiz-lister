@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Walter Turncoat';
-  src: font-url('WalterTurncoat-Regular.ttf') format('truetype');
+  font-family: 'Open Sans';
+  src: font-url('OpenSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,6 @@ body {
   color: $off_white;
   margin: 0;
   font-family: $body_font;
-  line-height: 1.25;
 }
 
 main {
@@ -22,15 +21,6 @@ main {
   @media screen and (min-width: $max_width) {
     margin: 5vw auto;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Walter Turncoat', sans-serif;
 }
 
 button {
