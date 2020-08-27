@@ -2,22 +2,16 @@
 	display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-#filter_toggle {
-  align-self: flex-end;
+  margin-bottom: 2rem;
 }
 
 #quiz_search {
-	display: none;
+  display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
-	border: 1px solid $grey;
-  background-color: $off_black;
-	&.visible {
-		display: flex;
-	}
+	border-radius: $border-radius;
+  padding: 0;
 	select,
 	.filter {
 		display: flex;
@@ -28,19 +22,19 @@
       min-width: 0;
       width: 100%;
     }
-	}
+  }
 }
 
 @media screen and (min-width: $large) {
-  .filter-zone {
-    flex-direction: row;
-  }
   #quiz_search {
     flex-direction: row;
     select,
     .filter {
       min-width: 0;
       width: 30%;
+    }
+    .filter {
+      margin-left: 0;
     }
   }
 }
