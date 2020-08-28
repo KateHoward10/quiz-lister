@@ -1,13 +1,11 @@
 <% content_for :title, "Edit" %>
 
-<main>
-  <div class="wide-form-container">
-    <div class="buttons-container">
-      <%= link_to @quiz do %>
-        <%= fa_icon "arrow-left", class: "fa-lg grey" %>
-      <% end %>
-    </div>
-    <h1>Edit <%= @quiz.venue %></h1>
-    <%= render 'form', quiz: @quiz %>
+<div class="wide-form-container">
+  <div class="buttons-container">
+    <%= link_to @quiz do %>
+      <%= fa_icon "arrow-left", class: "fa-lg grey" %>
+    <% end %>
   </div>
-</main>
+  <h2>Edit <%= @quiz.venue %></h2>
+  <%= render 'form', quiz: @quiz %>
+</div>

@@ -15,7 +15,7 @@
       <%= fa_icon "arrow-left", class: "fa-lg grey" %>
     <% end %>
   </div>
-  <h1>Events at <%= @quiz.venue %></h1>
+  <h2>Events at <%= @quiz.venue %></h2>
   <p>Add events here to let users know when the quiz is definitely on.</p>
   <div id="date_container">
     <% @quiz.events.order(:date).each do |event| %>

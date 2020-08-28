@@ -5,7 +5,7 @@
 
 .filter-zone {
   max-width: $max-width;
-  padding: 1rem 2rem;
+  padding: 1rem;
 	display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -43,7 +43,6 @@
     height: 6rem;
   }
   .filter-zone {
-    padding: 1rem;
     margin: auto;
   }
   #quiz_search {
@@ -53,8 +52,6 @@
     }
     .filter {
       width: 42%;
-    }
-    .filter {
       margin-left: 0;
     }
     #q_postcode_cont {

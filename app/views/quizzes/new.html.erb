@@ -1,13 +1,11 @@
 <% content_for :title, "New Quiz" %>
 
-<main>
-  <div class="wide-form-container">
-    <div class="buttons-container">
-      <%= link_to my_quizzes_path do %>
-        <%= fa_icon "arrow-left", class: "fa-lg grey" %>
-      <% end %>
-    </div>
-    <h1>New Quiz</h1>
-    <%= render 'form', quiz: @quiz %>
+<div class="wide-form-container">
+  <div class="buttons-container">
+    <%= link_to my_quizzes_path do %>
+      <%= fa_icon "arrow-left", class: "fa-lg grey" %>
+    <% end %>
   </div>
-</main>
+  <h2>New Quiz</h2>
+  <%= render 'form', quiz: @quiz %>
+</div>
