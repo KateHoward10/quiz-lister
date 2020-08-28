@@ -24,6 +24,12 @@ main {
   }
 }
 
+.container {
+  background-color: $off_black;
+  border-radius: $border_radius;
+  padding: 0.5rem 1rem 1rem;
+}
+
 button {
   display: inline-flex;
   align-items: center;
