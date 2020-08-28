@@ -1,15 +1,28 @@
+.filters {
+  width: 100%;
+  background-color: $dark_blue;
+}
+
 .filter-zone {
+  max-width: $max-width;
+  padding: 1rem 2rem;
 	display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 2rem;
+}
+
+.results-label {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #quiz_search {
   display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 	border-radius: $border-radius;
   padding: 0;
 	select,
@@ -26,15 +39,26 @@
 }
 
 @media screen and (min-width: $large) {
+  .filters {
+    height: 6rem;
+  }
+  .filter-zone {
+    padding: 1rem;
+    margin: auto;
+  }
   #quiz_search {
     flex-direction: row;
-    select,
+    select {
+      width: 25%;
+    }
     .filter {
-      min-width: 0;
-      width: 30%;
+      width: 42%;
     }
     .filter {
       margin-left: 0;
+    }
+    #q_postcode_cont {
+      margin-right: 0;
     }
   }
 }

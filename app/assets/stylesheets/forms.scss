@@ -11,12 +11,13 @@ div {
 
 input:not([type=radio]), select {
   font-family: $body_font;
-	font-size: 1rem;
+	font-size: 0.875rem;
   padding: 0 0.25rem;
   height: 2rem;
 	border: none;
 	border-radius: 0;
-	background: $white;
+  background: $white;
+  border-radius: $border-radius;
 }
 
 input[type=time], input[type=date] {
@@ -35,10 +36,10 @@ select {
 
 textarea {
   font-family: $body_font;
-	font-size: 1rem;
+	font-size: 0.875rem;
   resize: none;
-  height: 3rem;
-  border-radius: 0;
+  height: 4rem;
+  border-radius: $border-radius;
   border: none;
   padding: 0.25rem;
 }
@@ -50,6 +51,7 @@ input[type=submit] {
   max-width: $field_width;
   margin: 0.75rem 0 1rem;
   background-color: $blue;
+  text-transform: uppercase;
   &:hover {
     box-shadow: inset $shadow;
   }
@@ -143,6 +145,16 @@ input[type=checkbox] {
   flex-direction: row;
   height: 2rem;
   width: 100%;
+  input:not(#quiz_price) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  #quiz_price {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
   button {
     font-size: 0.875rem;
     cursor: pointer;
@@ -150,14 +162,19 @@ input[type=checkbox] {
     height: 100%;
     border: 0;
     margin: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 }
 
 .currency-marker {
   background: $white;
   color: $black;
-  padding: $padding;
-  line-height: 1.5rem;
+  padding-left: $padding;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 }
 
 .confirm-icon {
@@ -191,6 +208,7 @@ input[type=checkbox] {
 
 label {
   display: block;
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width: $medium) {
@@ -208,5 +226,8 @@ label {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+  }
+  .form-container {
+    width: $field_width;
   }  
 }
