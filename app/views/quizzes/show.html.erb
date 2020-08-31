@@ -25,9 +25,11 @@
             <%= fa_icon "edit" %><span> Edit</span>
           <% end %>
         <% elsif user_signed_in? %>
-          <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= @quiz.venue %>" class="icon-link action margin">
-            <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
-          <a>
+          <% if !@quiz.user || @quiz.user.admin %>
+            <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= @quiz.venue %>" class="icon-link action margin">
+              <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
+            <a>
+          <% end %>
           <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
             <% if current_user.favorited?(@quiz) %>
               <%= fa_icon "heart", class: "red" %>
