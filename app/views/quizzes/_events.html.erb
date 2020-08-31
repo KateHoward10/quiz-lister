@@ -1,29 +1,31 @@
 <% if events.any? %>
-  <h3>Upcoming events at <%= quiz.venue %></h3>
-  <ul>
-    <% events.each do |event| %>
-      <li class="date-item">
-        <div class="event-details">
-          <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
-          <div>
-            <%= event.date.strftime("%a %e %b %y") %>
-            <small class="event-attendees">
-              <% if event.users.any? %>
-                <span class="attendee-count"><%= event.users.count %></span> attending
-              <% end %>
-            </small>
+  <div class="container">
+    <h3>Upcoming events at <%= quiz.venue %></h3>
+    <ul>
+      <% events.each do |event| %>
+        <li class="date-item">
+          <div class="event-details">
+            <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
+            <div>
+              <%= event.date.strftime("%a %e %b %y") %>
+              <small class="event-attendees">
+                <% if event.users.any? %>
+                  <span class="attendee-count"><%= event.users.count %></span> attending
+                <% end %>
+              </small>
+            </div>
           </div>
-        </div>
-        <% if user_signed_in? %>
-          <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "icon-link action attending-toggle" do %>
-            <% if event.in?(current_user.events) %>
-              <%= fa_icon "check", class: "green" %><span>Attending</span>
-            <% else %>
-              <%= fa_icon "check", class: "grey" %><span>Attend</span>
+          <% if user_signed_in? %>
+            <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "icon-link action attending-toggle" do %>
+              <% if event.in?(current_user.events) %>
+                <%= fa_icon "check", class: "green" %><span>Attending</span>
+              <% else %>
+                <%= fa_icon "check", class: "grey" %><span>Attend</span>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
