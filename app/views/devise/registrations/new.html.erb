@@ -28,17 +28,19 @@
     </div>
 
     <div class="field">
-      <%= f.label :password do %>
-        Password
-        <div class="confirm-icon">
-          <%= fa_icon "check-circle", class: "green" %>
-        </div>
-      <% end %>
+      <div class="row-label">
+        <%= f.label :password do %>
+          Password
+          <div class="confirm-icon">
+            <%= fa_icon "check-circle", class: "green" %>
+          </div>
+        <% end %>
+        <% if @minimum_password_length %>
+          <small>Minimum <%= @minimum_password_length %> characters</small>
+        <% end %>
+      </div>
       <%= f.password_field :password, autocomplete: "new-password" %>
       <div class="strength-indicator"></div>
-      <% if @minimum_password_length %>
-        <small>Minimum <%= @minimum_password_length %> characters</small>
-      <% end %>
     </div>
 
     <div class="field">

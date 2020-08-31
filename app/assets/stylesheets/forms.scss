@@ -149,6 +149,13 @@ input[type=checkbox] {
   max-width: 100%;
 }
 
+.row-label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .radio-row {
   justify-content: flex-start;
   label {
@@ -206,9 +213,9 @@ input[type=checkbox] {
 }
 
 .strength-indicator {
-  height: 0.8rem;
-  font-size: 0.75rem;
-  padding: 2px;
+  height: 10px;
+  font-size: 0.5rem;
+  padding: 1px;
   color: #000;
 }
 
