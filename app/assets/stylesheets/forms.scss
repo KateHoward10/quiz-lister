@@ -70,7 +70,7 @@ input[type=submit] {
   margin: 0.75rem 0 1rem;
   background-color: $blue;
   text-transform: uppercase;
-  font-family: 'Open Sans Bold', sans-serif;
+  font-family: $bold_font, sans-serif;
   &:hover {
     box-shadow: inset $shadow;
   }

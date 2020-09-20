@@ -7,8 +7,8 @@
 }
 
 @font-face {
-  font-family: 'Open Sans Bold';
-  src: font-url('OpenSans-SemiBold.ttf') format('truetype');
+  font-family: 'Raleway';
+  src: font-url('Raleway-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -29,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans Bold', sans-serif;
+  font-family: $bold_font, sans-serif;
 }
 
 main {
