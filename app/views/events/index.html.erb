@@ -15,20 +15,22 @@
       <%= fa_icon "arrow-left", class: "fa-lg grey" %>
     <% end %>
   </div>
-  <h2>Events at <%= @quiz.venue %></h2>
+  <h2 class="text-center">Events at <%= @quiz.venue %></h2>
   <p>Add events here to let users know when the quiz is on.</p>
-  <div id="date_container">
-    <% @quiz.events.order(:date).each do |event| %>
-      <% if event.id? %>
-        <div class="date-item">
-          <span><%= fa_icon "calendar-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
-          <%= link_to quiz_event_path(@quiz, event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, remote: true, class: "remove-date" do %>
-            <%= fa_icon "times", class: "red" %>
-          <% end %>
-        </div>
+  <% if @quiz.events.any? %>
+    <div id="date_container">
+      <% @quiz.events.order(:date).each do |event| %>
+        <% if event.id? %>
+          <div class="date-item">
+            <span><%= fa_icon "calendar-o" %> <%= event.date.strftime("%a %e %b %y") %></span>
+            <%= link_to quiz_event_path(@quiz, event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, remote: true, class: "remove-date" do %>
+              <%= fa_icon "times", class: "red" %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <%= form_with(model: [@quiz, @quiz.events.build], local: true) do |f| %>
     <div class="input-with-attachment">
