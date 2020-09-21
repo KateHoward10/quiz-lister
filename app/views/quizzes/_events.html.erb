@@ -1,6 +1,6 @@
 <% if events.any? %>
   <div class="container">
-    <h3>Upcoming events at <%= quiz.venue %></h3>
+    <h3>Upcoming events at <%= formatName(quiz.venue) %></h3>
     <ul>
       <% events.each do |event| %>
         <li class="date-item">

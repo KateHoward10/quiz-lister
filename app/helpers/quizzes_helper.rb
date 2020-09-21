@@ -1,4 +1,12 @@
 module QuizzesHelper
+  def formatName(name)
+    words = name.split(" ")
+    words.each do |w|
+      w[0] = w[0].upcase if w.length > 2
+    end
+    words.join(" ")
+  end
+
   def getMultiplier(day)
     case day
     when 'Monday'

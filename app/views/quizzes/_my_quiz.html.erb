@@ -3,7 +3,7 @@
     <%= render "icon_container", hue: quiz.hue, icon: "home" %>
     <div class="actions-container">
       <div class="quiz-overview">
-        <%= link_to quiz.venue, quiz %>
+        <%= link_to formatName(quiz.venue), quiz %>
         <span class="quiz-info">
           <%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %>
         </span>

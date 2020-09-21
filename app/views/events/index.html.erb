@@ -15,7 +15,7 @@
       <%= fa_icon "arrow-left", class: "fa-lg grey" %>
     <% end %>
   </div>
-  <h2 class="text-center">Events at <%= @quiz.venue %></h2>
+  <h2 class="text-center">Events at <%= formatName(@quiz.venue) %></h2>
   <p>Add events here to let users know when the quiz is on.</p>
   <% if @quiz.events.any? %>
     <div id="date_container">

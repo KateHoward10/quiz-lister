@@ -8,7 +8,7 @@
   </script>
 <% end %>
 
-<% content_for :title, @quiz.venue %>
+<% content_for :title, formatName(@quiz.venue) %>
 
 <main class="quiz-container">
   <div class="details-container">
@@ -26,7 +26,7 @@
           <% end %>
         <% else %>
           <% if !@quiz.user || @quiz.user.admin %>
-            <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= @quiz.venue %>&body=Explain below who you are in relation to this quiz, and I'll assign it to you. Please note, you'll need an account on Briz Quiz List :)" class="icon-link action margin">
+            <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= formatName(@quiz.venue) %>&body=Explain below who you are in relation to this quiz, and I'll assign it to you. Please note, you'll need an account on Briz Quiz List :)" class="icon-link action margin">
               <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
             </a>
           <% end %>
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="quiz-title">
-      <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= @quiz.venue %></h1>
+      <h1 style="color: hsl(<%= @quiz.hue %>, 50%, 60%)"><%= formatName(@quiz.venue) %></h1>
       <% if @quiz.user && !@quiz.user.admin %>
         <span class="tooltip">
           <%= fa_icon "check-circle", class: "green" %>
@@ -93,4 +93,3 @@
     <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x600&markers=size:large%7Ccolor:red%7C#{@quiz.latitude},#{@quiz.longitude}&key=#{ENV['GOOGLE_MAPS']}", alt: "Map", id: "map" %>
   </div>
 </main>
-

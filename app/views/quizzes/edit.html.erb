@@ -6,6 +6,6 @@
       <%= fa_icon "arrow-left", class: "fa-lg grey" %>
     <% end %>
   </div>
-  <h2>Edit <%= @quiz.venue %></h2>
+  <h2>Edit <%= formatName(@quiz.venue) %></h2>
   <%= render 'form', quiz: @quiz %>
 </div>

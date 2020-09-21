@@ -2,7 +2,7 @@
   <%= link_to quiz, class: "quiz-link box-shadow" do %>
     <%= render "icon_container", hue: quiz.hue, icon: "home" %>
     <div class="quiz-overview">
-      <span><%= quiz.venue %></span>
+      <span><%= formatName(quiz.venue) %></span>
       <span class="quiz-info">
         <%= quiz.day.slice(0,3) %><%= quiz.time ? ", #{quiz.time}" : "" %>
       </span>
