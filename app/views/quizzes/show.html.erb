@@ -25,12 +25,12 @@
             <%= fa_icon "edit" %><span> Edit</span>
           <% end %>
         <% else %>
+          <% if !@quiz.user || @quiz.user.admin %>
+            <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= @quiz.venue %>&body=Explain below who you are in relation to this quiz, and I'll assign it to you. Please note, you'll need an account on Briz Quiz List :)" class="icon-link action margin">
+              <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
+            </a>
+          <% end %>
           <% if user_signed_in? %>
-            <% if !@quiz.user || @quiz.user.admin %>
-              <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= @quiz.venue %>" class="icon-link action margin">
-                <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
-              <a>
-            <% end %>
             <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
               <% if current_user.favorited?(@quiz) %>
                 <%= fa_icon "heart", class: "red" %>
