@@ -26,9 +26,15 @@
           <% end %>
         <% else %>
           <% if !@quiz.user || @quiz.user.admin %>
-            <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= formatName(@quiz.venue) %>&body=Explain below who you are in relation to this quiz, and I'll assign it to you. Please note, you'll need an account on Briz Quiz List :)" class="icon-link action margin">
-              <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
-            </a>
+            <% if user_signed_in? %>
+              <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= formatName(@quiz.venue) %>" class="icon-link action margin">
+                <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
+              </a>
+            <% else %>
+              <%= link_to new_user_session_path, class: "icon-link action margin" do %>
+                <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
+              <% end %>
+            <% end %>
           <% end %>
           <% if user_signed_in? %>
             <%= link_to toggle_favorite_quiz_path(@quiz), remote: true, method: :post, id: "favourite_button" do %>
