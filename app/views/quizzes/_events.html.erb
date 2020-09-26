@@ -16,7 +16,7 @@
             </div>
           </div>
           <% if user_signed_in? %>
-            <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "icon-link action attending-toggle" do %>
+            <%= link_to toggle_attending_quiz_event_path(quiz, event.id), remote: true, method: :post, class: "icon-link action link-mobile-icon attending-toggle" do %>
               <% if event.in?(current_user.events) %>
                 <%= fa_icon "check", class: "green" %><span>Attending</span>
               <% else %>

@@ -18,20 +18,20 @@
       <% end %>
       <div class="button-row">
         <% if user_signed_in? && (current_user.admin || @quiz.user == current_user) %>
-          <%= link_to quiz_events_path(@quiz), class: "icon-link action margin" do %>
+          <%= link_to quiz_events_path(@quiz), class: "icon-link action link-mobile-icon margin" do %>
             <%= fa_icon "calendar-o" %><span> Events</span>
           <% end %>
-          <%= link_to edit_quiz_path(@quiz), class: "icon-link action margin" do %>
+          <%= link_to edit_quiz_path(@quiz), class: "icon-link action link-mobile-icon margin" do %>
             <%= fa_icon "edit" %><span> Edit</span>
           <% end %>
         <% else %>
           <% if !@quiz.user || @quiz.user.admin %>
             <% if user_signed_in? %>
-              <a href="mailto:<%= t('contact_email') %>?subject=I would like to claim the listing for <%= formatName(@quiz.venue) %>" class="icon-link action margin">
+              <%= mail_to t('contact_email'), subject: "I would like to claim the listing for #{formatName(@quiz.venue)}", class: "icon-link action margin" do %>
                 <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
-              </a>
+              <% end %>
             <% else %>
-              <%= link_to new_user_session_path, class: "icon-link action margin" do %>
+              <%= link_to new_user_session_path, title: "You must be logged in to claim a quiz", class: "icon-link action margin" do %>
                 <%= fa_icon "hand-pointer-o" %><span> Claim this quiz</span>
               <% end %>
             <% end %>

@@ -15,7 +15,7 @@
         <%= link_to edit_quiz_path(quiz), class: "icon-link action margin" do %>
           <%= fa_icon "edit" %><span> Edit</span>
         <% end %>
-        <%= link_to quiz_path(quiz), method: :delete, data: { confirm: "Are you sure you want to delete this quiz?" }, class: "icon-link action margin" do %>
+        <%= link_to quiz_path(quiz), method: :delete, data: { confirm: "Are you sure you want to delete this quiz?" }, class: "icon-link action link-mobile-icon margin" do %>
           <%= fa_icon "trash", class: "red" %><span> Delete</span>
         <% end %>
       </div>

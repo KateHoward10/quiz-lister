@@ -2,7 +2,7 @@
   <%= link_to favourite, class: "quiz-link" do %>
     <%= render "quizzes/icon_container", hue: favourite.hue, icon: "heart" %>
     <div class="quiz-details">
-      <span><%= favourite.venue %></span>
+      <span><%= formatName(favourite.venue) %></span>
       <span class="quiz-info">
         <%= favourite.day.slice(0,3) %><%= favourite.time ? ", #{favourite.time}" : "" %>
       </span>

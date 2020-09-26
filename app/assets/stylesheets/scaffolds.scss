@@ -91,13 +91,16 @@ ul {
   }
 }
 
+.link-mobile-icon {
+  span {
+    display: none;
+  }
+}
+
 .action {
   background-color: $off_white;
   color: $off_black;
   justify-content: center;
-  span {
-    display: none;
-  }
   &:hover {
     color: $off_black;
     box-shadow: inset $shadow;
@@ -109,7 +112,7 @@ ul {
 }
 
 @media screen and (min-width: $medium) {
-  .icon-link span {
+  .link-mobile-icon span {
     display: initial;
   }
 }
