@@ -44,6 +44,7 @@ class QuizzesController < ApplicationController
   end
 
   def update
+    @quiz.hue = helpers.getRandomHue(quiz_params[:day]) unless helpers.hueMatches(quiz_params[:day], @quiz.hue)
     respond_to do |format|
       if @quiz.update(quiz_params)
         format.html { redirect_to @quiz, notice: 'Quiz was successfully updated.' }

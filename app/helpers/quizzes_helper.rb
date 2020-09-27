@@ -29,6 +29,10 @@ module QuizzesHelper
     Quiz.find_by(hue: hue) ? getRandomHue(day) : hue
   end
 
+  def hueMatches(day, hue)
+    hue.present? && getMultiplier(day) == (hue / 60).floor
+  end
+
   def getFrequency(freq)
     case freq
     when 'biweekly'
