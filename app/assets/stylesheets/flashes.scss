@@ -35,10 +35,3 @@
   padding: 0.25rem;
   color: #000;
 }
-
-@media screen and (min-width: $medium) {
-  .alert {
-    max-width: $max_width;
-    margin: auto;
-  }
-}
