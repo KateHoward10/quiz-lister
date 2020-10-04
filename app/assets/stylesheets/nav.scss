@@ -19,8 +19,18 @@ nav {
 }
 
 .nav-link {
+  padding: $padding;
+  border-radius: $border-radius;
+  &:hover, &.active {
+    color: #fff;
+    background-color: $dark_purple;
+  }
+}
+
+.nav-link-heading {
   display: none;
   font-family: $bold_font, sans-serif;
+  margin-right: $padding;
 }
 
 .link-lg {
@@ -85,7 +95,7 @@ nav {
 }
 
 @media screen and (min-width: $medium) {
-  .nav-link {
+  .nav-link-heading {
     display: initial;
   }
 	#home-icon {

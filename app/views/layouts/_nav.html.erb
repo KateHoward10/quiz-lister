@@ -1,17 +1,17 @@
 <nav>
   <div class="nav-inner">
-    <%= link_to quizzes_path, title: "Home" do %>
-      <div class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link">Briz Quiz List</span></div>
+    <%= link_to quizzes_path, title: "Home", class: "nav-link" do %>
+      <div class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link-heading">Briz Quiz List</span></div>
     <% end %>
-    <%= link_to "/map", title: "Map" do %>
-      <div style="<%= current_page?("/map") ? "color: deepskyblue" : "" %>"><%= fa_icon "map", class: "fa-lg" %><span class="nav-link">Map</span></div>
+    <%= link_to "/map", title: "Map", class: "nav-link#{" active" if current_page?("/map")}" do %>
+      <div><%= fa_icon "map", class: "fa-lg" %><span class="nav-link-heading">Map</span></div>
     <% end %>
     <% if user_signed_in? %>
-      <%= link_to calendar_path, title: "Calendar" do %>
-        <div style="<%= current_page?("/calendar") ? "color: deepskyblue" : "" %>"><%= fa_icon "calendar-check-o", class: "fa-lg" %><span class="nav-link">Calendar</span></div>
+      <%= link_to calendar_path, title: "Calendar", class: "nav-link#{" active" if current_page?("/calendar")}" do %>
+        <div><%= fa_icon "calendar-check-o", class: "fa-lg" %><span class="nav-link-heading">Calendar</span></div>
       <% end %>
-      <%= link_to favourites_path, title: "Faves" do %>
-        <div style="<%= current_page?("/favourites") ? "color: deepskyblue" : "" %>"><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link">Faves</span></div>
+      <%= link_to favourites_path, title: "Faves", class: "nav-link#{" active" if current_page?("/favourites")}" do %>
+        <div><%= fa_icon "heart", class: "fa-lg" %><span class="nav-link-heading">Faves</span></div>
       <% end %>
     <% end %>
     <div class="account-container">
