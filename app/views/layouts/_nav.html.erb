@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-inner">
     <%= link_to quizzes_path, title: "Home", class: "nav-link" do %>
-      <div class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link-heading">Briz Quiz List</span></div>
+      <h1 class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link-heading">Briz Quiz List</span></h1>
     <% end %>
     <%= link_to "/map", title: "Map", class: "nav-link#{" active" if current_page?("/map")}" do %>
       <div><%= fa_icon "map", class: "fa-lg" %><span class="nav-link-heading">Map</span></div>

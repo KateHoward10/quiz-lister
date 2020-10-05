@@ -2,16 +2,16 @@
   <div class="filter-zone">
     <% if params[:q] %>
       <div class="results-label">
-        <p>Quizzes
+        <h3>Quizzes
           <% params[:q].each do |param| %>
             <%= param[0] == "venue_cont" && param[1] != "" ? " for " : param[0] == "day_cont" && param[1] != "" ? " on " : param[0] == "postcode_cont" && param[1] != "" ? " in " : "" %>
             <%= param[1] %>
           <% end %>
-        </p>
+        </h3>
         <%= link_to "Clear", quizzes_path, class: "icon-link action" %>
       </div>
     <% else %>
-      <p>Regular pub quizzes in Bristol, UK</p>
+      <h3>Regular pub quizzes in Bristol, UK</h3>
     <% end %>
     <%= search_form_for @search do |f| %>
       <div class="filter input-with-attachment">
