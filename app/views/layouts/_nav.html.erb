@@ -30,6 +30,11 @@
             <%= link_to edit_user_registration_path do %>
               <div class="icon-link"><%= fa_icon "user" %> <%= truncate(current_user.username || current_user.email, length: 25) %></div>
             <% end %>
+            <% if current_user.try(:admin?) %>
+              <%= link_to users_path do %>
+                <div class="icon-link"><%= fa_icon "users" %> Users</div>
+              <% end %>
+            <% end %>
             <%= link_to my_quizzes_path do %>
               <div class="icon-link"><%= fa_icon "home" %> My Quizzes</div>
             <% end %>
