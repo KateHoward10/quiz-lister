@@ -10,6 +10,13 @@
           <div>
             <%= user.username %> - <%= user.email %>
             <small>Member since: <%= user.created_at.strftime("%a %e %b %y") %></small>
+            <% if user.quizzes.any? %>
+              <% user.quizzes.each do |quiz| %>
+                <%= link_to quiz do %>
+                  <small><%= fa_icon "home" %><%= formatName(quiz.venue) %></small>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <%= button_to user_path(user), data: { confirm: "Are you sure you want to delete this user?" }, method: :delete, class: "icon-link margin" do %>
