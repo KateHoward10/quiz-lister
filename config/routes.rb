@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   get "/favourites" => "favorites#index"
+  resources :users
 
   root "quizzes#index"
   get "/my_quizzes" => "quizzes#my_quizzes"
