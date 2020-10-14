@@ -3,16 +3,21 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag "mailer" %>
   </head>
 
   <body>
     <div class="container">
       <header>
-        <h1>Briz Quiz List</h1>
+        Briz Quiz List
       </header>
       <main>
         <%= yield %>
       </main>
+      <footer>
+        <p>© <%= Time.current.year %> Briz Quiz List</p>
+        <p><a href="https://www.brizquizlist.co.uk">https://www.brizquizlist.co.uk</a></p>
+      </footer>
     </div>
   </body>
 </html>
