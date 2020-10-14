@@ -66,4 +66,5 @@ gem 'ransack'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'acts_as_favoritor'
-gem "bugsnag", "~> 6.17"
+gem 'bugsnag'
+gem 'premailer-rails'

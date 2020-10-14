@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <%= stylesheet_link_tag "mailer" %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header>
+        Briz Quiz List
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+      <footer>
+        <p>© <%= Time.current.year %> Briz Quiz List</p>
+        <p><a href="https://www.brizquizlist.co.uk">https://www.brizquizlist.co.uk</a></p>
+      </footer>
+    </div>
   </body>
 </html>
