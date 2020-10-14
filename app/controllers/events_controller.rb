@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
   private
     def set_quiz
-      @quiz = Quiz.find(params[:quiz_id])
+      @quiz = Quiz.find_by!("LOWER(REPLACE(venue, '''', '')) = ?", params[:quiz_id].titleize.downcase)
     end
 
     def require_quiz_owner!

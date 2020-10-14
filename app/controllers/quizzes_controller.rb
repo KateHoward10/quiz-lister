@@ -70,7 +70,7 @@ class QuizzesController < ApplicationController
 
   private
     def set_quiz
-      @quiz = Quiz.find_by!("LOWER(venue) = ?", params[:id].titleize.downcase)
+      @quiz = Quiz.find_by!("LOWER(REPLACE(venue, '''', '')) = ?", params[:id].titleize.downcase)
     end
 
     def require_same_user!

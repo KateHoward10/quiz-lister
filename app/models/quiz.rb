@@ -10,7 +10,7 @@ class Quiz < ApplicationRecord
 
   def to_param
     return nil unless persisted?
-    venue.parameterize
+    venue.gsub("\'", "").parameterize
   end
 
   def check_bristol_postcode
