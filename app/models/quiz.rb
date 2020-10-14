@@ -7,10 +7,18 @@ class Quiz < ApplicationRecord
   validate :check_bristol_postcode
   validates :prize, length: { maximum: 200 }
   validates :display_email, acceptance: { message: "To create a new quiz, you must agree to display a contact email." }
+  after_validation :set_slug
+
+  def set_slug
+    self.update_attribute(:slug, to_slug(self.venue))
+  end
+
+  def to_slug(name)
+    name.gsub("\'", "").parameterize
+  end
 
   def to_param
-    return nil unless persisted?
-    venue.gsub("\'", "").parameterize
+    slug
   end
 
   def check_bristol_postcode

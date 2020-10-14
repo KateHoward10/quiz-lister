@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_171939) do
+ActiveRecord::Schema.define(version: 2020_10_14_180112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_171939) do
     t.text "address"
     t.integer "hue"
     t.integer "user_id"
+    t.string "slug"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_171939) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
+    t.boolean "admin"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
