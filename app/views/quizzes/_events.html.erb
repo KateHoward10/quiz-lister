@@ -3,7 +3,7 @@
     <h3>Upcoming events at <%= formatName(quiz.venue) %></h3>
     <ul>
       <% events.each do |event| %>
-        <li class="date-item">
+        <li class="list-item>
           <div class="event-details">
             <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
             <div>
