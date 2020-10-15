@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    Event.find_by!(id: params[:id], quiz_id: params[:quiz_id]).destroy
+    @quiz.events.find(params[:id]).destroy
   end
 
   def toggle_attending
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
   private
     def set_quiz
-      @quiz = Quiz.find(params[:quiz_id])
+      @quiz = Quiz.find_by!(slug: params[:quiz_slug])
     end
 
     def require_quiz_owner!
