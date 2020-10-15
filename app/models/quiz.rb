@@ -14,7 +14,7 @@ class Quiz < ApplicationRecord
   end
 
   def to_slug(name)
-    name.gsub("\'", "").parameterize
+    name.gsub(/['’]/, "").parameterize
   end
 
   def to_param
