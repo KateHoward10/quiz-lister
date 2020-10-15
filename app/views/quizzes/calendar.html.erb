@@ -18,7 +18,7 @@
           <%= link_to event.quiz, class: "quiz-link" do %>
             <%= render "icon_container", hue: event.quiz.hue, icon: "calendar-check-o" %>
             <div class="quiz-details">
-              <span><%= event.date.strftime("%a %e %b %y") %></span>
+              <span><%= format_date(event.date) %></span>
               <small class="quiz-info">
                 <span><%= fa_icon "map-marker" %><%= formatName(event.quiz.venue) %></span>
                 <span><%= fa_icon "clock-o" %><%= event.quiz.time %></span>
