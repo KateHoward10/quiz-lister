@@ -13,4 +13,8 @@ module ApplicationHelper
 
     html.html_safe
   end
+
+  def format_date(date)
+    date.strftime("%a %e %b %y")
+  end
 end
