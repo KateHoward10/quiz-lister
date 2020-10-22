@@ -14,14 +14,19 @@
       <h3>Regular pub quizzes in Bristol, UK</h3>
     <% end %>
     <%= search_form_for @search do |f| %>
-      <div class="filter input-with-attachment">
-        <%= f.text_field :venue_cont, placeholder: "Search venues...", onchange: 'this.form.submit()' %>
-        <%= button_tag do %>
-          <%= fa_icon "search" %>
-        <% end %>
+      <div class="quiz-search">
+        <div class="filter input-with-attachment">
+          <%= f.text_field :venue_cont, placeholder: "Search venues...", onchange: 'this.form.submit()' %>
+          <%= button_tag do %>
+            <%= fa_icon "search" %>
+          <% end %>
+        </div>
+        <%= f.select :day_cont, [["Any day", ""], "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {prompt: "Day"}, {onchange: 'this.form.submit()'} %>
+        <%= f.select :postcode_cont, [["All", ""], ["Centre", "BS1"], ["Kingsdown / St Paul’s", "BS2"], ["Bedminster / Southville", "BS3"], ["Knowle / Brislington", "BS4"], ["Easton", "BS5"], ["Redland", "BS6"], ["Bishopston / Horfield", "BS7"], ["Clifton", "BS8"]], {prompt: "Location"}, {onchange: 'this.form.submit()'} %>
       </div>
-      <%= f.select :day_cont, [["Any day", ""], "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {prompt: "Day"}, {onchange: 'this.form.submit()'} %>
-      <%= f.select :postcode_cont, [["All", ""], ["Centre", "BS1"], ["Kingsdown / St Paul’s", "BS2"], ["Bedminster / Southville", "BS3"], ["Knowle / Brislington", "BS4"], ["Easton", "BS5"], ["Redland", "BS6"], ["Bishopston / Horfield", "BS7"], ["Clifton", "BS8"]], {prompt: "Location"}, {onchange: 'this.form.submit()'} %>
+      <div class="active-checkbox">
+        <label><%= f.check_box :status_start, { onclick: "this.form.submit()" }, "active", "" %>Currently active quizzes only</label>
+      </div>
     <% end %>
   </div>
 </div>
