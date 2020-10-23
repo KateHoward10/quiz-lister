@@ -4,7 +4,7 @@
     <ul>
       <% events.each do |event| %>
         <li class="list-item">
-          <div class="list-item-details">
+          <div class="list-item-details event-item">
             <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
             <div>
               <%= format_date(event.date) %>

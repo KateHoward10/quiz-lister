@@ -20,9 +20,12 @@
 .list-item-details {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  height: 2rem;
   small {
     display: block;
   }
+}
+
+.event-item {
+  align-items: center;
+  height: 2rem;
 }
