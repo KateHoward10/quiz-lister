@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
       <li class="list-item">
         <div class="list-item-details">
-          <%= fa_icon "user", class: "fa-lg" %>
+          <%= fa_icon "#{user.try!(:admin) ? 'user-o' : 'user'}", class: "fa-lg" %>
           <div>
             <%= user.username %> - <%= user.email %>
             <small>Member since: <%= format_date(user.created_at) %></small>
