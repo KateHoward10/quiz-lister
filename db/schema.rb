@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_180112) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false, null: false
+    t.boolean "admin"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

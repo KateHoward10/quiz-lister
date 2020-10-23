@@ -34,7 +34,7 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
+        format.html { redirect_to @quiz, notice: "Your quiz has been created! You can also add dates for upcoming quizzes by clicking on 'Events'" }
         format.json { render :show, status: :created, location: @quiz }
       else
         format.html { render :new }
