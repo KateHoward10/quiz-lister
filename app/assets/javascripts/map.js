@@ -28,7 +28,7 @@ function displayBigMap(quizzes) {
       infoWindow.close();
     });
     google.maps.event.addListener(marker, 'click', function() {
-      window.location.href = `/quizzes/${quizzes[i].id}`;
+      window.location.href = `/quizzes/${quizzes[i].slug}`;
     });
   }
 
