@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       @event.save
       render :index, status: :created
     else
-      flash.now[:error] = @event.errors.full_messages.join(" ")
+      flash.now[:error] = @event.errors.full_messages.join("\n")
       render :index, status: :unprocessable_entity
     end
   end
