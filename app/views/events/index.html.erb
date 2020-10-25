@@ -17,6 +17,21 @@
   </div>
   <h2 class="text-center">Events at <%= formatName(@quiz.venue) %></h2>
   <p>Add events here to let users know when the quiz is on.</p>
+  
+  <%= form_with(model: [@quiz, @quiz.events.build], local: true) do |f| %>
+    <div class="field">
+      <%= f.label :date, "Date*" %>
+      <%= f.date_field :date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, "Description (optional)" %>
+      <%= f.text_field :description, placeholder: "e.g. Halloween Quiz" %>
+    </div>
+
+    <%= f.submit "Add Event", id: "add_date" %>
+  <% end %>
+
   <% if @quiz.events.any? %>
     <div id="date_container">
       <% @quiz.events.order(:date).each do |event| %>
@@ -28,15 +43,6 @@
             <% end %>
           </div>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%= form_with(model: [@quiz, @quiz.events.build], local: true) do |f| %>
-    <div class="input-with-attachment">
-      <%= f.date_field :date %>
-      <%= button_tag id: "add_date" do %>
-        <%= fa_icon "plus" %>
       <% end %>
     </div>
   <% end %>

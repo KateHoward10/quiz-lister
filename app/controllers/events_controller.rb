@@ -37,11 +37,12 @@ class EventsController < ApplicationController
 
     def require_quiz_owner!
       if !current_user.try(:admin?) && current_user != @quiz.user
-        flash.now[:alert] = "You can only update events for your own quizzes."
+        redirect_to @quiz
+        flash[:alert] = "You can only update events for your own quizzes."
       end
     end
 
     def event_params
-      params.require(:event).permit(:date)
+      params.require(:event).permit(:date, :description)
     end
 end
