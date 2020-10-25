@@ -20,12 +20,13 @@
 .list-item-details {
   display: flex;
   flex-direction: row;
-  small {
-    display: block;
-  }
 }
 
 .event-item {
   align-items: center;
-  height: 2rem;
+  min-height: 2rem;
+}
+
+.small-details {
+  display: block;
 }

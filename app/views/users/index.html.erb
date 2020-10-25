@@ -11,7 +11,7 @@
             <%= user.username %>
             <%= " - " if user.username.present? %>
             <%= mail_to user.email %>
-            <small>Member since: <%= format_date(user.created_at) %></small>
+            <small class="small-details">Member since: <%= format_date(user.created_at) %></small>
             <% if user.quizzes.any? %>
               <% user.quizzes.each do |quiz| %>
                 <%= link_to quiz do %>

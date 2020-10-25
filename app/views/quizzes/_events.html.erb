@@ -8,6 +8,7 @@
             <%= fa_icon "calendar#{user_signed_in? && event.in?(current_user.events) ? "-check" : ""}-o", class: "event-icon" %>
             <div>
               <%= format_date(event.date) %>
+              <small class="small-details"><%= event.description %></small>
               <small class="event-attendees">
                 <% if event.users.any? %>
                   <span class="attendee-count"><%= event.users.count %></span> attending
