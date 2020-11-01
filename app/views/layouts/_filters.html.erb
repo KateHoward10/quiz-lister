@@ -8,12 +8,12 @@
             <%= param[1] %>
           <% end %>
         </h3>
-        <%= link_to "Clear", quizzes_path, class: "icon-link action" %>
+        <%= link_to "Clear", current_page?("/map") ? "/map" : root_path, class: "icon-link action" %>
       </div>
     <% else %>
       <h3>Regular pub quizzes in Bristol, UK</h3>
     <% end %>
-    <%= search_form_for @search do |f| %>
+    <%= search_form_for @search, url: current_page?("/map") ? map_path : root_path do |f| %>
       <div class="quiz-search">
         <div class="filter input-with-attachment">
           <%= f.text_field :venue_cont, placeholder: "Search venues...", onchange: 'this.form.submit()' %>
@@ -24,8 +24,14 @@
         <%= f.select :day_cont, [["Any day", ""], "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], {prompt: "Day"}, {onchange: 'this.form.submit()'} %>
         <%= f.select :postcode_cont, [["All", ""], ["Centre", "BS1"], ["Kingsdown / St Paul’s", "BS2"], ["Bedminster / Southville", "BS3"], ["Knowle / Brislington", "BS4"], ["Easton", "BS5"], ["Redland", "BS6"], ["Bishopston / Horfield", "BS7"], ["Clifton", "BS8"]], {prompt: "Location"}, {onchange: 'this.form.submit()'} %>
       </div>
-      <div class="active-checkbox">
-        <label><%= f.check_box :status_start, { onclick: "this.form.submit()" }, "active", "" %>Currently active quizzes only</label>
+      <div class="options-container">
+        <div class="active-checkbox">
+          <label><%= f.check_box :status_start, { onclick: "this.form.submit()" }, "active", "" %>Currently active quizzes only</label>
+        </div>
+        <div class="tabs-container">
+          <%= link_to "List view", root_path, class: "tab-link#{" active-tab" if !current_page?("/map")}" %>
+          <%= link_to "Map view", "/map", class: "tab-link#{" active-tab" if current_page?("/map")}" %>
+        </div>
       </div>
     <% end %>
   </div>

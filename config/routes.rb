@@ -11,11 +11,14 @@ Rails.application.routes.draw do
       post "toggle_favorite", to: "quizzes#toggle_favorite"
     end
   end
-  get "/favourites" => "favorites#index"
-  resources :users
 
-  root "quizzes#index"
+  get "/favourites" => "favorites#index"
   get "/my_quizzes" => "quizzes#my_quizzes"
   get "/calendar" => "quizzes#calendar"
+  get "/map" => "quizzes#map"
+
+  root "quizzes#index"
   get "/:page" => "static#show"
+
+  resources :users
 end

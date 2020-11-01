@@ -3,12 +3,13 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS']}&libraries=places" %>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      displayBigMap(<%= @locations.to_json.html_safe %>)
+      displayBigMap(<%= @quizzes.to_json.html_safe %>)
     });
   </script>
 <% end %>
 
 <% content_for :title, "Map" %>
 
-<main class="map-container" id="big-map-container">
-</main>
+<%= render 'layouts/filters' %>
+<main class="map-container" id="big-map-container"></main>
+<%= render 'layouts/footer' %>

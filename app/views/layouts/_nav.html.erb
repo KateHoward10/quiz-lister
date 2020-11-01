@@ -3,9 +3,6 @@
     <%= link_to quizzes_path, title: "Home", class: "nav-link" do %>
       <h1 class="link-lg"><%= fa_icon "home", class: "fa-lg", id: "home-icon" %><span class="nav-link-heading">Briz Quiz List</span></h1>
     <% end %>
-    <%= link_to "/map", title: "Map", class: "nav-link#{" active" if current_page?("/map")}" do %>
-      <div><%= fa_icon "map", class: "fa-lg" %><span class="nav-link-heading">Map</span></div>
-    <% end %>
     <% if user_signed_in? %>
       <%= link_to calendar_path, title: "Calendar", class: "nav-link#{" active" if current_page?("/calendar")}" do %>
         <div><%= fa_icon "calendar-check-o", class: "fa-lg" %><span class="nav-link-heading">Calendar</span></div>

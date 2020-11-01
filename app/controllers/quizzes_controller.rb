@@ -1,11 +1,13 @@
 class QuizzesController < ApplicationController
+  before_action :search_quizzes, only: [:index, :map]
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :toggle_favorite]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :map, :show]
   before_action :require_same_user!, only: [:update, :edit, :destroy]
 
   def index
-    @search = Quiz.ransack(params[:q])
-    @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+  end
+
+  def map
   end
 
   def my_quizzes
@@ -69,6 +71,11 @@ class QuizzesController < ApplicationController
   end
 
   private
+    def search_quizzes
+      @search = Quiz.ransack(params[:q])
+      @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+    end
+
     def set_quiz
       @quiz = Quiz.find_by!(slug: params[:slug])
     end

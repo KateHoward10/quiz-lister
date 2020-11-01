@@ -42,9 +42,30 @@
   padding: $padding 0;
 }
 
+.tabs-container {
+  margin-top: 1rem;
+}
+
+.tab-link {
+  background-color: $dark_purple;
+  color: $off-white;
+  padding: $padding;
+  margin-right: 1rem;
+  border-radius: $border-radius;
+  &:hover {
+    color: $off-white;
+  }
+}
+
+.active-tab {
+  background-color: $light_purple;
+  font-weight: bold;
+  border: 1px solid $grey;
+}
+
 @media screen and (min-width: $large) {
   .filters {
-    height: 7.25rem;
+    height: 7.5rem;
     margin-bottom: 5rem;
   }
   .filter-zone {
@@ -62,5 +83,10 @@
     #q_postcode_cont {
       margin-right: 0;
     }
+  }
+  .options-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 }
