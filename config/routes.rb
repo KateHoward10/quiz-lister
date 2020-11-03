@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/map" => "quizzes#map"
 
   root "quizzes#index"
-  get "/:page" => "static#show"
-
   resources :users
+
+  get "/:page" => "static#show"
 end
