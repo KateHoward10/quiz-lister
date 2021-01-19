@@ -71,6 +71,11 @@
         <%= form.label :status, value: "not active" do %>
           <%= form.radio_button :status, "not active" %> Not active
         <% end %>
+        <% if current_user.admin %>
+          <%= form.label :status, value: "" do %>
+            <%= form.radio_button :status, "" %> Unknown
+          <% end %>
+        <% end %>
       </div>
       <small>Please specifiy whether your quiz is currently active (running regularly) or not active (paused).</small>
     </div>

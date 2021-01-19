@@ -8,6 +8,11 @@ class Quiz < ApplicationRecord
   validates :prize, length: { maximum: 200 }
   validates :display_email, acceptance: { message: "To create a new quiz, you must agree to display a contact email." }
   after_validation :set_slug
+  before_save :nil_if_blank
+
+  def nil_if_blank
+    self[:status] = nil if self[:status].blank?
+  end
 
   def set_slug
     self.update_attribute(:slug, to_slug(self.venue))
