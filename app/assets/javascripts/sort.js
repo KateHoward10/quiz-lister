@@ -5,4 +5,19 @@ function initDistanceForm() {
     formOpen = e.target.value === "distance";
     document.getElementById('postcode_form').style = `display: ${formOpen ? "inline-flex" : "none"}`;
   });
+
+  document.getElementById('postcode_submit').addEventListener('click', () => {
+    const postcode = document.getElementById('postcode_input').value;
+
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: postcode }, function(results, status) {
+      if (status == 'OK') {
+        const lat = results[0].geometry.location.lat();
+        const lng = results[0].geometry.location.lng();
+        console.log(lat, lng);
+      } else {
+        console.log('Uh oh', status);
+      }
+    });
+  })
 }
