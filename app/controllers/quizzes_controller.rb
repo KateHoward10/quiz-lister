@@ -73,7 +73,16 @@ class QuizzesController < ApplicationController
   private
     def search_quizzes
       @search = Quiz.ransack(params[:q])
-      @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+      if params[:destination].present?
+        @quizzes = @search.result.sort_by { |q| get_distance(q.latitude, q.longitude, params[:destination]) }
+      else
+        @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+      end
+    end
+
+    def get_distance(lat, lng, destination)
+      current_location = Geokit::LatLng.new(lat, lng)
+      current_location.distance_to(destination) 
     end
 
     def set_quiz
