@@ -44,9 +44,6 @@
 
 .tabs-container {
   margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 .tab-link {
@@ -64,6 +61,14 @@
   background-color: $light_purple;
   font-weight: bold;
   border: 1px solid $grey;
+}
+
+.sort-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 #sort_select {
@@ -107,5 +112,13 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+  }
+  .tabs-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .sort-container {
+    margin-top: 0;
   }
 }

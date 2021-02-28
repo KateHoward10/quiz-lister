@@ -41,13 +41,15 @@
         <div class="tabs-container">
           <%= link_to "List view", root_path, class: "tab-link#{" active-tab" if !current_page?("/map")}" %>
           <%= link_to "Map view", "/map", class: "tab-link#{" active-tab" if current_page?("/map")}" %>
-          <select id="sort_select">
-            <option value="alphabetical">A-Z</option>
-            <option value="distance">Nearest</option>
-          </select>
-          <div id="postcode_form" class="input-with-attachment">
-            <input id="postcode_input" placeholder="Enter a postcode" />
-            <button id="postcode_submit" type="button"><%= fa_icon "arrow-right" %></button>
+          <div class="sort-container">
+            <select id="sort_select">
+              <option value="">A-Z</option>
+              <option value="distance">Nearest</option>
+            </select>
+            <div id="postcode_form" class="input-with-attachment">
+              <input id="postcode_input" placeholder="Enter a postcode" />
+              <button id="postcode_submit" type="button"><%= fa_icon "arrow-right" %></button>
+            </div>
           </div>
         </div>
       </div>
