@@ -1,17 +1,15 @@
 function initDistanceForm() {
   let formOpen = false;
-  const select = document.getElementById('sort_select');
+  const select = document.getElementById('q_sorts');
   const form = document.getElementById('postcode_form');
   const input = document.getElementById('postcode_input');
 
   if (window.location.search.includes('nearest_to')) {
-    select.querySelector('option[value=distance]').selected = true;
     formOpen = true;
     form.style = 'display: inline-flex';
     const urlParams = new URLSearchParams(window.location.search);
     input.value = urlParams.get('nearest_to');
-  } else {
-    select.firstElementChild.selected = true;
+    select.value = 'distance';
   }
 
   select.addEventListener('change', (e) => {
@@ -23,7 +21,6 @@ function initDistanceForm() {
       window.location.search = search.length ? search.join('&') : '';
     }
   });
-
 
   document.getElementById('postcode_submit').addEventListener('click', (e) => {
     e.preventDefault();

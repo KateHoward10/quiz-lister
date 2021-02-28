@@ -73,7 +73,7 @@ class QuizzesController < ApplicationController
   private
     def search_quizzes
       @search = Quiz.ransack(params[:q])
-      if params[:nearest_to].present?
+      if params[:q][:sorts] == "distance" && params[:nearest_to].present?
         @quizzes = @search.result.sort_by { |q| get_distance(q.latitude, q.longitude, get_coords(params[:nearest_to])) }
       else
         @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
