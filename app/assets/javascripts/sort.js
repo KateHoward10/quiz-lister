@@ -2,8 +2,9 @@ function initDistanceForm() {
   let formOpen = false;
   const select = document.getElementById('sort_select');
   const form = document.getElementById('postcode_form');
+  const input = document.getElementById('postcode_input');
 
-  if (window.location.search.includes('location')) {
+  if (window.location.search.includes('postcode')) {
     select.querySelector("option[value=distance]").selected = true;
     formOpen = true;
     form.style = "display: inline-flex";
@@ -19,19 +20,8 @@ function initDistanceForm() {
 
   document.getElementById('postcode_submit').addEventListener('click', (e) => {
     e.preventDefault();
-    const postcode = document.getElementById('postcode_input').value;
-
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: postcode }, function(results, status) {
-      if (status == 'OK') {
-        const lat = results[0].geometry.location.lat();
-        const lng = results[0].geometry.location.lng();
-        const urlParams = new URLSearchParams(window.location.search);
-        urlParams.append('location', `${lat},${lng}`);
-        window.location.search = urlParams;
-      } else {
-        console.log('Uh oh', status);
-      }
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.append('postcode', input.value);
+    window.location.search = urlParams;
   })
 }
