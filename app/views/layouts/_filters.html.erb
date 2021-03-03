@@ -33,10 +33,13 @@
           <%= link_to "Map view", "/map", class: "tab-link#{" active-tab" if current_page?("/map")}" %>
           <% if !current_page?("/map") %>
             <div class="sort-container">
-              <%= f.select :sorts, [["A-Z", ""], ["Nearest", "distance"]] %>
+              <select id="sort_select">
+                <option value="">A-Z</option>
+                <option value="distance">Nearest</option>
+              </select>
               <div id="postcode_form" class="input-with-attachment">
-                <input id="postcode_input" placeholder="Enter a postcode" />
-                <button id="postcode_submit" type="button"><%= fa_icon "arrow-right" %></button>
+                <%= f.text_field :sorts, placeholder: "Enter a postcode" %>
+                <button id="postcode_submit"><%= fa_icon "arrow-right" %></button>
               </div>
             </div>
           <% end %>
