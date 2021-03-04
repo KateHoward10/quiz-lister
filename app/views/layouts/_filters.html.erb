@@ -39,7 +39,7 @@
               </select>
               <div id="postcode_form" class="input-with-attachment">
                 <%= f.text_field :sorts, placeholder: "Enter a postcode" %>
-                <button id="postcode_submit"><%= fa_icon "arrow-right" %></button>
+                <%= button_tag do %><%= fa_icon "arrow-right" %><% end %>
               </div>
             </div>
           <% end %>

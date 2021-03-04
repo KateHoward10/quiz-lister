@@ -17,5 +17,11 @@ function initDistanceForm() {
   select.addEventListener('change', (e) => {
     formOpen = e.target.value === 'distance';
     form.style = `display: ${formOpen ? 'inline-flex' : 'none'}`;
+    if (!formOpen) {
+      input.value === '';
+      let search = window.location.search.replace('?', '').split(/[&;]/g);
+      search = search.filter(param => !param.startsWith('q%5Bsorts%5D='));
+      window.location.search = search.length ? search.join('&') : '';
+    }
   });
 }
