@@ -4,7 +4,7 @@
       <div class="results-label">
         <h3>Quizzes
           <% params[:q].each do |param| %>
-            <%= param[0] == "venue_cont" && param[1] != "" ? " for " : param[0] == "day_cont" && param[1] != "" ? " on " : param[0] == "postcode_cont" && param[1] != "" ? " in " : "" %>
+            <%= param[1] != "" ? getFilterPrefix(param[0]) : "" %>
             <%= param[1] %>
           <% end %>
         </h3>
