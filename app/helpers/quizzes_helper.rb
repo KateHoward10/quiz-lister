@@ -56,4 +56,19 @@ module QuizzesHelper
       'grey'
     end
   end
+
+  def getFilterPrefix(name)
+    case name
+    when 'venue_cont'
+      ' for '
+    when 'day_cont'
+      ' on '
+    when 'postcode_cont'
+      ' in '
+    when 'sorts'
+      ' nearest '
+    else
+      ''
+    end
+  end
 end

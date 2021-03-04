@@ -72,8 +72,24 @@ class QuizzesController < ApplicationController
 
   private
     def search_quizzes
-      @search = Quiz.ransack(params[:q])
-      @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+      @query = params[:q]
+      @search = Quiz.ransack(@query)
+      if @query && @query[:sorts].present?
+        location = get_coords(@query[:sorts])
+        @quizzes = @search.result.sort_by { |q| get_distance(q.latitude, q.longitude, location) }
+      else
+        @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
+      end
+    end
+
+    def get_coords(postcode)
+      Geokit::Geocoders::GoogleGeocoder.api_key = ENV['GOOGLE_MAPS']
+      Geokit::Geocoders::GoogleGeocoder.geocode(postcode, :bias => 'uk').ll
+    end
+
+    def get_distance(lat, lng, location)
+      current_location = Geokit::LatLng.new(lat, lng)
+      current_location.distance_to(location)
     end
 
     def set_quiz

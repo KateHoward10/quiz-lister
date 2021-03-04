@@ -4,7 +4,7 @@
       <div class="results-label">
         <h3>Quizzes
           <% params[:q].each do |param| %>
-            <%= param[0] == "venue_cont" && param[1] != "" ? " for " : param[0] == "day_cont" && param[1] != "" ? " on " : param[0] == "postcode_cont" && param[1] != "" ? " in " : "" %>
+            <%= param[1] != "" ? getFilterPrefix(param[0]) : "" %>
             <%= param[1] %>
           <% end %>
         </h3>
@@ -31,6 +31,18 @@
         <div class="tabs-container">
           <%= link_to "List view", root_path, class: "tab-link#{" active-tab" if !current_page?("/map")}" %>
           <%= link_to "Map view", "/map", class: "tab-link#{" active-tab" if current_page?("/map")}" %>
+          <% if !current_page?("/map") %>
+            <div class="sort-container">
+              <select id="sort_select">
+                <option value="">A-Z</option>
+                <option value="distance">Nearest</option>
+              </select>
+              <div id="postcode_form" class="input-with-attachment">
+                <%= f.text_field :sorts, placeholder: "Enter a postcode" %>
+                <%= button_tag do %><%= fa_icon "arrow-right" %><% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
