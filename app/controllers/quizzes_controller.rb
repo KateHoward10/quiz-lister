@@ -80,7 +80,7 @@ class QuizzesController < ApplicationController
       else
         @quizzes = @search.result.sort_by { |q| q.venue.gsub("The ", "").upcase }
       end
-      @filters = @query.select { |key, value| key != "sorts" && value != "" }
+      @filters = @query ? @query.select { |key, value| key != "sorts" && value != "" } : {}
     end
 
     def get_coords(postcode)
