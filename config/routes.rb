@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   root "quizzes#index"
   resources :users
-
+  
+  get '/sitemap' => 'sitemap#index'
   get "/:page" => "static#show"
 end

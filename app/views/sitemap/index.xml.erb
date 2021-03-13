@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc><%= @host %></loc>
+  </url>
+  <url>
+    <loc><%= "#{@host}#{quizzes_path}" %></loc>
+  </url>
+  <% @quizzes.each do |quiz| %>
+    <url>
+      <loc><%= "#{@host}#{quizzes_path}" %>/<%= quiz.slug %></loc>
+      <lastmod><%= quiz.updated_at.strftime("%Y-%m-%d") %></lastmod>
+    </url>
+  <% end %>
+  <url>
+    <loc><%= "#{@host}/map" %></loc>
+  </url>
+  <url>
+    <loc><%= "#{@host}/about" %></loc>
+  </url>
+  <url>
+    <loc><%= "#{@host}/login" %></loc>
+  </url>
+  <url>
+    <loc><%= "#{@host}/signup" %></loc>
+  </url>
+</urlset>
