@@ -65,8 +65,6 @@ module QuizzesHelper
       ' on '
     when 'postcode_cont'
       ' in '
-    when 'sorts'
-      ' nearest '
     else
       ''
     end

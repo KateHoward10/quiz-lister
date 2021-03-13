@@ -1,11 +1,11 @@
 <div class="filters">
   <div class="filter-zone">
-    <% if params[:q] %>
+    <% if !@filters.empty? %>
       <div class="results-label">
         <h3>Quizzes
-          <% params[:q].each do |param| %>
-            <%= param[1] != "" ? getFilterPrefix(param[0]) : "" %>
-            <%= param[1] %>
+          <% @filters.each do |param| %>
+            <%= param[1] != "" && param[0] != "sorts" ? getFilterPrefix(param[0]) : "" %>
+            <%= param[0] != "sorts" ? param[1] : "" %>
           <% end %>
         </h3>
         <%= link_to "Clear", current_page?("/map") ? "/map" : root_path, class: "icon-link action" %>
