@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   root "quizzes#index"
   resources :users
   
-  get '/sitemap' => 'sitemap#index'
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   get "/:page" => "static#show"
 end
