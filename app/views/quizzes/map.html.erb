@@ -12,4 +12,17 @@
 
 <%= render 'layouts/filters' %>
 <main class="map-container" id="big-map-container"></main>
+<div class="form-container">
+  <h2 class="text-center">Meet in the middle</h2>
+  <p>Enter two or more postcodes to find the closest venue to the centre of these locations</p>
+  <form>
+    <div class="field">
+      <input placeholder="Postcode 1" />
+    </div>
+    <div class="field">
+      <input placeholder="Postcode 2" />
+    </div>
+    <button type="submit">Find middle</button>
+  </form>
+</div>
 <%= render 'layouts/footer' %>
