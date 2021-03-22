@@ -4,6 +4,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function(){
       displayBigMap(<%= @quizzes.to_json.html_safe %>)
+      initMiddleForm()
     });
   </script>
 <% end %>
@@ -16,13 +17,22 @@
   <h2 class="text-center">Meet in the middle</h2>
   <p>Enter two or more postcodes to find the closest venue to the centre of these locations</p>
   <form>
-    <div class="field">
-      <input placeholder="Postcode 1" />
+    <div id="input_container">
+      <div class="field">
+        <input placeholder="Postcode 1" class="postcode-input" />
+      </div>
+      <div class="field">
+        <input placeholder="Postcode 2" class="postcode-input" />
+      </div>
     </div>
-    <div class="field">
-      <input placeholder="Postcode 2" />
+    <div class="buttons-container">
+      <%= button_tag id: "add_field", type: "button", class: "icon-link action link-mobile-icon" do %>
+        <%= fa_icon "plus" %><span> Add field</span>
+      <% end %>
+      <%= button_tag type: "submit", class: "icon-link action" do %>
+        <%= fa_icon "search" %><span> Find middle</span>
+      <% end %>
     </div>
-    <button type="submit">Find middle</button>
   </form>
 </div>
 <%= render 'layouts/footer' %>

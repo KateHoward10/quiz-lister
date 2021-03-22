@@ -103,6 +103,10 @@ input[type=checkbox] {
   }
 }
 
+#input_container {
+  width: 100%;
+}
+
 .form-container {
   max-width: $field_width;
   margin: auto;

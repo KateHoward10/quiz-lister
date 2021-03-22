@@ -34,3 +34,22 @@ function displayBigMap(quizzes) {
 
   container.appendChild(bigMap);
 }
+
+function initMiddleForm() {
+  const addButton = document.getElementById('add_field');
+  const inputContainer = document.getElementById('input_container');
+  let inputs = document.querySelectorAll('.postcode-input');
+
+  function addInput() {
+    const div = document.createElement('div');
+    div.classList.add('field');
+    const input = document.createElement('input');
+    input.classList.add('postcode-input');
+    input.placeholder = `Postcode ${+inputs.length + 1}`;
+    inputs = [...inputs, input];
+    div.appendChild(input);
+    inputContainer.appendChild(div);
+  }
+
+  addButton.addEventListener('click', addInput);
+}
