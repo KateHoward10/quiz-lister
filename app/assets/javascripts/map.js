@@ -39,6 +39,7 @@ function initMiddleForm() {
   const addButton = document.getElementById('add_field');
   const inputContainer = document.getElementById('input_container');
   let inputs = document.querySelectorAll('.postcode-input');
+  let postcodes = [];
 
   function addInput() {
     const div = document.createElement('div');
@@ -46,10 +47,19 @@ function initMiddleForm() {
     const input = document.createElement('input');
     input.classList.add('postcode-input');
     input.placeholder = `Postcode ${+inputs.length + 1}`;
+    watchInput(input, inputs.length);
     inputs = [...inputs, input];
     div.appendChild(input);
     inputContainer.appendChild(div);
   }
 
+  function watchInput(input, index) {
+    input.addEventListener('change', e => {
+      postcodes[index] = e.target.value;
+      console.log(postcodes);
+    });
+  }
+
   addButton.addEventListener('click', addInput);
+  inputs.forEach((input, index) => watchInput(input, index));
 }
