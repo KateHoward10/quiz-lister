@@ -38,6 +38,7 @@ function initMap(quizzes) {
   const addButton = document.getElementById('add_field');
   const submitButton = document.getElementById('submit_postcodes');
   const inputContainer = document.getElementById('input_container');
+  const result = document.getElementById('middle_result');
   let inputs = document.querySelectorAll('.postcode-input');
   let postcodes = [];
 
@@ -93,7 +94,7 @@ function initMap(quizzes) {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
     const d = R * c;
 
-    return d;
+    return d.toFixed(2);
   }
 
   function findMiddle() {
@@ -113,7 +114,8 @@ function initMap(quizzes) {
           distance = newDistance;
         }
       };
-      console.log(closest, distance);
+      
+      result.innerHTML = `<h3 class="text-center">${closest.venue}</h3><p>${distance}km from the middle</p>`;
     });
   }
 
