@@ -37,6 +37,7 @@ function displayBigMap(quizzes) {
 
 function initMiddleForm() {
   const addButton = document.getElementById('add_field');
+  const submitButton = document.getElementById('submit_postcodes');
   const inputContainer = document.getElementById('input_container');
   let inputs = document.querySelectorAll('.postcode-input');
   let postcodes = [];
@@ -56,10 +57,38 @@ function initMiddleForm() {
   function watchInput(input, index) {
     input.addEventListener('change', e => {
       postcodes[index] = e.target.value;
-      console.log(postcodes);
+    });
+  }
+
+  function getAllCoords(callback) {
+    const coords = [];
+    for (let i = 0; i < postcodes.length; i++) {
+      const geocoder = new google.maps.Geocoder();
+      const address = postcodes[i];
+      geocoder.geocode({ address }, (results, status) => {
+        if (status == 'OK') {
+          const result = results[0].geometry.location;
+          const { lat, lng } = result;
+          coords.push([lat(), lng()]);
+          if (coords.length === postcodes.length) {
+            callback(coords);
+          }
+        } else {
+          console.log('Uh oh', status);
+        }
+      });
+    }
+  }
+
+  function findMiddle() {
+    getAllCoords(coords => {
+      const lats = coords.filter(coord => coord).map(coord => coord[0]);
+      const lngs = coords.filter(coord => coord).map(coord => coord[1]);
+      console.log(lats, lngs);
     });
   }
 
   addButton.addEventListener('click', addInput);
   inputs.forEach((input, index) => watchInput(input, index));
+  submitButton.addEventListener('click', findMiddle);
 }
