@@ -11,8 +11,7 @@
 <% content_for :title, "Map" %>
 
 <%= render 'layouts/filters' %>
-<main class="map-container" id="big-map-container"></main>
-<div class="form-container">
+<div class="form-container hidden">
   <h2 class="text-center">Meet in the middle</h2>
   <p>Enter two or more postcodes to find the closest venue to the centre of these locations</p>
   <form>
@@ -35,4 +34,5 @@
   </form>
   <div id="middle_result"></div>
 </div>
+<main class="map-container" id="big-map-container"></main>
 <%= render 'layouts/footer' %>

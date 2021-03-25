@@ -31,7 +31,11 @@
         <div class="tabs-container">
           <%= link_to "List view", root_path, class: "tab-link#{" active-tab" if !current_page?("/map")}" %>
           <%= link_to "Map view", "/map", class: "tab-link#{" active-tab" if current_page?("/map")}" %>
-          <% if !current_page?("/map") %>
+          <% if current_page?("/map") %>
+            <%= button_tag id: "meet_in_the_middle", type: "button", class: "icon-link action" do %>
+              <%= fa_icon "search" %><span> Meet in the middle</span>
+            <% end %>
+          <% else %>
             <div class="sort-container">
               <select id="sort_select">
                 <option value="">A-Z</option>

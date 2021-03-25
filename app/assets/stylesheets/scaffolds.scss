@@ -111,6 +111,10 @@ ul {
   margin: 0.5rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 @media screen and (min-width: $medium) {
   .link-mobile-icon span {
     display: initial;

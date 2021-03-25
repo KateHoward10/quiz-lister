@@ -35,12 +35,17 @@ function initMap(quizzes) {
   container.appendChild(bigMap);
 
 
+  const meetButton = document.getElementById('meet_in_the_middle');
   const addButton = document.getElementById('add_field');
   const submitButton = document.getElementById('submit_postcodes');
   const inputContainer = document.getElementById('input_container');
   const result = document.getElementById('middle_result');
   let inputs = document.querySelectorAll('.postcode-input');
   let postcodes = [];
+
+  function displayForm() {
+    document.querySelector('.form-container').classList.toggle('hidden');
+  }
 
   function addInput() {
     const div = document.createElement('div');
@@ -119,6 +124,7 @@ function initMap(quizzes) {
     });
   }
 
+  meetButton.addEventListener('click', displayForm);
   addButton.addEventListener('click', addInput);
   inputs.forEach((input, index) => watchInput(input, index));
   submitButton.addEventListener('click', findMiddle);
