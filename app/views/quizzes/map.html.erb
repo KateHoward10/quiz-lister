@@ -3,8 +3,7 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS']}&libraries=places" %>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      displayBigMap(<%= @quizzes.to_json.html_safe %>)
-      initMiddleForm()
+      initMap(<%= @quizzes.to_json.html_safe %>)
     });
   </script>
 <% end %>

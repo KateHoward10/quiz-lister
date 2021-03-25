@@ -1,4 +1,4 @@
-function displayBigMap(quizzes) {
+function initMap(quizzes) {
   const container = document.getElementById('big-map-container');
 
   const initialCoords = new google.maps.LatLng(51.45946, -2.5907347);
@@ -33,9 +33,8 @@ function displayBigMap(quizzes) {
   }
 
   container.appendChild(bigMap);
-}
 
-function initMiddleForm() {
+
   const addButton = document.getElementById('add_field');
   const submitButton = document.getElementById('submit_postcodes');
   const inputContainer = document.getElementById('input_container');
@@ -80,11 +79,41 @@ function initMiddleForm() {
     }
   }
 
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const toRad = value => +value * Math.PI / 180;
+
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const lat1rad = toRad(lat1);
+    const lat2rad = toRad(lat2);
+
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1rad) * Math.cos(lat2rad); 
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+    const d = R * c;
+
+    return d;
+  }
+
   function findMiddle() {
     getAllCoords(coords => {
       const lats = coords.filter(coord => coord).map(coord => coord[0]);
       const lngs = coords.filter(coord => coord).map(coord => coord[1]);
-      console.log(lats, lngs);
+      const aveLat = lats.reduce((lat, acc) => acc + lat, 0) / lats.length;
+      const aveLng = lngs.reduce((lng, acc) => acc + lng, 0) / lngs.length;
+
+      let closest = quizzes[0];
+      let distance = getDistance(closest.latitude, closest.longitude, aveLat, aveLng);
+
+      for (let i = 1; i < quizzes.length; i++) {
+        const newDistance = getDistance(quizzes[i].latitude, quizzes[i].longitude, aveLat, aveLng);
+        if (newDistance < distance) {
+          closest = quizzes[i];
+          distance = newDistance;
+        }
+      };
+      console.log(closest, distance);
     });
   }
 
