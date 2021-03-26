@@ -44,7 +44,7 @@ function initMap(quizzes) {
   let postcodes = [];
 
   function displayForm() {
-    document.querySelector('.form-container').classList.toggle('hidden');
+    document.getElementById('middle_form').classList.toggle('hidden');
   }
 
   function addInput() {

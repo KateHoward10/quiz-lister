@@ -1,5 +1,6 @@
 .map-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -22,9 +23,27 @@
   margin-bottom: 1rem;
 }
 
+#middle_form {
+  min-height: 0;
+}
+
+#meet_in_the_middle {
+  margin: 1rem 0;
+}
+
 @media screen and (min-width: $large) {
   #map {
     max-width: 400px;
     max-height: 400px;
+  }
+  .map-container {
+    flex-direction: row;
+    padding-top: 1rem;
+  }
+  .map-page {
+    align-items: flex-start;
+  }
+  #middle_form {
+    margin: 0 1rem 0 0;
   }
 }

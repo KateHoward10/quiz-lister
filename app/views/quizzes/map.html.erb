@@ -11,28 +11,29 @@
 <% content_for :title, "Map" %>
 
 <%= render 'layouts/filters' %>
-<div class="form-container hidden">
-  <h2 class="text-center">Meet in the middle</h2>
-  <p>Enter two or more postcodes to find the closest venue to the centre of these locations</p>
-  <form>
-    <div id="input_container">
-      <div class="field">
-        <input placeholder="Postcode 1" class="postcode-input" />
+<main class="map-container map-page" id="big-map-container">
+  <div id="middle_form" class="form-container hidden">
+    <h2 class="text-center">Meet in the middle</h2>
+    <p>Enter two or more postcodes to find the closest venue to the centre of these locations</p>
+    <form>
+      <div id="input_container">
+        <div class="field">
+          <input placeholder="Postcode 1" class="postcode-input" />
+        </div>
+        <div class="field">
+          <input placeholder="Postcode 2" class="postcode-input" />
+        </div>
       </div>
-      <div class="field">
-        <input placeholder="Postcode 2" class="postcode-input" />
+      <div class="buttons-container">
+        <%= button_tag id: "add_field", type: "button", class: "icon-link action link-mobile-icon" do %>
+          <%= fa_icon "plus" %><span> Add field</span>
+        <% end %>
+        <%= button_tag id: "submit_postcodes", type: "button", class: "icon-link action" do %>
+          <%= fa_icon "search" %><span> Find middle</span>
+        <% end %>
       </div>
-    </div>
-    <div class="buttons-container">
-      <%= button_tag id: "add_field", type: "button", class: "icon-link action link-mobile-icon" do %>
-        <%= fa_icon "plus" %><span> Add field</span>
-      <% end %>
-      <%= button_tag id: "submit_postcodes", type: "button", class: "icon-link action" do %>
-        <%= fa_icon "search" %><span> Find middle</span>
-      <% end %>
-    </div>
-  </form>
-  <div id="middle_result"></div>
-</div>
-<main class="map-container" id="big-map-container"></main>
+    </form>
+    <div id="middle_result"></div>
+  </div>
+</main>
 <%= render 'layouts/footer' %>
